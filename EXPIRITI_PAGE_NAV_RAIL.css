@@ -1,0 +1,40 @@
+@charset "utf-8";
+/* EXPIRITI_PAGE_NAV_RAIL_CSS_OWNER_START: T23-R2 */
+:root{--exp-nav-rail-size:44px;--exp-nav-rail-gap:6px}
+.exp-page-nav-rail{position:fixed;z-index:2147481200;left:8px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:var(--exp-nav-rail-gap);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;transition:opacity .18s ease,visibility .18s ease}
+.exp-page-nav-rail[hidden],.exp-page-nav-rail.is-context-hidden{display:none!important}
+.exp-page-nav-rail button{appearance:none;width:var(--exp-nav-rail-size);height:var(--exp-nav-rail-size);min-width:var(--exp-nav-rail-size);min-height:var(--exp-nav-rail-size);padding:0;display:inline-flex;align-items:center;justify-content:center;border:1px solid color-mix(in srgb,currentColor 13%,transparent);border-radius:13px;background:color-mix(in srgb,var(--surface,#fff) 76%,transparent);color:var(--text,#172033);box-shadow:0 3px 10px rgba(2,6,23,.065);backdrop-filter:blur(10px) saturate(1.04);-webkit-backdrop-filter:blur(10px) saturate(1.04);cursor:pointer;font:800 19px/1 inherit}
+html[data-theme="dark"] .exp-page-nav-rail button{background:rgba(15,23,42,.68);color:#f8fafc;border-color:rgba(255,255,255,.12);box-shadow:0 3px 12px rgba(0,0,0,.14)}
+.exp-page-nav-rail button:hover,.exp-page-nav-rail button:focus-visible{border-color:#2dd4bf;outline:3px solid rgba(45,212,191,.20);outline-offset:2px}
+.exp-page-nav-rail button:disabled{opacity:.30;cursor:default;box-shadow:none}
+html.exp-page-nav-rail-desktop-visible main a.hint[href^="/expiriti-r19-preview-20260826/index.html#servicios"]{visibility:hidden}
+.exp-page-nav-header{display:none;position:static;align-items:center;gap:4px;width:92px;min-width:92px;max-width:92px;flex:0 0 92px!important;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.exp-page-nav-header[hidden]{display:none!important}
+.exp-page-nav-header button{appearance:none;width:44px;height:44px;min-width:44px;min-height:44px;padding:0;display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:9px;background:transparent;color:var(--gh-text,#e8eef6);box-shadow:none;cursor:pointer;font:650 18px/1 Inter,system-ui,sans-serif;transition:background-color .15s ease,color .15s ease,opacity .15s ease}
+html[data-theme="light"] .exp-page-nav-header button{background:transparent;color:#0f172a}
+.exp-page-nav-header__prev:hover,.exp-page-nav-header__next:hover{background:rgba(148,163,184,.10)}
+html[data-theme="light"] .exp-page-nav-header__prev:hover,html[data-theme="light"] .exp-page-nav-header__next:hover{background:rgba(15,23,42,.055)}
+.exp-page-nav-header button:focus{outline:none}
+.exp-page-nav-header__prev:focus-visible,.exp-page-nav-header__next:focus-visible{outline:2px solid #2dd4bf;outline-offset:2px;background:rgba(45,212,191,.08)}
+.exp-page-nav-header__prev:active,.exp-page-nav-header__next:active{background:rgba(45,212,191,.13)}
+.exp-page-nav-header button:disabled{opacity:.30;cursor:default}
+/* T24: historial (‹ ›) visible en todo el desktop (>=1024). */
+@media(min-width:1024px){
+  .exp-page-nav-header:not([hidden]){display:flex}
+}
+.exp-t23-site-map-icon{width:22px!important;height:22px!important;max-width:22px!important;flex:0 0 22px;object-fit:contain!important;vertical-align:middle}
+#toc .toc-toggle:has(.exp-t23-site-map-icon){gap:8px}
+.exp-t23-site-map-links{display:flex;flex-direction:column;gap:8px}
+#toc.collapsed .exp-t23-site-map-links{display:none}
+@keyframes expT23LightningCuriosity{0%,16%,100%{transform:scale(1);filter:none}4%{transform:scale(1.04);filter:drop-shadow(0 0 5px rgba(245,158,11,.24))}8%{transform:scale(1);filter:none}12%{transform:scale(1.025);filter:drop-shadow(0 0 3px rgba(245,158,11,.18))}}
+.page-sistemas .exp-t23-lightning-pulse,.page-servicios .exp-t23-lightning-pulse{transform-origin:center;animation:expT23LightningCuriosity 8s ease-in-out 1s infinite;will-change:transform,filter}
+.exp-t23-lightning-pulse:hover,.exp-t23-lightning-pulse:focus-visible{transform:scale(1.04);filter:drop-shadow(0 0 5px rgba(245,158,11,.24))}
+.exp-t23-lightning-pulse.is-interacted{animation:none!important}
+@media(max-width:768px){
+  .exp-page-nav-rail{left:auto;right:max(10px,env(safe-area-inset-right))}
+}
+@media(prefers-reduced-motion:reduce){.exp-page-nav-rail{transition:none}.exp-t23-lightning-pulse{animation:none!important;will-change:auto!important}}
+/* EXPIRITI_PAGE_NAV_RAIL_CSS_OWNER_END */
+
+#toc .toc-toggle{font-weight:400}
+#toc .toc-toggle .exp-t23-site-map-icon{display:block;width:22px;height:22px;min-width:22px;min-height:22px}

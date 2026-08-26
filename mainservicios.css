@@ -1,0 +1,4838 @@
+@charset "utf-8";
+/*mainservicios.css PATCH v2026.02-canon-clean | 1 linea por cosa*/
+.page-servicios :is(.table-scroll,.cmp-scroll,.pricing-table-nube-wrap,.lp-compare-wrap){width:100%;max-width:100%;overflow-x:auto!important;overflow-y:hidden!important;-webkit-overflow-scrolling:touch!important;overscroll-behavior-x:contain!important;overscroll-behavior-y:auto!important;touch-action:auto!important;border-radius:18px}
+.page-servicios .table-scroll>:is(.table-like,.pricing-table-nube){width:100%;min-width:680px;table-layout:fixed}
+@media(min-width:981px){.page-servicios #beneficios{min-height:calc(100svh - var(--ghh,68px))}.page-servicios #beneficios h2.title-gradient{min-height:2.8em}.page-servicios #beneficios .lead{min-height:7.4em}.page-servicios #beneficios .reels-card{min-height:unset;height:100%}.page-servicios #beneficios .reel-embed{min-height:unset;max-width:380px;aspect-ratio:9/16}}/*CLS desktop*/
+@media(max-width:980px){.page-servicios #beneficios{min-height:auto}.page-servicios #beneficios h2.title-gradient,.page-servicios #beneficios .lead,.page-servicios #beneficios .reels-card,.page-servicios #beneficios .reel-embed{min-height:auto}}/*CLS mobile reset*/
+.page-servicios #beneficios .reel-title[data-reel-title]{display:block;min-height:1.35em}/*reserva titulo dinamico*/
+@media(max-width:720px){.page-servicios .container{padding-left:8px!important;padding-right:8px!important}.page-servicios #calculadora-section{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;width:calc(100% + 16px);margin-left:-8px;padding:0 8px;display:block}.page-servicios #calculadora-section table{min-width:620px;margin-bottom:16px}body.page-servicios #cta-final{margin:0 8px;border-radius:18px;overflow:hidden}}/*mobile paddings + tablas card*/
+body.page-servicios{overflow-x:hidden} /*quita width:100%*/
+.page-servicios .reel-embed .ytLite{position:absolute;inset:0;width:100%;height:100%;border-radius:inherit;overflow:hidden;cursor:pointer;background:#000 center/cover no-repeat}/*yt lite cover*/
+.page-servicios .reel-embed .ytLite::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.12),rgba(0,0,0,.35));pointer-events:none}/*yt overlay*/
+.page-servicios .reel-embed .ytPlay{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:66px;height:46px;border-radius:14px;background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.18)}/*yt play btn*/
+.page-servicios .reel-embed .ytPlay::before{content:"";position:absolute;left:50%;top:50%;transform:translate(-35%,-50%);width:0;height:0;border-left:16px solid #fff;border-top:10px solid transparent;border-bottom:10px solid transparent;opacity:.95}/*yt play icon*/
+body.page-servicios #beneficios .reel-title{margin:0 0 8px;font-weight:950;letter-spacing:.01em;line-height:1.15;background:linear-gradient(135deg,var(--ex-teal),var(--ex-coral));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}/*reel title gradient*/
+@media(max-width:900px){.page-servicios #calculadora-section{overflow-x:auto;-webkit-overflow-scrolling:touch}}/*calc scroll mid*/
+body.page-servicios{--svc-surface:linear-gradient(180deg,var(--panel),var(--panel-2));--svc-surface-light:linear-gradient(180deg,var(--surface),var(--surface-2));--svc-bd:rgba(148,163,184,.18);--svc-bd-light:rgba(2,6,23,.12);--svc-shadow:0 12px 30px rgba(0,0,0,.18);--svc-shadow-light:0 12px 30px rgba(2,6,23,.08);--svc-radius-lg:18px;--svc-radius-md:16px;--svc-radius-sm:14px;--svc-halo-teal:radial-gradient(900px 260px at 18% 0,rgba(45,212,191,.14),transparent 62%),radial-gradient(780px 240px at 82% 30%,rgba(96,165,250,.10),transparent 64%);--svc-halo-warn:radial-gradient(900px 260px at 18% 0,rgba(245,158,11,.14),transparent 62%),radial-gradient(780px 240px at 82% 30%,rgba(96,165,250,.10),transparent 64%)}
+ 
+
+/*NOTAS POLIZA*/
+body.page-servicios #svc-notas-poliza{--n-bg:rgba(255,255,255,.03);--n-bd:var(--svc-bd);--n-tx:rgba(232,238,246,.92);--n-muted:rgba(148,163,184,.9);--n-shadow:var(--svc-shadow);--n-ok:rgba(34,197,94,.95);--n-warn:rgba(245,158,11,.95);--n-ac:rgba(45,212,191,.95);--n-ac2:rgba(96,165,250,.95)}/*notas tokens dark*/
+html[data-theme="light"] body.page-servicios #svc-notas-poliza{--n-bg:rgba(255,255,255,.92);--n-bd:var(--svc-bd-light);--n-tx:rgba(11,18,32,.92);--n-muted:rgba(51,65,85,.78);--n-shadow:var(--svc-shadow-light)}/*notas tokens light*/
+/*notas card wrap*/
+body.page-servicios #svc-notas-poliza .card.body::before{content:"";position:absolute;inset:-2px;pointer-events:none;background:var(--svc-halo-teal)}/*notas halo*/
+body.page-servicios #svc-notas-poliza .svc-note{display:grid;grid-template-columns:140px 1fr;gap:10px 14px;padding:14px 14px;border:1px solid var(--n-bd);border-radius:var(--svc-radius-sm);background:var(--n-bg);box-shadow:var(--n-shadow);margin:0 0 10px;color:var(--n-tx)}/*nota bloque*/
+@media(max-width:720px){body.page-servicios #svc-notas-poliza .svc-note{grid-template-columns:1fr}}/*nota stack*/
+body.page-servicios #svc-notas-poliza .svc-note__k{font-weight:950;letter-spacing:.02em;text-transform:uppercase;font-size:11px;color:var(--n-muted)}/*nota key*/
+body.page-servicios #svc-notas-poliza .svc-note__v{font-size:14px;line-height:1.35}/*nota value*/
+body.page-servicios #svc-notas-poliza .svc-note--ok{border-color:rgba(34,197,94,.28)}/*nota ok border*/
+body.page-servicios #svc-notas-poliza .svc-note--ok .svc-note__k{color:var(--n-ok)}/*nota ok title*/
+body.page-servicios #svc-notas-poliza .svc-note--warn{border-color:rgba(245,158,11,.28)}/*nota warn border*/
+body.page-servicios #svc-notas-poliza .svc-note--warn .svc-note__k{color:var(--n-warn)}/*nota warn title*/
+body.page-servicios #svc-notas-poliza .svc-imp{margin:10px 0 0;padding:0;list-style:none;display:grid;gap:8px}/*lista imp*/
+body.page-servicios #svc-notas-poliza .svc-imp li{position:relative;padding:10px 12px 10px 38px;border:1px solid rgba(148,163,184,.16);border-radius:12px;background:rgba(255,255,255,.02)}/*item imp*/
+html[data-theme="light"] body.page-servicios #svc-notas-poliza .svc-imp li{background:rgba(2,6,23,.02);border-color:rgba(2,6,23,.1)}/*item imp light*/
+body.page-servicios #svc-notas-poliza .svc-imp li::before{content:"";position:absolute;left:12px;top:12px;width:16px;height:16px;border-radius:6px;background:linear-gradient(135deg,var(--n-ac),var(--n-ac2));box-shadow:0 0 0 4px rgba(56,189,248,.12)}/*bullet grad*/
+body.page-servicios #svc-notas-poliza .svc-hint{margin-top:10px;padding:10px 12px;border-radius:12px;border:1px dashed rgba(96,165,250,.35);background:rgba(96,165,250,.08);color:var(--n-tx)}/*hint*/
+html[data-theme="light"] body.page-servicios #svc-notas-poliza .svc-hint{background:rgba(96,165,250,.12);border-color:rgba(2,6,23,.14)}/*hint light*/
+body.page-servicios #svc-notas-poliza .svc-footnote{margin-top:10px;padding:12px 14px;border-radius:var(--svc-radius-sm);border:1px solid var(--n-bd);background:rgba(255,255,255,.02);color:var(--n-tx)}/*footnote*/
+html[data-theme="light"] body.page-servicios #svc-notas-poliza .svc-footnote{background:rgba(2,6,23,.02);border-color:var(--n-bd)}/*footnote light*/
+/*TABLAS pricing (planes)*/
+body.page-servicios .svc-pricing{--p-bd:var(--svc-bd);--p-bg:rgba(255,255,255,.02);--p-alt:rgba(255,255,255,.04);--p-tx:rgba(232,238,246,.92);--p-muted:rgba(148,163,184,.9);--p-shadow:var(--svc-shadow)}/*pricing tokens dark*/
+html[data-theme="light"] body.page-servicios .svc-pricing{--p-bd:var(--svc-bd-light);--p-bg:#fff;--p-alt:rgba(2,6,23,.03);--p-tx:rgba(11,18,32,.92);--p-muted:rgba(51,65,85,.78);--p-shadow:var(--svc-shadow-light)}/*pricing tokens light*/
+body.page-servicios .svc-pricing{width:100%;border-collapse:separate;border-spacing:0;border:1px solid var(--p-bd);border-radius:var(--svc-radius-md);overflow:hidden;background:linear-gradient(180deg,var(--p-bg),rgba(255,255,255,.01));box-shadow:var(--p-shadow)}/*pricing table*/
+body.page-servicios .svc-pricing thead th{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--p-muted);background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.01));padding:12px 12px;border-bottom:1px solid var(--p-bd)}/*pricing head*/
+html[data-theme="light"] body.page-servicios .svc-pricing thead th{background:linear-gradient(180deg,rgba(2,6,23,.03),rgba(2,6,23,.01))}/*pricing head light*/
+body.page-servicios .svc-pricing tbody td{padding:14px 12px;border-bottom:1px solid rgba(148,163,184,.12);vertical-align:top;color:var(--p-tx)}/*pricing cells*/
+html[data-theme="light"] body.page-servicios .svc-pricing tbody td{border-bottom-color:rgba(2,6,23,.08)}/*pricing cells light*/
+body.page-servicios .svc-pricing tbody tr.row-alt td{background:var(--p-alt)}/*pricing alt*/
+body.page-servicios .svc-pricing .plan-name{font-weight:850}/*pricing name*/
+body.page-servicios .svc-pricing .price{text-align:right;font-weight:950;white-space:nowrap}/*pricing price*/
+body.page-servicios .svc-pricing .price-ok{color:var(--ok)}/*pricing ok*/
+body.page-servicios .svc-pricing .price-link{color:var(--brand-2)}/*pricing link*/
+body.page-servicios .svc-pricing tbody tr:hover td{background:rgba(56,189,248,.06)}/*pricing hover*/
+html[data-theme="light"] body.page-servicios .svc-pricing tbody tr:hover td{background:rgba(96,165,250,.12)}/*pricing hover light*/
+body.page-servicios .svc-pricing tfoot td{padding:12px;border-top:1px solid var(--p-bd);background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01))}/*pricing foot*/
+html[data-theme="light"] body.page-servicios .svc-pricing tfoot td{background:linear-gradient(180deg,rgba(2,6,23,.02),rgba(2,6,23,.01))}/*pricing foot light*/
+
+
+/*PATCH v2026.02 plataformas+cotiza+fixgrid | 1 linea por cosa*/
+body.page-servicios .carouselX.svc-carousel .track{gap:12px}/*unifica gap track*/
+body.page-servicios .carouselX.svc-carousel .sys{position:relative;border:1px solid var(--svc-bd);border-radius:var(--svc-radius-lg);padding:16px 14px 14px;background:var(--svc-surface);box-shadow:var(--svc-shadow);overflow:hidden;min-height:220px;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease,filter .18s ease}/*sys card pro*/
+html[data-theme="light"] body.page-servicios .carouselX.svc-carousel .sys{background:var(--svc-surface-light);border-color:var(--svc-bd-light);box-shadow:var(--svc-shadow-light)}/*sys light*/
+/* EXPIRITI_R16_VIDEO_CARD_HOVER (card equivalente en Servicios): mismo criterio,
+   hover sin desplazamiento fisico para no pelear con el parent que recorta. */
+body.page-servicios .carouselX.svc-carousel .sys:hover{transform:none;border-color:rgba(96,165,250,.45);box-shadow:0 18px 40px rgba(0,0,0,.26),0 0 0 1px rgba(96,165,250,.18) inset;filter:saturate(1.03)}/*sys hover*/
+html[data-theme="light"] body.page-servicios .carouselX.svc-carousel .sys:hover{transform:none;box-shadow:0 18px 40px rgba(2,6,23,.14),0 0 0 1px rgba(96,165,250,.16) inset;filter:saturate(1.02)}/*sys hover light*/
+body.page-servicios .carouselX.svc-carousel .sys::before{content:"";position:absolute;inset:-2px;pointer-events:none;opacity:.9}/*halo base*/
+body.page-servicios .carouselX.svc-carousel .sys img{width:100%;height:110px;object-fit:contain;display:block;filter:drop-shadow(0 10px 18px rgba(0,0,0,.18))}/*logo*/
+html[data-theme="light"] body.page-servicios .carouselX.svc-carousel .sys img{filter:drop-shadow(0 10px 18px rgba(2,6,23,.12))}/*logo light*/
+body.page-servicios .carouselX.svc-carousel .sys h4{margin:10px 0 4px;font-weight:950;letter-spacing:.01em}/*title*/
+body.page-servicios .carouselX.svc-carousel .sys p{margin:0;color:rgba(148,163,184,.92);line-height:1.35;font-size:13.5px}/*desc*/
+html[data-theme="light"] body.page-servicios .carouselX.svc-carousel .sys p{color:rgba(51,65,85,.78)}/*desc light*/
+body.page-servicios .carouselX.svc-carousel .arrowCircle{border:1px solid rgba(148,163,184,.22);background:rgba(255,255,255,.04)}/*arrows*/
+html[data-theme="light"] body.page-servicios .carouselX.svc-carousel .arrowCircle{background:#fff;border-color:rgba(2,6,23,.12)}/*arrows light*/
+body.page-servicios .carouselX.svc-carousel .arrowCircle:active{transform:scale(.98)}/*arrows active*/
+
+/*ACCENTS por logo*/
+body.page-servicios .carouselX.svc-carousel .sys[data-accent="blue"]::before{background:radial-gradient(420px 180px at 20% 0,rgba(59,130,246,.18),transparent 60%),radial-gradient(420px 180px at 80% 40%,rgba(96,165,250,.15),transparent 62%)}/*accent blue*/
+body.page-servicios .carouselX.svc-carousel .sys[data-accent="blue"]:hover{border-color:rgba(59,130,246,.55)}/*accent blue bd*/
+body.page-servicios .carouselX.svc-carousel .sys[data-accent="green"]::before{background:radial-gradient(420px 180px at 20% 0,rgba(34,197,94,.18),transparent 60%),radial-gradient(420px 180px at 80% 40%,rgba(74,222,128,.15),transparent 62%)}/*accent green*/
+body.page-servicios .carouselX.svc-carousel .sys[data-accent="green"]:hover{border-color:rgba(34,197,94,.55)}/*accent green bd*/
+body.page-servicios .carouselX.svc-carousel .sys[data-accent="purple"]::before{background:radial-gradient(420px 180px at 20% 0,rgba(139,92,246,.18),transparent 60%),radial-gradient(420px 180px at 80% 40%,rgba(168,85,247,.15),transparent 62%)}/*accent purple*/
+body.page-servicios .carouselX.svc-carousel .sys[data-accent="purple"]:hover{border-color:rgba(139,92,246,.55)}/*accent purple bd*/
+body.page-servicios .carouselX.svc-carousel .sys[data-accent="coral"]::before{background:radial-gradient(420px 180px at 20% 0,rgba(250,82,98,.18),transparent 60%),radial-gradient(420px 180px at 80% 40%,rgba(244,114,182,.14),transparent 62%)}/*accent coral*/
+body.page-servicios .carouselX.svc-carousel .sys[data-accent="coral"]:hover{border-color:rgba(250,82,98,.55)}/*accent coral bd*/
+body.page-servicios .carouselX.svc-carousel .sys[data-accent="orange"]::before{background:radial-gradient(420px 180px at 20% 0,rgba(245,158,11,.18),transparent 60%),radial-gradient(420px 180px at 80% 40%,rgba(251,146,60,.14),transparent 62%)}/*accent orange*/
+body.page-servicios .carouselX.svc-carousel .sys[data-accent="orange"]:hover{border-color:rgba(245,158,11,.55)}/*accent orange bd*/
+body.page-servicios .carouselX.svc-carousel .sys[data-accent="slate"]::before{background:radial-gradient(420px 180px at 20% 0,rgba(148,163,184,.18),transparent 60%),radial-gradient(420px 180px at 80% 40%,rgba(100,116,139,.14),transparent 62%)}/*accent slate*/
+body.page-servicios .carouselX.svc-carousel .sys[data-accent="slate"]:hover{border-color:rgba(148,163,184,.55)}/*accent slate bd*/
+
+/*GRID Sistemas Soportados 3x3 desktop / 2x2 mobile + last full (corrige selector)*/
+@media(min-width:981px){body.page-servicios #sistemas-soportados .carouselX.svc-carousel .arrowCircle,body.page-servicios #sistemas-soportados .carouselX.svc-carousel .group-dots{display:none!important}body.page-servicios #sistemas-soportados .carouselX.svc-carousel .track{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;overflow:visible!important;transform:none!important;padding:2px}}/*grid desktop*/
+@media(max-width:980px){body.page-servicios #sistemas-soportados .carouselX.svc-carousel .arrowCircle,body.page-servicios #sistemas-soportados .carouselX.svc-carousel .group-dots{display:none!important}body.page-servicios #sistemas-soportados .carouselX.svc-carousel .track{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;overflow:visible!important;transform:none!important;padding:2px}body.page-servicios #sistemas-soportados .carouselX.svc-carousel .sys:last-child:nth-child(odd){grid-column:1/-1}}/*grid mobile + last full*/
+@media(max-width:380px){body.page-servicios #sistemas-soportados .carouselX.svc-carousel .track{grid-template-columns:1fr}}/*stack solo muy chico*/
+body.page-servicios #sistemas-soportados .carouselX.svc-carousel .track{scroll-snap-type:none!important}/*disable snap*/
+body.page-servicios #sistemas-soportados .carouselX.svc-carousel .sys{scroll-snap-align:none!important}/*disable snap item*/
+
+/*GRID Plataformas (igual que sistemas)*/
+@media(min-width:981px){body.page-servicios #plataformas .carouselX.svc-carousel .arrowCircle,body.page-servicios #plataformas .carouselX.svc-carousel .group-dots{display:none!important}body.page-servicios #plataformas .carouselX.svc-carousel .track{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;overflow:visible!important;transform:none!important;padding:2px}}/*plataformas grid desktop*/
+@media(max-width:980px){body.page-servicios #plataformas .carouselX.svc-carousel .arrowCircle,body.page-servicios #plataformas .carouselX.svc-carousel .group-dots{display:none!important}body.page-servicios #plataformas .carouselX.svc-carousel .track{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;overflow:visible!important;transform:none!important;padding:2px}body.page-servicios #plataformas .carouselX.svc-carousel .sys:last-child:nth-child(odd){grid-column:1/-1}}/*plataformas grid mobile*/
+@media(max-width:380px){body.page-servicios #plataformas .carouselX.svc-carousel .track{grid-template-columns:1fr}}/*plataformas stack tiny*/
+
+/*COTIZA PROYECTO card pro*/
+body.page-servicios #cotiza-proyecto .cotiza-sub{text-align:center}/*sub center*/
+body.page-servicios #cotiza-proyecto .cotiza-card{text-align:center;position:relative;overflow:hidden}/*cotiza card*/
+body.page-servicios #cotiza-proyecto .cotiza-card::before{content:"";position:absolute;inset:-2px;pointer-events:none;background:radial-gradient(900px 260px at 25% 0,rgba(45,212,191,.14),transparent 60%),radial-gradient(900px 260px at 80% 35%,rgba(96,165,250,.12),transparent 62%)}/*cotiza halo*/
+body.page-servicios #cotiza-proyecto .cotiza-h{margin:10px 0 6px}/*cotiza h*/
+body.page-servicios #cotiza-proyecto .cotiza-lead{max-width:62ch;margin:10px auto 18px}/*cotiza lead*/
+body.page-servicios #cotiza-proyecto .cotiza-cta{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:6px 0 2px}/*cta row*/
+body.page-servicios #cotiza-proyecto .cotiza-foot{text-align:center;margin-top:16px}/*foot hint*/
+@media(max-width:520px){body.page-servicios #cotiza-proyecto .cotiza-cta{gap:8px}body.page-servicios #cotiza-proyecto .cotiza-cta .hero-btn{width:100%;justify-content:center}}/*cta stack mobile*/
+
+/*NOTAS box pro v2026.02*/
+body.page-servicios section[aria-labelledby="notas"] .card.body{position:relative;overflow:hidden}/*wrap*/
+body.page-servicios section[aria-labelledby="notas"] .card.body::before{content:"";position:absolute;inset:-2px;pointer-events:none;background:var(--svc-halo-warn)}/*halo*/
+body.page-servicios section[aria-labelledby="notas"] .card.body{border:1px solid var(--svc-bd);border-radius:var(--svc-radius-lg);background:var(--svc-surface);box-shadow:var(--svc-shadow)}/*card pro*/
+html[data-theme="light"] body.page-servicios section[aria-labelledby="notas"] .card.body{border-color:var(--svc-bd-light);background:var(--svc-surface-light);box-shadow:var(--svc-shadow-light)}/*card pro light*/
+
+/*NOTAS warn (tu .warn)*/
+body.page-servicios section[aria-labelledby="notas"] .warn{position:relative;margin:0;padding:12px 14px 12px 44px;border-radius:14px;border:1px solid rgba(245,158,11,.28);background:rgba(245,158,11,.08);color:rgba(232,238,246,.94);line-height:1.45}/*warn box*/
+html[data-theme="light"] body.page-servicios section[aria-labelledby="notas"] .warn{border-color:rgba(245,158,11,.30);background:rgba(245,158,11,.10);color:rgba(11,18,32,.92)}/*warn light*/
+body.page-servicios section[aria-labelledby="notas"] .warn::before{content:"";position:absolute;left:14px;top:14px;width:18px;height:18px;border-radius:7px;background:linear-gradient(135deg,rgba(245,158,11,.98),rgba(251,146,60,.95));box-shadow:0 0 0 4px rgba(245,158,11,.16)}/*icon bg*/
+body.page-servicios section[aria-labelledby="notas"] .warn::after{content:"!";position:absolute;left:14px;top:12px;width:18px;height:18px;display:grid;place-items:center;font-weight:950;font-size:12px;color:#0b1220}/*icon*/
+
+/*NOTAS strong nicer*/
+body.page-servicios section[aria-labelledby="notas"] .warn strong,body.page-servicios section[aria-labelledby="notas"] .hint strong{font-weight:950;letter-spacing:.01em}/*strong*/
+
+/*NOTAS hint bajo*/
+body.page-servicios section[aria-labelledby="notas"] .hint{margin:10px 0 0;padding:10px 12px;border-radius:14px;border:1px dashed rgba(96,165,250,.30);background:rgba(96,165,250,.08);color:rgba(232,238,246,.92);line-height:1.45}/*hint box*/
+html[data-theme="light"] body.page-servicios section[aria-labelledby="notas"] .hint{border-color:rgba(2,6,23,.14);background:rgba(96,165,250,.10);color:rgba(11,18,32,.92)}/*hint light*/
+
+
+/* servs complementarios: flechas + paginado desktop + centrar col derecha si queda corta */
+
+body.page-servicios #servicios-complementarios{--svc-bd:rgba(148,163,184,.18);--svc-g1:rgba(255,255,255,.10);--svc-g2:rgba(255,255,255,.06);--svc-sh:var(--svc-shadow);--svc-sh2:0 18px 44px rgba(0,0,0,.24);--svc-glow:0 0 0 4px rgba(96,165,250,.10);--svc-gold:rgba(245,158,11,.14);--svc-silver:rgba(148,163,184,.16)}html[data-theme="light"] body.page-servicios #servicios-complementarios{--svc-bd:rgba(2,6,23,.12);--svc-g1:rgba(255,255,255,.92);--svc-g2:rgba(255,255,255,.78);--svc-sh:var(--svc-shadow-light);--svc-sh2:0 18px 44px rgba(2,6,23,.06);--svc-glow:0 0 0 4px rgba(59,130,246,.10);--svc-gold:rgba(245,158,11,.12);--svc-silver:rgba(2,6,23,.06)}#servicios-complementarios .svc-link{position:relative;isolation:isolate;overflow:hidden;border:1px solid var(--svc-bd)!important;background:linear-gradient(180deg,var(--svc-g1),var(--svc-g2))!important;box-shadow:var(--svc-sh);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}#servicios-complementarios .svc-link::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:0;background:radial-gradient(520px 220px at 18% 10%,var(--svc-gold),transparent 62%),radial-gradient(560px 240px at 82% 40%,var(--svc-silver),transparent 64%);opacity:.22}#servicios-complementarios .svc-text,#servicios-complementarios .svc-pill,#servicios-complementarios .svc-title,#servicios-complementarios .svc-sub{position:relative;z-index:1}#servicios-complementarios .svc-link:focus-visible{outline:none;box-shadow:var(--svc-glow),var(--svc-sh2)}#servicios-complementarios .svc-title{font-weight:900}#servicios-complementarios .svc-pill{border-color:rgba(148,163,184,.26)!important;background:rgba(255,255,255,.10)!important}html[data-theme="light"] #servicios-complementarios .svc-pill{background:rgba(2,6,23,.03)!important;border-color:rgba(2,6,23,.14)!important}@media(min-width:981px){#servicios-complementarios .card.body{position:relative;padding-bottom:76px}#servicios-complementarios .svc-nav{position:absolute;bottom:18px;right:18px;z-index:5;width:44px;height:44px;border-radius:999px;border:1px solid var(--svc-bd);background:rgba(255,255,255,.06);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:grid;place-items:center;font-weight:950;line-height:1;cursor:pointer;box-shadow:0 12px 30px rgba(0,0,0,.18)}html[data-theme="light"] #servicios-complementarios .svc-nav{background:#fff;box-shadow:0 12px 30px rgba(2,6,23,.08)}#servicios-complementarios .svc-prev{right:72px}#servicios-complementarios .svc-next{right:18px}#servicios-complementarios .svc-nav[hidden]{display:none!important}#servicios-complementarios .svc-grid{align-items:stretch}#servicios-complementarios .svc-grid>.svc-list:nth-child(2){align-self:center}}@media(max-width:980px){#servicios-complementarios .svc-nav{display:grid!important}#servicios-complementarios .card.body{padding-left:12px;padding-right:12px}#servicios-complementarios .svc-grid{display:flex;gap:12px;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;scroll-snap-stop:always;overscroll-behavior-x:contain;scrollbar-width:none;padding:2px 2px 6px;scroll-snap-padding:2px;align-items:stretch}#servicios-complementarios .svc-grid::-webkit-scrollbar{display:none}#servicios-complementarios .svc-list{flex:0 0 100%;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;scroll-snap-align:start;margin:0;padding:0}#servicios-complementarios .svc-title{font-size:16px;line-height:1.15}#servicios-complementarios .svc-sub{font-size:13.5px;line-height:1.35}}
+
+/* Estilo tarjetas */
+
+body.page-servicios .svc-panel{position:relative;border:1px solid var(--svc-bd);border-radius:var(--svc-radius-lg);background:var(--svc-surface);box-shadow:var(--svc-shadow);overflow:hidden}html[data-theme="light"] body.page-servicios .svc-panel{border-color:var(--svc-bd-light);background:var(--svc-surface-light);box-shadow:var(--svc-shadow-light)}body.page-servicios .svc-card{position:relative;border:1px solid var(--svc-bd);border-radius:var(--svc-radius-md);background:var(--svc-surface);box-shadow:var(--svc-shadow);overflow:hidden}html[data-theme="light"] body.page-servicios .svc-card{border-color:var(--svc-bd-light);background:var(--svc-surface-light);box-shadow:var(--svc-shadow-light)}body.page-servicios .svc-chip{display:inline-flex;align-items:center;gap:8px;min-height:36px;padding:0 12px;border-radius:999px;border:1px solid rgba(148,163,184,.22);background:rgba(255,255,255,.05);font-size:12px;font-weight:850;line-height:1;white-space:nowrap}html[data-theme="light"] body.page-servicios .svc-chip{border-color:rgba(2,6,23,.12);background:rgba(2,6,23,.03)}body.page-servicios .svc-panel{margin-top:18px}
+
+/* rayito */
+
+.page-servicios #svc-actions .toc-panel a:nth-child(1){background:linear-gradient(180deg,#f59e0b,#ea580c)!important;color:#fff!important;border-color:rgba(0,0,0,.06)!important}
+.page-servicios #svc-actions .toc-panel a:nth-child(2){background:linear-gradient(180deg,#14b8a6,#0f766e)!important;color:#fff!important;border-color:rgba(0,0,0,.06)!important}
+.page-servicios #svc-actions .toc-panel a:nth-child(3){background:linear-gradient(180deg,#ec4899,#be185d)!important;color:#fff!important;border-color:rgba(0,0,0,.06)!important}
+.page-servicios #svc-actions .toc-panel a:nth-child(4){background:#fff!important;color:#111827!important;border:1px solid rgba(2,6,23,.14)!important;box-shadow:0 8px 18px rgba(2,6,23,.08)!important}
+html:not([data-theme=light]) .page-servicios #svc-actions .toc-panel a:nth-child(4){background:#fff!important;color:#111827!important;border:1px solid rgba(255,255,255,.18)!important}
+.page-sistemas #toc-actions .toc-panel a:nth-child(5){grid-column:1/-1!important;justify-self:center!important;width:min(320px,calc(100% - 24px))!important}
+
+
+body.page-servicios{--svc-shadow:0 8px 18px rgba(0,0,0,.14);--svc-shadow-light:0 8px 18px rgba(2,6,23,.06)}#servicios-complementarios .svc-link{backdrop-filter:blur(6px)!important;-webkit-backdrop-filter:blur(6px)!important}@media(min-width:981px){#servicios-complementarios .svc-nav{backdrop-filter:blur(4px)!important;-webkit-backdrop-filter:blur(4px)!important}}body.page-servicios .carouselX.svc-carousel .sys{transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease!important}body.page-servicios .carouselX.svc-carousel .sys:hover{filter:none!important;box-shadow:0 12px 24px rgba(0,0,0,.18)!important}
+.page-servicios .arrowCircle:hover,.page-servicios .listSlider .arrowCircle:hover,.page-servicios .carousel .arrowCircle:hover{transform:none!important}
+
+/* EXPIRITI FAB/MAPA FIX SERVICIOS */
+body.page-servicios :is(#svc-actions,#toc-actions){right:12px!important;bottom:82px!important;z-index:10031!important}
+body.page-servicios :is(#svc-actions,#toc-actions) .toc-panel{right:60px!important;bottom:-2px!important;width:min(420px,calc(100vw - 92px))!important;min-width:min(420px,calc(100vw - 92px))!important;max-width:min(420px,calc(100vw - 92px))!important;display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:14px!important;padding:16px!important}
+body.page-servicios :is(#svc-actions,#toc-actions) .toc-panel>*{min-width:0!important}
+body.page-servicios :is(#svc-actions,#toc-actions) .toc-panel a{min-width:0!important;word-break:normal!important;overflow-wrap:break-word!important;hyphens:none!important;white-space:normal!important}
+body.page-servicios #toc:not(.collapsed){right:92px!important;bottom:12px!important;width:286px!important;max-width:calc(100vw - 104px)!important}
+body.page-servicios #sat-fab,body.page-servicios #sat-global-panel,body.page-servicios #sat-fab-trigger,body.page-servicios .sat-fab-trigger{display:none!important;visibility:hidden!important;opacity:0!important;pointer-events:none!important}
+@media(max-width:680px){body.page-servicios :is(#svc-actions,#toc-actions) .toc-panel{width:min(340px,calc(100vw - 84px))!important;min-width:min(340px,calc(100vw - 84px))!important;max-width:min(340px,calc(100vw - 84px))!important;right:60px!important;grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+
+/* EXPIRITI FIX HIDDEN PANEL SERVICIOS */
+body.page-servicios :is(#svc-actions,#toc-actions) .toc-panel[hidden]{display:none!important}
+/* EXPIRITI FIX HIDDEN PANEL INDEX */
+body:not(.page-sistemas):not(.page-servicios) :is(#svc-actions,#toc-actions) .toc-panel[hidden]{display:none!important}
+
+
+/* EXPIRITI_SERVICE_BADGE_OWNER_20260811 */
+body.page-servicios h1 > .badge{
+  color:#fff!important;
+  border-color:rgba(59,130,246,.88)!important;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(59,130,246,.96),
+      rgba(37,99,235,.84)
+    )!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.28),
+    0 6px 16px rgba(37,99,235,.16)!important;
+}
+
+
+/* EXPIRITI_COURSES_TABLE_OWNER_20260811
+   Cursos conserva semántica real de tabla.
+   En mobile se desplaza horizontalmente sin deformar columnas. */
+@media (max-width:720px){
+
+  body.page-servicios #modalidades .svc-panel{
+    width:100%!important;
+    max-width:100%!important;
+    overflow-x:auto!important;
+    overflow-y:hidden!important;
+    -webkit-overflow-scrolling:touch!important;
+    overscroll-behavior-x:contain!important;
+    overscroll-behavior-y:auto!important;
+    touch-action:auto!important;
+  }
+
+  body.page-servicios #modalidades .svc-pricing{
+    display:table!important;
+    width:100%!important;
+    min-width:720px!important;
+    max-width:none!important;
+    table-layout:auto!important;
+    border-collapse:separate!important;
+  }
+
+  body.page-servicios #modalidades .svc-pricing thead{
+    display:table-header-group!important;
+  }
+
+  body.page-servicios #modalidades .svc-pricing tbody{
+    display:table-row-group!important;
+  }
+
+  body.page-servicios #modalidades .svc-pricing tfoot{
+    display:table-footer-group!important;
+  }
+
+  body.page-servicios #modalidades .svc-pricing tr{
+    display:table-row!important;
+    padding:0!important;
+    margin:0!important;
+    border-radius:0!important;
+  }
+
+  body.page-servicios #modalidades .svc-pricing th,
+  body.page-servicios #modalidades .svc-pricing td{
+    display:table-cell!important;
+    min-width:0!important;
+    white-space:normal!important;
+    overflow-wrap:break-word!important;
+    word-break:normal!important;
+    vertical-align:middle!important;
+  }
+
+  body.page-servicios #modalidades .svc-pricing th:first-child,
+  body.page-servicios #modalidades .svc-pricing td:first-child{
+    min-width:190px!important;
+  }
+
+  body.page-servicios #modalidades .svc-pricing th:nth-child(2),
+  body.page-servicios #modalidades .svc-pricing td:nth-child(2){
+    min-width:310px!important;
+  }
+
+  body.page-servicios #modalidades .svc-pricing th:last-child,
+  body.page-servicios #modalidades .svc-pricing td:last-child{
+    min-width:190px!important;
+  }
+
+  body.page-servicios #modalidades .svc-pricing td::before{
+    content:none!important;
+    display:none!important;
+  }
+}
+
+
+/* EXP_SVC_COMPLEMENT_MOBILE_NAV_20260812
+   Owner único de posición/visibilidad de flechas complementarias en mobile. */
+@media (max-width:980px){
+
+  body.page-servicios #servicios-complementarios .card.body{
+    position:relative!important;
+    padding-bottom:66px!important;
+  }
+
+  body.page-servicios #servicios-complementarios .svc-nav{
+    position:absolute!important;
+    bottom:12px!important;
+    z-index:6!important;
+    width:42px!important;
+    height:42px!important;
+    border-radius:999px!important;
+    display:grid!important;
+    place-items:center!important;
+    cursor:pointer!important;
+    border:1px solid rgba(148,163,184,.22)!important;
+    background:linear-gradient(
+      180deg,
+      rgba(255,255,255,.98),
+      rgba(248,250,252,.95)
+    )!important;
+    color:#111827!important;
+    box-shadow:0 10px 24px rgba(2,6,23,.12)!important;
+  }
+
+  body.page-servicios #servicios-complementarios .svc-prev{
+    right:58px!important;
+  }
+
+  body.page-servicios #servicios-complementarios .svc-next{
+    right:10px!important;
+  }
+
+  body.page-servicios #servicios-complementarios .svc-nav[hidden]{
+    display:none!important;
+  }
+
+  body.page-servicios #servicios-complementarios .svc-nav:disabled{
+    opacity:.35!important;
+    cursor:default!important;
+  }
+}
+
+
+/* =========================================================
+   EXPIRITI_CANON_COMPLEMENTARY_CTA_20260812  [R15: acotado con :not(.svc-link)]
+   La regla apuntaba a un boton CTA de WhatsApp que ya no existe en
+   #servicios-complementarios; su unico efecto real era centrar la tarjeta
+   "iY mas!" (unico anchor wa.me del bloque) y romper su alineacion.
+   ========================================================= */
+
+body.page-servicios
+#servicios-complementarios
+a[href*="wa.me"]:not(.svc-link){
+  box-sizing:border-box!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:6px!important;
+  width:auto!important;
+  max-width:100%!important;
+  min-width:0!important;
+  padding-left:12px!important;
+  padding-right:12px!important;
+  white-space:nowrap!important;
+  overflow:visible!important;
+  text-overflow:clip!important;
+}
+
+body.page-servicios
+#servicios-complementarios
+a[href*="wa.me"]:not(.svc-link) .exp-wa-mini{
+  display:block!important;
+  width:18px!important;
+  height:18px!important;
+  min-width:18px!important;
+  max-width:18px!important;
+  flex:0 0 18px!important;
+  object-fit:contain!important;
+}
+
+@media(max-width:430px){
+
+  body.page-servicios
+  #servicios-complementarios
+  a[href*="wa.me"]:not(.svc-link){
+    padding-left:9px!important;
+    padding-right:9px!important;
+    gap:5px!important;
+  }
+}
+
+
+/* =========================================================
+   EXPIRITI_T104_SERVICES_FINAL
+   ========================================================= */
+
+@media(max-width:980px){
+
+  body.page-servicios
+  #servicios-complementarios
+  .svc-grid{
+
+    display:flex!important;
+
+    width:100%!important;
+    max-width:100%!important;
+
+    gap:12px!important;
+
+    overflow-x:auto!important;
+    overflow-y:hidden!important;
+
+    -webkit-overflow-scrolling:touch!important;
+
+    scroll-snap-type:x mandatory!important;
+    scroll-behavior:smooth!important;
+
+    overscroll-behavior-x:contain!important;
+    overscroll-behavior-y:auto!important;
+
+    touch-action:auto!important;
+
+    scrollbar-width:none!important;
+  }
+
+
+  body.page-servicios
+  #servicios-complementarios
+  .svc-grid::-webkit-scrollbar{
+
+    display:none!important;
+  }
+
+
+  body.page-servicios
+  #servicios-complementarios
+  .exp-svc-mobile-page{
+
+    flex:0 0 100%!important;
+
+    display:grid!important;
+
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0,1fr)
+      )!important;
+
+    grid-auto-flow:row!important;
+
+    gap:12px!important;
+
+    box-sizing:border-box!important;
+
+    margin:0!important;
+    padding:0!important;
+
+    list-style:none!important;
+
+    scroll-snap-align:start!important;
+    scroll-snap-stop:always!important;
+  }
+
+
+  body.page-servicios
+  #servicios-complementarios
+  .exp-svc-mobile-page
+  >li{
+
+    width:auto!important;
+
+    min-width:0!important;
+    max-width:100%!important;
+
+    box-sizing:border-box!important;
+
+    margin:0!important;
+  }
+}
+
+
+/* Dots */
+body.page-servicios
+#servicios-complementarios
+.exp-svc-dots{
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  gap:7px;
+
+  min-height:18px;
+
+  margin:12px auto 0;
+}
+
+
+body.page-servicios
+#servicios-complementarios
+.exp-svc-dots[hidden]{
+
+  display:none!important;
+}
+
+
+body.page-servicios
+#servicios-complementarios
+.exp-svc-dot{
+
+  appearance:none;
+
+  width:8px;
+  height:8px;
+
+  padding:0;
+
+  border:0;
+  border-radius:999px;
+
+  opacity:.42;
+
+  background:currentColor;
+
+  cursor:pointer;
+
+  transition:
+    width .18s ease,
+    opacity .18s ease;
+}
+
+
+body.page-servicios
+#servicios-complementarios
+.exp-svc-dot.is-active{
+
+  width:22px;
+
+  opacity:1;
+}
+
+
+/* Catálogo Cursos */
+body.page-servicios
+.exp-course-info-badge{
+
+  box-sizing:border-box!important;
+
+  display:inline-flex!important;
+
+  align-items:center!important;
+  justify-content:center!important;
+
+  gap:6px!important;
+
+  width:auto!important;
+  max-width:100%!important;
+
+  white-space:nowrap!important;
+
+  overflow:visible!important;
+  text-overflow:clip!important;
+}
+
+
+body.page-servicios
+.exp-course-info-badge
+.exp-course-wa-icon{
+
+  display:block!important;
+
+  width:18px!important;
+  height:18px!important;
+
+  min-width:18px!important;
+  max-width:18px!important;
+
+  flex:0 0 18px!important;
+
+  object-fit:contain!important;
+}
+
+
+/* =========================================================
+   EXPIRITI_T106_REAL_HORIZONTAL_TRACK
+
+   La pista móvil se modela explícitamente como:
+   columna 1 = 100%
+   columna 2 = 100%
+   columna 3 = 100%
+   ...
+   ========================================================= */
+
+@media(max-width:980px){
+
+  body.page-servicios
+  #servicios-complementarios
+  .svc-grid{
+
+    display:grid!important;
+
+    grid-auto-flow:column!important;
+
+    grid-auto-columns:
+      100%!important;
+
+    grid-template-columns:
+      none!important;
+
+    grid-template-rows:
+      minmax(0,auto)!important;
+
+    align-items:stretch!important;
+
+    column-gap:12px!important;
+    row-gap:0!important;
+
+    width:100%!important;
+    max-width:100%!important;
+
+    box-sizing:border-box!important;
+
+    overflow-x:auto!important;
+    overflow-y:hidden!important;
+
+    -webkit-overflow-scrolling:touch!important;
+
+    scroll-snap-type:
+      x mandatory!important;
+
+    scroll-behavior:
+      smooth!important;
+
+    scroll-padding-inline:
+      0!important;
+
+    overscroll-behavior-x:
+      contain!important;
+
+    overscroll-behavior-y:
+      auto!important;
+
+    touch-action:
+      auto!important;
+
+    scrollbar-width:
+      none!important;
+  }
+
+
+  body.page-servicios
+  #servicios-complementarios
+  .svc-grid::-webkit-scrollbar{
+
+    display:none!important;
+  }
+
+
+  body.page-servicios
+  #servicios-complementarios
+  .exp-svc-mobile-page{
+
+    width:100%!important;
+    min-width:0!important;
+    max-width:none!important;
+
+    flex:none!important;
+
+    align-self:stretch!important;
+
+    display:grid!important;
+
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0,1fr)
+      )!important;
+
+    grid-auto-flow:
+      row!important;
+
+    grid-auto-columns:
+      auto!important;
+
+    gap:12px!important;
+
+    box-sizing:border-box!important;
+
+    margin:0!important;
+    padding:0!important;
+
+    list-style:none!important;
+
+    scroll-snap-align:
+      start!important;
+
+    scroll-snap-stop:
+      always!important;
+  }
+
+
+  body.page-servicios
+  #servicios-complementarios
+  .exp-svc-mobile-page
+  >li{
+
+    min-width:0!important;
+    max-width:100%!important;
+    width:auto!important;
+
+    box-sizing:border-box!important;
+
+    margin:0!important;
+  }
+}
+
+/* =========================================================
+   EXPIRITI_T107_NATIVE_SWIPE_FINAL
+
+   Native horizontal scroll owns the gesture.
+   JS aligns to nearest page only after scrollend.
+   ========================================================= */
+
+@media(max-width:980px){
+
+  body.page-servicios
+  #servicios-complementarios
+  .svc-grid{
+
+    scroll-snap-type:
+      none!important;
+
+    scroll-snap-stop:
+      normal!important;
+
+    scroll-behavior:
+      auto!important;
+
+    overflow-x:
+      auto!important;
+
+    overflow-y:
+      hidden!important;
+
+    overscroll-behavior-x:
+      contain!important;
+
+    overscroll-behavior-y:
+      auto!important;
+
+    touch-action:
+      auto!important;
+  }
+
+
+  body.page-servicios
+  #servicios-complementarios
+  .exp-svc-mobile-page{
+
+    scroll-snap-align:
+      none!important;
+
+    scroll-snap-stop:
+      normal!important;
+  }
+}
+
+
+/* =========================================================
+   EXPIRITI_T109_UNIVERSAL_SERVICES_COMPLEMENT
+
+   Final owner scoped directly to the unique component,
+   not to body.page-servicios.
+   ========================================================= */
+
+@media(max-width:980px){
+
+  #servicios-complementarios
+  .svc-grid{
+
+    display:grid!important;
+
+    grid-auto-flow:
+      column!important;
+
+    grid-auto-columns:
+      100%!important;
+
+    grid-template-columns:
+      none!important;
+
+    grid-template-rows:
+      minmax(0,auto)!important;
+
+    align-items:
+      stretch!important;
+
+    column-gap:
+      12px!important;
+
+    row-gap:
+      0!important;
+
+    width:
+      100%!important;
+
+    max-width:
+      100%!important;
+
+    box-sizing:
+      border-box!important;
+
+    overflow-x:
+      auto!important;
+
+    overflow-y:
+      hidden!important;
+
+    -webkit-overflow-scrolling:
+      touch!important;
+
+    overscroll-behavior-x:
+      contain!important;
+
+    overscroll-behavior-y:
+      auto!important;
+
+    touch-action:
+      auto!important;
+
+    scroll-snap-type:
+      none!important;
+
+    scroll-snap-stop:
+      normal!important;
+
+    scroll-behavior:
+      auto!important;
+
+    scrollbar-width:
+      none!important;
+  }
+
+
+  #servicios-complementarios
+  .svc-grid::-webkit-scrollbar{
+
+    display:none!important;
+  }
+
+
+  #servicios-complementarios
+  .exp-svc-mobile-page{
+
+    width:
+      100%!important;
+
+    min-width:
+      0!important;
+
+    max-width:
+      none!important;
+
+    flex:
+      none!important;
+
+    align-self:
+      stretch!important;
+
+    display:
+      grid!important;
+
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0,1fr)
+      )!important;
+
+    grid-auto-flow:
+      row!important;
+
+    grid-auto-columns:
+      auto!important;
+
+    gap:
+      12px!important;
+
+    box-sizing:
+      border-box!important;
+
+    margin:
+      0!important;
+
+    padding:
+      0!important;
+
+    list-style:
+      none!important;
+
+    scroll-snap-align:
+      none!important;
+
+    scroll-snap-stop:
+      normal!important;
+  }
+
+
+  #servicios-complementarios
+  .exp-svc-mobile-page
+  >li{
+
+    width:
+      auto!important;
+
+    min-width:
+      0!important;
+
+    max-width:
+      100%!important;
+
+    box-sizing:
+      border-box!important;
+
+    margin:
+      0!important;
+  }
+
+
+  /*
+   * Asegura que una página única
+   * no muestre flechas fantasma.
+   */
+  #servicios-complementarios
+  .svc-nav[hidden]{
+
+    display:none!important;
+  }
+}
+
+/* EXPIRITI_T12P3_COURSE_START */
+
+.page-servicios .exp-course-info-badge{
+  display:flex!important;
+  width:max-content!important;
+  max-width:calc(100% - 24px)!important;
+  margin:14px auto 0!important;
+  align-items:center!important;
+  justify-content:center!important;
+  text-align:center!important;
+}
+
+.page-servicios
+.exp-course-info-badge
+.exp-course-wa-icon{
+  display:block!important;
+  flex:0 0 auto!important;
+  margin:0 0 0 6px!important;
+}
+
+/* EXPIRITI_T12P3_COURSE_END */
+
+/* EXPIRITI_T12V1_PENDING_VIDEO_START */
+
+/*
+ * Real YouTube IDs are still pending.
+ * Keep incomplete embeds invisible instead of showing
+ * a broken player. Remove this owner when IDs are supplied.
+ */
+
+.page-servicios
+iframe[src*="VIDEO_ID_"],
+
+.page-servicios
+iframe[data-src*="VIDEO_ID_"]{
+
+ display:none!important;
+}
+
+/* EXPIRITI_T12V1_PENDING_VIDEO_END */
+
+/* EXPIRITI_T16_SERVICE_CSS_START */
+
+
+/* ==========================================================
+   REELS
+   ========================================================== */
+
+.page-servicios
+.exp-t16-reel-title{
+
+  display:
+    block!important;
+
+  margin:
+    0 0 12px!important;
+
+  font-size:
+    clamp(
+      1.1rem,
+      1.5vw,
+      1.38rem
+    )!important;
+
+  font-weight:
+    800!important;
+
+  line-height:
+    1.23!important;
+
+  letter-spacing:
+    -.015em!important;
+
+  background:
+    linear-gradient(
+      90deg,
+      #183768 0%,
+      #3478df 48%,
+      #68a4ff 100%
+    )!important;
+
+  -webkit-background-clip:
+    text!important;
+
+  background-clip:
+    text!important;
+
+  color:
+    transparent!important;
+
+  -webkit-text-fill-color:
+    transparent!important;
+}
+
+
+/* ==========================================================
+   REEL ARROWS
+   ========================================================== */
+
+.page-servicios
+.carousel{
+
+  position:
+    relative!important;
+}
+
+
+.page-servicios
+.carousel > .arrowCircle{
+
+  position:
+    absolute!important;
+
+  top:
+    50%!important;
+
+  bottom:
+    auto!important;
+
+  z-index:
+    8!important;
+
+  transform:
+    translateY(-50%)!important;
+
+  transition:
+    background-color .16s ease,
+    box-shadow .16s ease,
+    opacity .16s ease!important;
+}
+
+
+.page-servicios
+.carousel > .arrowCircle.prev{
+
+  left:
+    8px!important;
+
+  right:
+    auto!important;
+}
+
+
+.page-servicios
+.carousel > .arrowCircle.next{
+
+  right:
+    8px!important;
+
+  left:
+    auto!important;
+}
+
+
+.page-servicios
+.carousel > .arrowCircle:hover,
+
+.page-servicios
+.carousel > .arrowCircle:active,
+
+.page-servicios
+.carousel > .arrowCircle.exp-t16-arrow-feedback{
+
+  transform:
+    translateY(-50%)!important;
+
+  background:
+    rgba(59,130,246,.14)!important;
+
+  box-shadow:
+    0 0 0 5px
+    rgba(59,130,246,.10),
+    0 8px 24px
+    rgba(15,23,42,.16)!important;
+}
+
+
+/* ==========================================================
+   CURSOS CTA
+   ========================================================== */
+
+.page-servicios
+.exp-course-info-badge{
+
+  display:
+    flex!important;
+
+  width:
+    max-content!important;
+
+  max-width:
+    calc(100% - 24px)!important;
+
+  margin-left:
+    auto!important;
+
+  margin-right:
+    auto!important;
+
+  justify-self:
+    center!important;
+
+  align-self:
+    center!important;
+
+  position:
+    static!important;
+
+  transform:
+    none!important;
+}
+
+
+.page-servicios
+.exp-course-wa-icon{
+
+  background:
+    transparent!important;
+
+  border:
+    0!important;
+
+  box-shadow:
+    none!important;
+
+  filter:
+    none!important;
+}
+
+
+/* ==========================================================
+   COMPARATIVAS COMPARTIDAS
+   ========================================================== */
+
+.page-servicios
+.exp-t16-compare-wrap{
+
+  width:
+    100%!important;
+
+  max-width:
+    100%!important;
+
+  border-radius:
+    18px!important;
+
+  touch-action:
+    auto!important;
+
+  overscroll-behavior-x:
+    contain!important;
+
+  overscroll-behavior-y:
+    auto!important;
+}
+
+
+.page-servicios
+.exp-t16-compare-table{
+
+  width:
+    100%!important;
+
+  max-width:
+    100%!important;
+
+  table-layout:
+    fixed!important;
+
+  border-spacing:
+    0!important;
+}
+
+
+.page-servicios
+.exp-t16-compare-table
+:is(th,td){
+
+  min-width:
+    0!important;
+
+  white-space:
+    normal!important;
+
+  word-break:
+    normal!important;
+
+  overflow-wrap:
+    break-word!important;
+
+  hyphens:
+    none!important;
+
+  vertical-align:
+    middle!important;
+}
+
+
+.page-servicios
+.exp-t16-compare-table
+th{
+
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif!important;
+
+  font-size:
+    clamp(.89rem,.95vw,.98rem)!important;
+
+  font-weight:
+    800!important;
+
+  letter-spacing:
+    -.012em!important;
+
+  line-height:
+    1.2!important;
+}
+
+
+.page-servicios
+.exp-t16-compare-primary
+:is(th,td){
+
+  text-align:
+    left!important;
+}
+
+
+.page-servicios
+.exp-t16-compare-secondary
+:is(th,td){
+
+  text-align:
+    center!important;
+}
+
+
+.page-servicios
+.exp-t16-compare-secondary
+tr > :first-child{
+
+  text-align:
+    left!important;
+}
+
+
+@media(min-width:901px){
+
+  .page-servicios
+  .exp-t16-compare-wrap{
+
+    overflow-x:
+      visible!important;
+
+    overflow-y:
+      visible!important;
+  }
+
+
+  .page-servicios
+  .exp-t16-compare-table
+  tr > :first-child{
+
+    width:
+      28%!important;
+  }
+}
+
+
+@media(max-width:900px){
+
+  .page-servicios
+  .exp-t16-compare-wrap{
+
+    overflow-x:
+      auto!important;
+
+    overflow-y:
+      hidden!important;
+
+    -webkit-overflow-scrolling:
+      touch!important;
+  }
+
+
+  .page-servicios
+  .exp-t16-compare-table{
+
+    min-width:
+      820px!important;
+  }
+
+
+  .page-servicios
+  .exp-t16-compare-table
+  tr > :first-child{
+
+    width:
+      220px!important;
+  }
+}
+
+
+/* EXPIRITI_T16_SERVICE_CSS_END */
+
+/* EXPIRITI_T17_SERVICES_CSS_START */
+
+
+/* ==========================================================
+   CURSOS — PEDIR INFO LEGIBLE + CENTERED
+   ========================================================== */
+
+body.page-servicios
+.exp-course-info-badge{
+
+ display:flex!important;
+
+ align-items:center!important;
+ justify-content:center!important;
+
+ gap:7px!important;
+
+ width:max-content!important;
+
+ max-width:
+  calc(100% - 24px)!important;
+
+ margin:
+  14px auto 0!important;
+
+ padding:
+  9px 13px!important;
+
+ position:static!important;
+
+ transform:none!important;
+
+ justify-self:center!important;
+
+ color:
+  #065f46!important;
+
+ background:
+  #ecfdf5!important;
+
+ border:
+  1px solid #34d399!important;
+
+ border-radius:
+  999px!important;
+
+ text-decoration:
+  none!important;
+
+ font-weight:
+  800!important;
+
+ line-height:
+  1.1!important;
+
+ box-shadow:
+  none!important;
+}
+
+
+body.page-servicios
+.exp-course-info-badge
+:is(span,a){
+
+ color:
+  inherit!important;
+
+ text-decoration:
+  none!important;
+}
+
+
+body.page-servicios
+.exp-course-info-badge:hover,
+
+body.page-servicios
+.exp-course-info-badge:focus-visible{
+
+ color:
+  #064e3b!important;
+
+ background:
+  #d1fae5!important;
+
+ border-color:
+  #10b981!important;
+
+ text-decoration:
+  none!important;
+
+ box-shadow:
+  0 0 0 4px
+  rgba(16,185,129,.10)!important;
+}
+
+
+body.page-servicios
+.exp-course-info-badge:hover
+:is(span,a),
+
+body.page-servicios
+.exp-course-info-badge:focus-visible
+:is(span,a){
+
+ text-decoration:
+  none!important;
+
+ border-bottom:
+  0!important;
+}
+
+
+body.page-servicios
+.exp-course-info-badge::before,
+
+body.page-servicios
+.exp-course-info-badge::after{
+
+ text-decoration:
+  none!important;
+}
+
+
+body.page-servicios
+.exp-course-wa-icon{
+
+ display:block!important;
+
+ width:18px!important;
+ height:18px!important;
+
+ margin:
+  0 0 0 2px!important;
+
+ padding:0!important;
+
+ background:
+  transparent!important;
+
+ border:0!important;
+
+ border-radius:0!important;
+
+ box-shadow:none!important;
+
+ filter:none!important;
+}
+
+
+/* ==========================================================
+   SERVICE COMPARATIVE TABLES
+   ========================================================== */
+
+body.page-servicios
+table.exp-t17-compare-table{
+
+ width:100%!important;
+
+ max-width:100%!important;
+
+ table-layout:
+  fixed!important;
+
+ border-spacing:
+  0!important;
+}
+
+
+body.page-servicios
+table.exp-t17-compare-table
+:is(th,td){
+
+ white-space:
+  normal!important;
+
+ word-break:
+  normal!important;
+
+ overflow-wrap:
+  break-word!important;
+
+ hyphens:
+  none!important;
+
+ vertical-align:
+  middle!important;
+}
+
+
+body.page-servicios
+table.exp-t17-compare-table
+thead tr:first-child > *{
+
+ color:
+  #172033!important;
+
+ font-family:
+  Inter,
+  system-ui,
+  -apple-system,
+  BlinkMacSystemFont,
+  "Segoe UI",
+  sans-serif!important;
+
+ font-size:
+  .93rem!important;
+
+ font-weight:
+  850!important;
+
+ letter-spacing:
+  -.015em!important;
+
+ line-height:
+  1.18!important;
+}
+
+
+body.page-servicios
+table.exp-t17-compare-primary
+:is(th,td){
+
+ text-align:
+  left!important;
+}
+
+
+body.page-servicios
+table.exp-t17-compare-secondary
+tr > :first-child{
+
+ text-align:
+  left!important;
+}
+
+
+body.page-servicios
+table.exp-t17-compare-secondary
+tr > :not(:first-child){
+
+ text-align:
+  center!important;
+}
+
+
+/* EXPIRITI_T17_SERVICES_CSS_END */
+
+/* EXPIRITI_T18_SERVICE_HERO_CSS_START */
+
+
+/* ==========================================================
+   SERVICE TITLE + MICROBENEFITS
+   ========================================================== */
+
+body.page-servicios
+.exp-t18-service-hero-row{
+
+ display:flex!important;
+
+ align-items:center!important;
+
+ justify-content:flex-start!important;
+
+ gap:
+  12px 20px!important;
+
+ flex-wrap:wrap!important;
+
+ width:100%!important;
+
+ margin:
+  12px 0 16px!important;
+}
+
+
+body.page-servicios
+.exp-t18-service-hero-row
+> h1{
+
+ flex:
+  0 1 auto!important;
+
+ margin:
+  0!important;
+
+ padding:
+  0!important;
+}
+
+
+body.page-servicios
+.exp-t18-service-hero-row
+> .badges{
+
+ display:flex!important;
+
+ align-items:center!important;
+
+ justify-content:flex-start!important;
+
+ gap:
+  8px 18px!important;
+
+ flex:
+  1 1 420px!important;
+
+ flex-wrap:
+  wrap!important;
+
+ margin:
+  0!important;
+
+ padding:
+  0!important;
+}
+
+
+/* Non-interactive microbenefits */
+
+body.page-servicios
+.exp-t18-service-hero-row
+> .badges
+.badge{
+
+ display:inline-flex!important;
+
+ align-items:center!important;
+
+ gap:8px!important;
+
+ margin:0!important;
+
+ padding:0!important;
+
+ min-height:0!important;
+
+ color:
+  #445269!important;
+
+ background:
+  transparent!important;
+
+ background-image:
+  none!important;
+
+ border:
+  0!important;
+
+ border-radius:
+  0!important;
+
+ box-shadow:
+  none!important;
+
+ outline:
+  0!important;
+
+ font-size:
+  .82rem!important;
+
+ font-weight:
+  700!important;
+
+ line-height:
+  1.28!important;
+
+ text-decoration:
+  none!important;
+
+ cursor:
+  default!important;
+
+ pointer-events:
+  none!important;
+}
+
+
+body.page-servicios
+.exp-t18-service-hero-row
+> .badges
+.badge::before{
+
+ content:""!important;
+
+ display:block!important;
+
+ flex:
+  0 0 6px!important;
+
+ width:6px!important;
+
+ height:6px!important;
+
+ border-radius:
+  50%!important;
+
+ background:
+  linear-gradient(
+    135deg,
+    #16b8a6,
+    #4f8df7
+  )!important;
+
+ box-shadow:
+  none!important;
+}
+
+
+html[data-theme="dark"]
+body.page-servicios
+.exp-t18-service-hero-row
+> .badges
+.badge{
+
+ color:
+  #d6e0ef!important;
+}
+
+
+/* ==========================================================
+   CURSOS — MATAR DEFINITIVAMENTE UNDERLINE / AFTER
+   ========================================================== */
+
+body.page-servicios
+a.exp-course-info-badge,
+
+body.page-servicios
+a.exp-course-info-badge:link,
+
+body.page-servicios
+a.exp-course-info-badge:visited,
+
+body.page-servicios
+a.exp-course-info-badge:hover,
+
+body.page-servicios
+a.exp-course-info-badge:active,
+
+body.page-servicios
+a.exp-course-info-badge:focus,
+
+body.page-servicios
+a.exp-course-info-badge:focus-visible{
+
+ text-decoration:
+  none!important;
+
+ text-decoration-line:
+  none!important;
+
+ text-decoration-color:
+  transparent!important;
+
+ background-image:
+  none!important;
+}
+
+
+body.page-servicios
+a.exp-course-info-badge
+*,
+
+body.page-servicios
+a.exp-course-info-badge:hover
+*,
+
+body.page-servicios
+a.exp-course-info-badge:focus-visible
+*{
+
+ text-decoration:
+  none!important;
+
+ text-decoration-line:
+  none!important;
+
+ border-bottom:
+  0!important;
+}
+
+
+body.page-servicios
+a.exp-course-info-badge::after{
+
+ content:
+  none!important;
+
+ display:
+  none!important;
+
+ width:
+  0!important;
+
+ height:
+  0!important;
+
+ border:
+  0!important;
+
+ background:
+  none!important;
+
+ box-shadow:
+  none!important;
+}
+
+
+@media(max-width:780px){
+
+ body.page-servicios
+ .exp-t18-service-hero-row{
+
+  align-items:
+   flex-start!important;
+
+  gap:
+   10px!important;
+ }
+
+
+ body.page-servicios
+ .exp-t18-service-hero-row
+ > .badges{
+
+  flex-basis:
+   100%!important;
+
+  gap:
+   7px 14px!important;
+ }
+}
+
+
+/* EXPIRITI_T18_SERVICE_HERO_CSS_END */
+
+/* EXPIRITI_T19_SERVICE_GLOBAL_START */
+
+
+/* ==========================================================
+   TITLE + MICROBENEFITS — ALL SERVICES
+   ========================================================== */
+
+body.page-servicios
+.exp-t19-service-hero-line{
+
+ display:flex!important;
+
+ align-items:center!important;
+
+ justify-content:flex-start!important;
+
+ gap:
+  9px 20px!important;
+
+ flex-wrap:
+  wrap!important;
+
+ width:100%!important;
+
+ margin:
+  12px 0 18px!important;
+}
+
+
+body.page-servicios
+.exp-t19-service-hero-line
+> .exp-t19-hero-title{
+
+ flex:
+  0 1 auto!important;
+
+ margin:
+  0!important;
+
+ padding:
+  0!important;
+
+ align-self:
+  center!important;
+}
+
+
+body.page-servicios
+.exp-t19-microbenefits{
+
+ display:flex!important;
+
+ align-items:center!important;
+
+ justify-content:flex-start!important;
+
+ flex:
+  1 1 400px!important;
+
+ flex-wrap:wrap!important;
+
+ gap:
+  7px 18px!important;
+
+ margin:0!important;
+
+ padding:0!important;
+}
+
+
+body.page-servicios
+.exp-t19-microbenefits
+.badge{
+
+ display:inline-flex!important;
+
+ align-items:center!important;
+
+ gap:8px!important;
+
+ min-height:0!important;
+
+ margin:0!important;
+
+ padding:0!important;
+
+ color:
+  #46546a!important;
+
+ background:
+  transparent!important;
+
+ background-image:
+  none!important;
+
+ border:
+  0!important;
+
+ border-radius:
+  0!important;
+
+ outline:
+  0!important;
+
+ box-shadow:
+  none!important;
+
+ font-size:
+  .82rem!important;
+
+ font-weight:
+  700!important;
+
+ line-height:
+  1.28!important;
+
+ text-decoration:
+  none!important;
+
+ cursor:
+  default!important;
+
+ pointer-events:
+  none!important;
+}
+
+
+body.page-servicios
+.exp-t19-microbenefits
+.badge::before{
+
+ content:""!important;
+
+ display:block!important;
+
+ width:6px!important;
+ height:6px!important;
+
+ flex:
+  0 0 6px!important;
+
+ border-radius:
+  50%!important;
+
+ background:
+  linear-gradient(
+    135deg,
+    #17ad9f,
+    #4d8df4
+  )!important;
+
+ box-shadow:
+  none!important;
+}
+
+
+html[data-theme="dark"]
+body.page-servicios
+.exp-t19-microbenefits
+.badge{
+
+ color:
+  #d6e1ef!important;
+}
+
+
+/* ==========================================================
+   COURSES — ABSOLUTE DECORATION KILL
+
+   Applies to actual anchor AND child.
+   ========================================================== */
+
+body.page-servicios
+.exp-t19-course-decoration-clean,
+
+body.page-servicios
+.exp-t19-course-decoration-clean:link,
+
+body.page-servicios
+.exp-t19-course-decoration-clean:visited,
+
+body.page-servicios
+.exp-t19-course-decoration-clean:hover,
+
+body.page-servicios
+.exp-t19-course-decoration-clean:active,
+
+body.page-servicios
+.exp-t19-course-decoration-clean:focus,
+
+body.page-servicios
+.exp-t19-course-decoration-clean:focus-visible,
+
+body.page-servicios
+.exp-t19-course-decoration-clean *,
+
+body.page-servicios
+.exp-t19-course-decoration-clean:hover *,
+
+body.page-servicios
+.exp-t19-course-decoration-clean:focus-visible *{
+
+ text-decoration:
+  none!important;
+
+ text-decoration-line:
+  none!important;
+
+ text-decoration-style:
+  solid!important;
+
+ text-decoration-color:
+  transparent!important;
+
+ border-bottom:
+  0!important;
+
+ background-image:
+  none!important;
+}
+
+
+body.page-servicios
+.exp-t19-course-decoration-clean::before,
+
+body.page-servicios
+.exp-t19-course-decoration-clean::after{
+
+ content:
+  none!important;
+
+ display:
+  none!important;
+
+ width:
+  0!important;
+
+ height:
+  0!important;
+
+ border:
+  0!important;
+
+ border-bottom:
+  0!important;
+
+ background:
+  none!important;
+
+ background-image:
+  none!important;
+
+ box-shadow:
+  none!important;
+}
+
+
+@media(max-width:900px){
+
+ body.page-servicios
+ .exp-t19-service-hero-line{
+
+  align-items:
+   flex-start!important;
+
+  gap:
+   10px!important;
+ }
+
+
+ body.page-servicios
+ .exp-t19-microbenefits{
+
+  flex:
+   1 1 100%!important;
+
+  width:
+   100%!important;
+
+  gap:
+   7px 14px!important;
+ }
+}
+
+
+/* EXPIRITI_T19_SERVICE_GLOBAL_END */
+
+/* EXPIRITI_T21R2_SERVICES_POLISH_START */
+
+
+/* ==========================================================
+   POLIZAS / IMPLEMENTACIONES / CURSOS
+   remove pale side wash
+   ========================================================== */
+
+body.page-servicios.exp-t21r-clean-edge,
+
+body.page-servicios.exp-t21r-clean-edge
+main,
+
+body.page-servicios.exp-t21r-clean-edge
+main.hero,
+
+body.page-servicios.exp-t21r-clean-edge
+main.container{
+
+  filter:
+    none!important;
+
+  box-shadow:
+    none!important;
+}
+
+
+body.page-servicios.exp-t21r-clean-edge::before,
+
+body.page-servicios.exp-t21r-clean-edge::after,
+
+body.page-servicios.exp-t21r-clean-edge
+main::before,
+
+body.page-servicios.exp-t21r-clean-edge
+main::after,
+
+body.page-servicios.exp-t21r-clean-edge
+main.hero::before,
+
+body.page-servicios.exp-t21r-clean-edge
+main.hero::after{
+
+  content:
+    none!important;
+
+  display:
+    none!important;
+
+  opacity:
+    0!important;
+
+  background:
+    none!important;
+
+  background-image:
+    none!important;
+
+  box-shadow:
+    none!important;
+
+  filter:
+    none!important;
+}
+
+
+/* EXPIRITI_T21R2_SERVICES_POLISH_END */
+
+/* EXPIRITI_T23_SERVICE_LISTSLIDER_CSS_OWNER_START */
+
+
+/* ==========================================================
+   LISTSLIDER
+   ========================================================== */
+
+body.page-servicios
+.listSlider
+.arrowCircle.is-disabled{
+
+  display:
+    none!important;
+
+  pointer-events:
+    none!important;
+}
+
+
+@media(max-width:900px){
+
+  /*
+   * Mobile = native horizontal swipe.
+   * No visual < > controls.
+   */
+
+  body.page-servicios
+  .listSlider
+  .arrowCircle{
+
+    display:
+      none!important;
+
+    pointer-events:
+      none!important;
+  }
+
+
+  body.page-servicios
+  .listSlider
+  .listTrack{
+
+    overflow-x:
+      auto!important;
+
+    overflow-y:
+      hidden!important;
+
+    -webkit-overflow-scrolling:
+      touch!important;
+
+    overscroll-behavior-x:
+      contain!important;
+
+    overscroll-behavior-y:
+      auto!important;
+
+    touch-action:
+      pan-x pan-y!important;
+
+    scroll-snap-type:
+      x proximity!important;
+
+    scrollbar-width:
+      none!important;
+  }
+
+
+  body.page-servicios
+  .listSlider
+  .listTrack::-webkit-scrollbar{
+
+    display:
+      none!important;
+  }
+
+
+  body.page-servicios
+  .listSlider
+  .listPage{
+
+    scroll-snap-align:
+      start!important;
+  }
+}
+
+
+/* ==========================================================
+   SERVICE COMPARISON
+   Only THEAD gets header typography.
+   ========================================================== */
+
+body.page-servicios
+table.exp-t17-compare-table
+tbody
+tr:first-child
+> *{
+
+  font-weight:
+    400!important;
+}
+
+
+/* EXPIRITI_T23_SERVICE_LISTSLIDER_CSS_OWNER_END */
+
+/* EXPIRITI_T23_COURSE_LAYOUT_OWNER_START
+ * Grid stretches each visible item to its visual row. Flex then pushes the
+ * real CTA anchor to the bottom. This declaration intentionally has no
+ * !important on display, so the filter's inline display:none remains owner.
+ */
+body.page-servicios #cursosGrid{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  align-items:stretch!important;
+}
+
+body.page-servicios #cursosGrid > .fcard{
+  display:flex;
+  flex-direction:column!important;
+  align-items:stretch!important;
+  align-self:stretch!important;
+  width:auto!important;
+  max-width:none!important;
+  height:auto!important;
+  box-sizing:border-box!important;
+  padding-bottom:20px!important;
+}
+
+body.page-servicios #cursosGrid > .fcard > a:has(.exp-course-info-badge){
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  min-height:58px;
+  margin-top:auto!important;
+  text-decoration:none!important;
+  border-bottom:0!important;
+  background-image:none!important;
+}
+
+body.page-servicios #cursosGrid .exp-course-info-badge{
+  position:static!important;
+  min-height:44px!important;
+  box-sizing:border-box!important;
+  margin:14px auto 0!important;
+  transform:none!important;
+}
+
+body.page-servicios #cursosGrid > .fcard > a:has(.exp-course-info-badge):hover,
+body.page-servicios #cursosGrid > .fcard > a:has(.exp-course-info-badge):focus-visible,
+body.page-servicios #cursosGrid > .fcard > a:has(.exp-course-info-badge):active{
+  text-decoration:none!important;
+  border-bottom:0!important;
+  background-image:none!important;
+  transform:none!important;
+}
+
+@media(max-width:780px){
+  body.page-servicios #cursosGrid > .fcard{
+    padding-bottom:16px!important;
+  }
+}
+
+@media(max-width:980px){
+  body.page-servicios #cursosGrid{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+}
+/* EXPIRITI_T23_COURSE_LAYOUT_OWNER_END */
+
+
+/* EXPIRITI_T24_SERVICE_TEXT_SLIDER_CSS_OWNER_START
+ * Alineación y controles del slider TEXTUAL (.listSlider) en Servicios.
+ * Desktop >=901px: contenido e iconos a la IZQUIERDA.
+ * Mobile  <=900px: contenido e iconos CENTRADOS + flechas visibles
+ * (paridad con Sistemas; el loop infinito debe ser operable en mobile).
+ * No afecta reels/video (.carousel, .carouselX, #carouselReels).
+ */
+@media(min-width:901px){
+
+  body.page-servicios .listSlider .listItem{
+    flex-direction:row!important;
+    align-items:center!important;
+    justify-content:flex-start!important;
+    text-align:left!important;
+  }
+
+  body.page-servicios .listSlider .listItem>div:last-child{
+    text-align:left!important;
+    margin-left:0!important;
+    margin-right:auto!important;
+  }
+
+  body.page-servicios .listSlider .listIcon{
+    margin:0 14px 0 0!important;
+  }
+}
+
+@media(max-width:900px){
+
+  body.page-servicios .listSlider{
+    position:relative!important;
+    padding-bottom:60px!important;
+  }
+
+  body.page-servicios .listSlider .arrowCircle{
+    display:grid!important;
+    pointer-events:auto!important;
+    position:absolute!important;
+    top:auto!important;
+    bottom:10px!important;
+    right:auto!important;
+    width:40px!important;
+    height:40px!important;
+    min-width:40px!important;
+    min-height:40px!important;
+    margin:0!important;
+    transform:none!important;
+    z-index:6!important;
+  }
+
+  body.page-servicios .listSlider .arrowCircle.prev{
+    left:calc(50% - 46px)!important;
+  }
+
+  body.page-servicios .listSlider .arrowCircle.next{
+    left:calc(50% + 6px)!important;
+  }
+
+  body.page-servicios .listSlider .listItem{
+    flex-direction:column!important;
+    align-items:center!important;
+    text-align:center!important;
+  }
+
+  body.page-servicios .listSlider .listItem>div:last-child{
+    text-align:center!important;
+    margin-left:auto!important;
+    margin-right:auto!important;
+  }
+
+  body.page-servicios .listSlider .listIcon{
+    margin:0 auto!important;
+  }
+}
+
+/* Extremos nunca deshabilitados: solo se oculta si hay una sola página. */
+body.page-servicios .listSlider .arrowCircle.is-disabled{
+  display:none!important;
+  pointer-events:none!important;
+}
+
+/* EXPIRITI_T24_SERVICE_TEXT_SLIDER_CSS_OWNER_END */
+
+
+/* EXPIRITI_T24_SERVICE_HERO_OWNER_START
+ * 2C) Elimina el wash/sombra lateral artificial del hero en mobile
+ *     (mask-image de .badges definido en theme.css @media(max-width:860px)).
+ *     Se neutraliza SOLO en el hero de Servicios; theme.css no se modifica,
+ *     para no afectar a otros consumidores.
+ * 2D) Microbeneficios: LEFT en desktop, CENTER en mobile.
+ */
+body.page-servicios main.container.hero .badges{
+  mask-image:none!important;
+  -webkit-mask-image:none!important;
+}
+
+@media(min-width:1024px){
+
+  body.page-servicios .exp-t19-microbenefits{
+    justify-content:flex-start!important;
+    text-align:left!important;
+    margin-left:0!important;
+    padding-left:0!important;
+  }
+}
+
+@media(max-width:900px){
+
+  body.page-servicios main.container.hero .badges,
+  body.page-servicios .exp-t19-microbenefits{
+    flex-wrap:wrap!important;
+    overflow-x:visible!important;
+    justify-content:center!important;
+    scroll-snap-type:none!important;
+    mask-image:none!important;
+    -webkit-mask-image:none!important;
+    padding-left:0!important;
+    padding-right:0!important;
+  }
+}
+
+/* EXPIRITI_T24_SERVICE_HERO_OWNER_END */
+
+
+/* EXPIRITI_T25_BRAND_CTA_OWNER_START
+ * Reemplaza a EXPIRITI_T24_GREEN_CTA_OWNER (verde generico rechazado).
+ * Fuente de color: tokens de marca YA EXISTENTES en theme.css
+ *   --cta-teal : 20 153 151  (#149997)  -> turquesa/verde ExpIRI Ti
+ *   --cta-coral: 250 82 98   (#FA5262)  -> coral/rojo ExpIRI Ti
+ * Contrato POSICIONAL (no por clase, porque el orden de clases se invierte
+ * entre el par del hero y el par de .cta-strip):
+ *   LEFT  CTA -> TEAL     RIGHT CTA -> CORAL
+ *   par hero    : 1o = .btn-grad-green.hero-btn / 2o = .btn-grad-blue.hero-btn
+ *   par cta-strip: 1o = .btn-grad-blue          / 2o = .btn-grad-green
+ * Se conserva intensidad/volumen/highlight/shadow del CTA anterior; solo
+ * cambia el hue. Layout intacto. No toca el WhatsApp del header ni los
+ * .btn-grad-blue de tarjetas ("Ver mas"), que no son .hero-btn.
+ */
+
+/* ---------- LEFT CTA = TEAL ---------- */
+html body.page-servicios a.btn.btn-grad-green.hero-btn,
+html body.page-servicios button.btn.btn-grad-green.hero-btn,
+html body.page-servicios .cta-strip>:where(a,button).btn.btn-grad-blue{
+  background:rgb(var(--cta-teal))!important;
+  background-image:linear-gradient(180deg,
+      color-mix(in srgb, rgb(var(--cta-teal)) 72%, #ffffff),
+      rgb(var(--cta-teal)) 55%,
+      color-mix(in srgb, rgb(var(--cta-teal)) 74%, #000000))!important;
+  border:1px solid color-mix(in srgb, rgb(var(--cta-teal)) 70%, #000000)!important;
+  color:#fff!important;-webkit-text-fill-color:#fff!important;font-weight:900!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.34),
+             0 10px 24px rgba(20,153,151,.30),
+             0 2px 8px rgba(20,153,151,.20)!important;
+}
+
+/* ---------- RIGHT CTA = CORAL ---------- */
+html body.page-servicios a.btn.btn-grad-blue.hero-btn,
+html body.page-servicios button.btn.btn-grad-blue.hero-btn,
+html body.page-servicios .cta-strip>:where(a,button).btn.btn-grad-green,
+html body.page-servicios a.btn.btn-grad-green:not(.hero-btn),
+html body.page-servicios button.btn.btn-grad-green:not(.hero-btn){
+  background:rgb(var(--cta-coral))!important;
+  background-image:linear-gradient(180deg,
+      color-mix(in srgb, rgb(var(--cta-coral)) 74%, #ffffff),
+      rgb(var(--cta-coral)) 55%,
+      color-mix(in srgb, rgb(var(--cta-coral)) 76%, #000000))!important;
+  border:1px solid color-mix(in srgb, rgb(var(--cta-coral)) 72%, #000000)!important;
+  color:#fff!important;-webkit-text-fill-color:#fff!important;font-weight:900!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.34),
+             0 10px 24px rgba(250,82,98,.28),
+             0 2px 8px rgba(250,82,98,.18)!important;
+}
+
+@media(hover:hover){
+  html body.page-servicios a.btn.btn-grad-green.hero-btn:hover,
+  html body.page-servicios .cta-strip>:where(a,button).btn.btn-grad-blue:hover{
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.38),0 14px 30px rgba(20,153,151,.34)!important;
+  }
+  html body.page-servicios a.btn.btn-grad-blue.hero-btn:hover,
+  html body.page-servicios .cta-strip>:where(a,button).btn.btn-grad-green:hover,
+  html body.page-servicios a.btn.btn-grad-green:not(.hero-btn):hover{
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.38),0 14px 30px rgba(250,82,98,.32)!important;
+  }
+}
+
+html body.page-servicios a.btn.btn-grad-green.hero-btn:focus-visible,
+html body.page-servicios .cta-strip>:where(a,button).btn.btn-grad-blue:focus-visible{
+  outline:2px solid rgba(20,153,151,.55)!important;outline-offset:3px!important;
+}
+html body.page-servicios a.btn.btn-grad-blue.hero-btn:focus-visible,
+html body.page-servicios .cta-strip>:where(a,button).btn.btn-grad-green:focus-visible{
+  outline:2px solid rgba(250,82,98,.55)!important;outline-offset:3px!important;
+}
+/* EXPIRITI_T25_BRAND_CTA_OWNER_END */
+
+
+/* EXPIRITI_T25_DETAIL_CAROUSEL_OWNER_START
+ * PHASE 2B/2C/2D — owner unico del acabado de flechas y dots en paginas de
+ * detalle. Hover NO altera la posicion (solo color/borde/sombra).
+ */
+body.page-servicios .arrowCircle,
+body.page-servicios .carousel>.arrowCircle,
+body.page-servicios .listSlider .arrowCircle,
+body.page-servicios .carouselX .arrowCircle,
+body.page-servicios .icons-carousel .arrowCircle{
+  transition:background-color .16s ease,background-image .16s ease,border-color .16s ease,box-shadow .16s ease,color .16s ease,opacity .16s ease!important;
+  will-change:auto!important;
+}
+body.page-servicios .arrowCircle:hover,
+body.page-servicios .arrowCircle:active,
+body.page-servicios .arrowCircle:focus,
+body.page-servicios .arrowCircle:focus-visible{
+  border-color:rgba(45,212,191,.45)!important;
+  box-shadow:0 12px 26px rgba(2,6,23,.16)!important;
+}
+/* dots: circulo visual reducido, hit target intacto */
+html body.page-servicios main .carousel .carousel-nav button.dot::after,
+html body.page-servicios main .group-dots button.dot::after{
+  width:7px!important;height:7px!important;
+}
+
+html[data-theme] body.page-servicios main .carousel .carousel-nav button.dot,
+html[data-theme] body.page-servicios main .carousel .carousel-nav button.dot.active,
+html[data-theme] body.page-servicios main .carousel .carousel-nav button.dot.is-active,
+html[data-theme] body.page-servicios main .group-dots button.dot,
+html[data-theme] body.page-servicios main .group-dots button.dot.active{
+  background:transparent!important;background-image:none!important;
+  border:0!important;box-shadow:none!important;opacity:1!important;transform:none!important;
+}
+html[data-theme] body.page-servicios main .carousel .carousel-nav button.dot::after,
+html[data-theme] body.page-servicios main .group-dots button.dot::after{
+  width:7px!important;height:7px!important;background:rgba(148,163,184,.55)!important;border:0!important;
+}
+html[data-theme] body.page-servicios main .carousel .carousel-nav button.dot:is(.active,.is-active)::after,
+html[data-theme] body.page-servicios main .group-dots button.dot:is(.active,.is-active)::after{
+  background:rgb(var(--cta-teal,20 153 151))!important;box-shadow:0 0 0 3px rgba(20,153,151,.16)!important;
+}
+/* EXPIRITI_T25_DETAIL_CAROUSEL_OWNER_END */
+
+
+/* EXPIRITI_T25R2_COMPACT_GUTTER_OWNER_START
+ * R2 — REEMPLAZA a EXPIRITI_T25R1_COMPACT_GUTTER_OWNER (no se agrega un
+ * tercer override: el bloque R1 se sustituye por este, con el rango extendido).
+ * Gate: HEADER_BRAND_CONTENT_ALIGNMENT_DELTA_PX <= 2 en SERVICIOS
+ *   1024 -> 1279.98 (R1 solo cubria 1024-1099.98).
+ * Causa: main.container tiene max-width:1200px y padding lateral 18px.
+ *   - viewport <= 1200 : eje real del contenido = 18px
+ *   - viewport  > 1200 : eje = (vw-1200)/2 + 18
+ *   El historial del header necesita gutter >= (26*2)+4 = 56px, de modo que
+ *   por debajo de ~1276px NO cabe y EXPIRITI_PAGE_NAV_RAIL.js cae a modo
+ *   'inline', empujando el brand ~60px.
+ * Medicion (Chromium, este stage):
+ *   ancho real del bloque de historial ....... 52px (2 x 26px, gap 0)
+ *   gap historial -> brand ...................  4px
+ *   safe gutter viewport -> historial ........  4px
+ *   -------------------------------------------------
+ *   minimo estable ........................... 56px  -> se usa 60px (=R1)
+ * max-width:none en el rango es OBLIGATORIO: entre 1200.01 y 1279.98 el
+ *   contenedor ya no esta a ras del viewport, y aplicar solo padding sumaria
+ *   al margen automatico (eje 99.5px @1279 -> salto aberrante contra 1280).
+ *   Con max-width:none el eje queda plano en 60px y el salto 1279->1280 es
+ *   de 2px (60 -> 58).
+ * Alcance ESTRICTO: solo body.page-servicios, solo 1024-1279.98.
+ * No toca Index, ni Sistemas, ni <1024, ni >=1280, ni el ritmo vertical.
+ */
+@media(min-width:1024px) and (max-width:1279.98px){
+  body.page-servicios main.container,
+  body.page-servicios main.container.hero{
+    max-width:none!important;
+    padding-left:60px!important;
+    padding-right:60px!important;
+  }
+}
+/* EXPIRITI_T25R2_COMPACT_GUTTER_OWNER_END */
+
+
+/* EXPIRITI_T25R2_HORAS_OWNER_START
+ * T25-R2 — owner unico del polish focal de /expiriti-r19-preview-20260826/SERVICIOS/horas-soporte.html.
+ * Solo aplica dentro de #hs-cta-final: no toca el resto de .lp-cta-row de la
+ * pagina ni de las demas landings.
+ * E) El grupo de botones se alinea al extremo DERECHO en desktop conservando
+ *    exactamente la misma altura vertical del bloque (solo cambia
+ *    justify-content; no se altera margin/padding/height).
+ *    Mobile (<=720px): layout natural centrado, sin overflow.
+ */
+body.page-servicios #hs-cta-final .lp-cta-row{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:10px;
+}
+@media(min-width:981px){
+  body.page-servicios #hs-cta-final .lp-cta-row{justify-content:flex-end}
+}
+@media(max-width:980px){
+  body.page-servicios #hs-cta-final .lp-cta-row{justify-content:center}
+}
+@media(max-width:720px){
+  body.page-servicios #hs-cta-final .lp-cta-row>.btn{
+    max-width:100%;
+    min-width:0;
+  }
+}
+
+/* B2) Las reservas anti-CLS de .page-servicios #beneficios (min-height 100svh,
+ *     h2 2.8em, .lead 7.4em) estan dimensionadas para el copy largo de las
+ *     otras landings de Servicios; en esta pagina generan un hueco muerto de
+ *     ~300px antes de la comparativa. Se neutralizan SOLO aqui (body.exp-hs).
+ *     El resto de la familia de Servicios queda intacto.
+ */
+body.page-servicios.exp-hs #beneficios{min-height:auto}
+body.page-servicios.exp-hs #beneficios h2.title-gradient,
+body.page-servicios.exp-hs #beneficios .lead{min-height:0}
+/* EXPIRITI_T25R2_HORAS_OWNER_END */
+
+
+/* EXPIRITI_RC1R2_DOT_FINISH_OWNER_START
+ * RC1-R2 — mismo acabado de dot que en Home. Este archivo carga despues de
+ * theme.css con la misma especificidad, asi que el acabado se declara aqui
+ * para que Sistemas y Servicios se vean igual que Index. Color aprobado
+ * (#149997) intacto; solo se anade profundidad sutil.
+ */
+html[data-theme] main .carousel .carousel-nav button.dot:is(.active,.is-active)::after,
+html[data-theme] main .group-dots button.dot:is(.active,.is-active)::after,
+html[data-theme] main .group-dots button.dot[aria-current="true"]::after,
+html[data-theme] main .svc-dots button.dot:is(.active,.is-active)::after,
+html[data-theme] body.page-servicios main .carousel .carousel-nav button.dot:is(.active,.is-active)::after,
+html[data-theme] body.page-servicios main .group-dots button.dot:is(.active,.is-active)::after,
+html[data-theme] body.page-sistemas main .carousel .carousel-nav button.dot:is(.active,.is-active)::after,
+html[data-theme] body.page-sistemas main .group-dots button.dot:is(.active,.is-active)::after{
+  width:7px!important;height:7px!important;
+  min-width:7px!important;min-height:7px!important;
+  max-width:7px!important;max-height:7px!important;
+  border:0!important;
+  background:radial-gradient(circle at 32% 28%,#3fc9c4 0%,rgb(20,153,151) 58%,rgb(15,120,118) 100%)!important;
+  box-shadow:0 0 0 3.5px rgba(20,153,151,.14),0 1px 2px rgba(2,6,23,.22)!important;
+}
+html[data-theme] main .carousel .carousel-nav button.dot::after,
+html[data-theme] main .group-dots button.dot::after,
+html[data-theme] main .svc-dots button.dot::after{
+  min-width:6px!important;min-height:6px!important;
+}
+/* EXPIRITI_RC1R2_DOT_FINISH_OWNER_END */
+
+
+/* EXPIRITI_R6_SERVICES_VISUAL_CONSISTENCY_START */
+
+/* ---------------------------------------------------------
+   LIGHT MODE:
+   conservar estructura, bordes y tarjetas,
+   pero retirar el relleno gris agregado a secciones/paneles.
+   --------------------------------------------------------- */
+
+html[data-theme="light"] body.page-servicios .svc-panel,
+html[data-theme="light"] body.page-servicios .lp-panel{
+  background:#fff!important;
+}
+
+html[data-theme="light"] body.page-servicios #comparativa{
+  background:transparent!important;
+}
+
+html[data-theme="light"] body.page-servicios #comparativa .card,
+html[data-theme="light"] body.page-servicios #comparativa .cmp-scroll,
+html[data-theme="light"] body.page-servicios #comparativa .compare-wrap{
+  background:#fff!important;
+}
+
+/* ---------------------------------------------------------
+   CTA FINAL — patrón visual tipo Horas de Soporte
+   --------------------------------------------------------- */
+
+/* ---------------------------------------------------------
+   SERVICIOS COMPLEMENTARIOS
+   En desktop caben completos: NO debe haber flechas flotando.
+   Los botones ya nacen con atributo hidden en el HTML.
+   --------------------------------------------------------- */
+
+body.page-servicios #servicios-complementarios .svc-panel{
+  position:relative!important;
+}
+
+@media (min-width:861px){
+  body.page-servicios #servicios-complementarios .svc-nav{
+    display:none!important;
+    visibility:hidden!important;
+    pointer-events:none!important;
+  }
+}
+
+/* Si un viewport móvil realmente necesita navegación,
+   las flechas quedan en los laterales, no encima de un item. */
+@media (max-width:860px){
+  body.page-servicios #servicios-complementarios .svc-nav:not([hidden]){
+    display:grid!important;
+    place-items:center!important;
+    position:absolute!important;
+    top:50%!important;
+    bottom:auto!important;
+    width:40px!important;
+    height:40px!important;
+    border-radius:999px!important;
+    transform:translateY(-50%)!important;
+    z-index:4!important;
+  }
+
+  body.page-servicios #servicios-complementarios .svc-prev:not([hidden]){
+    left:8px!important;
+    right:auto!important;
+  }
+
+  body.page-servicios #servicios-complementarios .svc-next:not([hidden]){
+    right:8px!important;
+    left:auto!important;
+  }
+}
+
+/* ---------------------------------------------------------
+   MIGRACIONES — reel igual de jerárquico que los demás
+   --------------------------------------------------------- */
+
+body.page-servicios .exp-r6-migraciones-reel > .reel-title{
+  display:block!important;
+  width:100%!important;
+  margin:0 0 18px!important;
+  font-size:clamp(20px,2vw,24px)!important;
+  line-height:1.15!important;
+  font-weight:800!important;
+  letter-spacing:-.02em!important;
+  background:linear-gradient(90deg,#1e3a8a,#60a5fa)!important;
+  -webkit-background-clip:text!important;
+  background-clip:text!important;
+  -webkit-text-fill-color:transparent!important;
+  color:transparent!important;
+}
+
+body.page-servicios .exp-r6-migraciones-reel .carousel{
+  width:100%!important;
+}
+
+
+/* EXPIRITI_R6_SERVICES_VISUAL_CONSISTENCY_END */
+
+/* EXPIRITI_R7_SERVICE_HERO_FINAL_OWNER_START
+   Resolver competencia histórica entre owners del hero:
+   una geometría final, sin offsets/solapamientos.
+*/
+
+body.page-servicios .exp-t19-service-hero-line{
+  width:100%!important;
+  max-width:100%!important;
+  min-width:0!important;
+
+  display:grid!important;
+  grid-template-columns:minmax(0,1.12fr) minmax(360px,.88fr)!important;
+
+  align-items:center!important;
+  column-gap:24px!important;
+  row-gap:12px!important;
+
+  margin-left:0!important;
+  margin-right:0!important;
+
+  transform:none!important;
+  position:relative!important;
+
+  overflow:visible!important;
+}
+
+body.page-servicios
+.exp-t19-service-hero-line
+> .exp-t19-hero-title{
+  min-width:0!important;
+  max-width:100%!important;
+
+  margin-left:0!important;
+  margin-right:0!important;
+
+  transform:none!important;
+  position:static!important;
+
+  white-space:normal!important;
+  word-break:normal!important;
+  overflow-wrap:normal!important;
+}
+
+body.page-servicios
+.exp-t19-service-hero-line
+> .exp-t19-microbenefits{
+  min-width:0!important;
+  max-width:100%!important;
+
+  display:flex!important;
+  flex-wrap:wrap!important;
+  align-items:center!important;
+  align-content:center!important;
+
+  margin-left:0!important;
+  margin-right:0!important;
+
+  transform:none!important;
+  position:static!important;
+}
+
+@media (min-width:1024px) and (max-width:1279px){
+
+  body.page-servicios
+  .exp-t19-service-hero-line{
+    grid-template-columns:minmax(0,1fr) minmax(400px,1fr)!important;
+    column-gap:20px!important;
+  }
+
+  body.page-servicios
+  .exp-t19-service-hero-line
+  > .exp-t19-hero-title{
+    font-size:clamp(34px,4vw,50px)!important;
+    line-height:1.04!important;
+  }
+}
+
+@media (max-width:1023px){
+
+  body.page-servicios
+  .exp-t19-service-hero-line{
+    grid-template-columns:minmax(0,1fr)!important;
+  }
+
+  body.page-servicios
+  .exp-t19-service-hero-line
+  > .exp-t19-microbenefits{
+    justify-content:flex-start!important;
+  }
+}
+
+/* SESIÓN GUIADA — SERVICIOS
+   panel blanco + aire exterior real
+*/
+
+/* Complementarios:
+   las flechas flotantes que aparecieron en smoke NO forman
+   parte del desktop aprobado.
+*/
+
+@media (min-width:861px){
+  body.page-servicios
+  #servicios-complementarios
+  .svc-nav{
+    display:none!important;
+    visibility:hidden!important;
+    pointer-events:none!important;
+  }
+}
+
+/* EXPIRITI_R7_SERVICE_HERO_FINAL_OWNER_END */
+
+/* EXPIRITI_R8_SERVICE_HERO_CRISP_OWNER_START */
+
+body.page-servicios .exp-t19-service-hero-line,
+body.page-servicios .exp-t19-service-hero-line *,
+body.page-servicios .exp-t19-hero-title,
+body.page-servicios .exp-t19-microbenefits,
+body.page-servicios .exp-t19-microbenefits .badge{
+  filter:none!important;
+  -webkit-filter:none!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+  text-shadow:none!important;
+  -webkit-text-stroke:0!important;
+  transform:none!important;
+  will-change:auto!important;
+  opacity:1!important;
+}
+
+body.page-servicios .exp-t19-hero-title,
+body.page-servicios .exp-t19-microbenefits .badge{
+  text-rendering:optimizeLegibility!important;
+  -webkit-font-smoothing:antialiased!important;
+}
+
+/* Quitar cualquier decoración fantasma heredada */
+body.page-servicios .exp-t19-microbenefits .badge::before,
+body.page-servicios .exp-t19-microbenefits .badge::after{
+  content:none!important;
+  display:none!important;
+}
+
+/* EXPIRITI_R8_SERVICE_HERO_CRISP_OWNER_END */
+
+
+/* EXPIRITI_R8_SERVICE_SESSION_OWNER_START */
+
+
+/* EXPIRITI_R8_SERVICE_SESSION_OWNER_END */
+
+
+/* EXPIRITI_R8_COMPLEMENT_NAV_OWNER_START */
+
+/*
+  Regla correcta:
+  - máximo visual base = 2 columnas x 3 filas = 6
+  - [hidden] => NO mostrar
+  - si el motor necesita otra página y quita hidden => mostrar flechas
+*/
+
+body.page-servicios
+#servicios-complementarios
+.svc-nav[hidden]{
+  display:none!important;
+}
+
+body.page-servicios
+#servicios-complementarios
+.svc-nav:not([hidden]){
+  display:grid!important;
+  place-items:center!important;
+
+  position:absolute!important;
+  top:50%!important;
+  bottom:auto!important;
+
+  width:42px!important;
+  height:42px!important;
+
+  border-radius:999px!important;
+  transform:translateY(-50%)!important;
+
+  z-index:6!important;
+}
+
+body.page-servicios
+#servicios-complementarios
+.svc-prev:not([hidden]){
+  left:8px!important;
+  right:auto!important;
+}
+
+body.page-servicios
+#servicios-complementarios
+.svc-next:not([hidden]){
+  right:8px!important;
+  left:auto!important;
+}
+
+@media(min-width:861px){
+  body.page-servicios
+  #servicios-complementarios
+  .svc-grid{
+    grid-template-columns:
+      repeat(2,minmax(0,1fr))!important;
+  }
+}
+
+/* EXPIRITI_R8_COMPLEMENT_NAV_OWNER_END */
+
+/* EXPIRITI_R9_SERVICE_HERO_SYSTEM_STYLE_START */
+
+/*
+  Servicios adopta el lenguaje tipográfico de Sistemas:
+  microbeneficios como texto limpio, no como botones/pills.
+*/
+
+body.page-servicios
+.exp-t19-service-hero-line
+> .exp-t19-microbenefits{
+  display:flex!important;
+  flex-wrap:wrap!important;
+
+  gap:8px 14px!important;
+
+  align-items:center!important;
+  align-content:center!important;
+
+  overflow:visible!important;
+}
+
+body.page-servicios
+.exp-t19-service-hero-line
+> .exp-t19-microbenefits
+> .badge{
+  display:inline-block!important;
+
+  width:auto!important;
+  min-width:0!important;
+  height:auto!important;
+
+  margin:0!important;
+  padding:0!important;
+
+  border:0!important;
+  border-radius:0!important;
+
+  background:transparent!important;
+  background-image:none!important;
+
+  box-shadow:none!important;
+
+  filter:none!important;
+  -webkit-filter:none!important;
+
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+
+  transform:none!important;
+
+  font-size:clamp(13px,1.05vw,15px)!important;
+  line-height:1.35!important;
+
+  font-weight:500!important;
+  letter-spacing:0!important;
+
+  color:#475569!important;
+
+  text-decoration:none!important;
+  text-shadow:none!important;
+
+  white-space:normal!important;
+
+  opacity:1!important;
+}
+
+/* Acentos especiales: conservar semántica,
+   pero ya sólo mediante COLOR DE TEXTO. */
+
+body.page-servicios
+.exp-t19-microbenefits
+> .badge[style*="#f59e0b"],
+body.page-servicios
+.exp-t19-microbenefits
+> .badge[style*="245,158,11"]{
+  color:#b45309!important;
+  font-weight:600!important;
+}
+
+body.page-servicios
+.exp-t19-microbenefits
+> .badge[style*="#22c55e"],
+body.page-servicios
+.exp-t19-microbenefits
+> .badge[style*="34,197,94"]{
+  color:#0f766e!important;
+  font-weight:600!important;
+}
+
+body.page-servicios
+.exp-t19-microbenefits
+> .badge::before,
+body.page-servicios
+.exp-t19-microbenefits
+> .badge::after{
+  content:none!important;
+  display:none!important;
+}
+
+/* EXPIRITI_R9_SERVICE_HERO_SYSTEM_STYLE_END */
+
+
+/* ==========================================================
+   COMPLEMENTARIOS — 2 x 2
+   ========================================================== */
+
+/* EXPIRITI_R9_COMPLEMENT_2X2_START */
+
+html[data-theme="light"]
+body.page-servicios
+#servicios-complementarios
+> .svc-panel{
+  background:#fff!important;
+  background-color:#fff!important;
+  background-image:none!important;
+}
+
+body.page-servicios
+#servicios-complementarios
+> .svc-panel{
+  position:relative!important;
+
+  min-height:0!important;
+
+  overflow:visible!important;
+
+  padding:16px!important;
+}
+
+body.page-servicios
+#servicios-complementarios
+.svc-grid{
+  display:grid!important;
+
+  grid-template-columns:
+    repeat(2,minmax(0,1fr))!important;
+
+  gap:10px 14px!important;
+
+  width:100%!important;
+
+  overflow:visible!important;
+
+  background:transparent!important;
+}
+
+body.page-servicios
+#servicios-complementarios
+.svc-list{
+  display:contents!important;
+}
+
+body.page-servicios
+#servicios-complementarios
+.svc-link{
+  width:auto!important;
+  min-width:0!important;
+
+  margin:0!important;
+
+  background:#fff!important;
+}
+
+body.page-servicios
+#servicios-complementarios
+.svc-link[hidden]{
+  display:none!important;
+}
+
+/* Navegación sólo cuando JS quita hidden */
+
+body.page-servicios
+#servicios-complementarios
+.svc-nav[hidden]{
+  display:none!important;
+}
+
+body.page-servicios
+#servicios-complementarios
+.svc-nav:not([hidden]){
+  display:grid!important;
+  place-items:center!important;
+
+  position:absolute!important;
+
+  top:50%!important;
+  bottom:auto!important;
+
+  width:42px!important;
+  height:42px!important;
+
+  margin:0!important;
+
+  border-radius:999px!important;
+
+  transform:translateY(-50%)!important;
+
+  z-index:20!important;
+}
+
+body.page-servicios
+#servicios-complementarios
+.svc-prev:not([hidden]){
+  left:-18px!important;
+  right:auto!important;
+}
+
+body.page-servicios
+#servicios-complementarios
+.svc-next:not([hidden]){
+  right:-18px!important;
+  left:auto!important;
+}
+
+/* Móvil conserva 2 columnas, pero más compacto */
+
+@media(max-width:600px){
+
+  body.page-servicios
+  #servicios-complementarios
+  > .svc-panel{
+    padding:12px 10px!important;
+  }
+
+  body.page-servicios
+  #servicios-complementarios
+  .svc-grid{
+    gap:8px!important;
+  }
+
+  body.page-servicios
+  #servicios-complementarios
+  .svc-link{
+    padding:10px!important;
+  }
+
+  body.page-servicios
+  #servicios-complementarios
+  .svc-sub{
+    font-size:12px!important;
+  }
+
+  body.page-servicios
+  #servicios-complementarios
+  .svc-pill{
+    font-size:11px!important;
+    padding:6px 8px!important;
+  }
+
+  body.page-servicios
+  #servicios-complementarios
+  .svc-prev:not([hidden]){
+    left:-6px!important;
+  }
+
+  body.page-servicios
+  #servicios-complementarios
+  .svc-next:not([hidden]){
+    right:-6px!important;
+  }
+}
+
+/* EXPIRITI_R9_COMPLEMENT_2X2_END */
+
+
+/* ==========================================================
+   SESIÓN GUIADA + PANELES IMPORTANTES = BLANCO
+   ========================================================== */
+
+/* EXPIRITI_R9_WHITE_SERVICE_PANELS_START */
+html[data-theme="light"]
+body.page-servicios
+#servicios-complementarios
+> .svc-panel,
+html[data-theme="light"]
+body.page-servicios
+#comparativa
+.card,
+html[data-theme="light"]
+body.page-servicios
+#comparativa
+.cmp-scroll{
+  background:#fff!important;
+  background-color:#fff!important;
+  background-image:none!important;
+}
+
+/* EXPIRITI_R9_WHITE_SERVICE_PANELS_END */
+
+
+/* ==========================================================
+   EXPIRITI_R10R_FINAL_SERVICE_OWNER_START
+   ========================================================== */
+
+
+/* ----------------------------------------------------------
+   HERO SERVICIOS
+   ---------------------------------------------------------- */
+
+body.page-servicios
+.exp-t19-service-hero-line{
+  display:grid!important;
+
+  grid-template-columns:
+    minmax(0,1.2fr)
+    minmax(360px,.8fr)!important;
+
+  align-items:center!important;
+
+  column-gap:26px!important;
+  row-gap:10px!important;
+
+  width:100%!important;
+  max-width:100%!important;
+
+  margin-left:0!important;
+  margin-right:0!important;
+
+  transform:none!important;
+
+  overflow:visible!important;
+}
+
+
+body.page-servicios
+.exp-t19-service-hero-line
+> .exp-t19-hero-title{
+  min-width:0!important;
+
+  margin:0!important;
+
+  color:#07101f!important;
+
+  font-weight:800!important;
+
+  filter:none!important;
+  -webkit-filter:none!important;
+
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+
+  text-shadow:none!important;
+  -webkit-text-stroke:0!important;
+
+  transform:none!important;
+
+  opacity:1!important;
+}
+
+
+body.page-servicios
+.exp-t19-service-hero-line
+> .exp-t19-microbenefits{
+  display:flex!important;
+
+  flex-wrap:wrap!important;
+
+  justify-content:flex-start!important;
+  align-items:center!important;
+
+  gap:7px 14px!important;
+
+  width:100%!important;
+  min-width:0!important;
+
+  margin:0!important;
+  padding:0!important;
+
+  overflow:visible!important;
+
+  filter:none!important;
+  backdrop-filter:none!important;
+}
+
+
+body.page-servicios
+.exp-t19-microbenefits
+> .exp-r10-meta{
+  display:inline!important;
+
+  width:auto!important;
+  min-width:0!important;
+
+  margin:0!important;
+  padding:0!important;
+
+  border:0!important;
+  outline:0!important;
+
+  border-radius:0!important;
+
+  background:none!important;
+  background-color:transparent!important;
+  background-image:none!important;
+
+  box-shadow:none!important;
+
+  filter:none!important;
+  -webkit-filter:none!important;
+
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+
+  transform:none!important;
+
+  font-family:inherit!important;
+
+  font-size:14px!important;
+  line-height:1.35!important;
+
+  font-weight:500!important;
+
+  letter-spacing:0!important;
+
+  color:#475569!important;
+
+  text-decoration:none!important;
+  text-shadow:none!important;
+
+  -webkit-text-stroke:0!important;
+
+  opacity:1!important;
+
+  white-space:normal!important;
+}
+
+
+body.page-servicios
+.exp-t19-microbenefits
+> .exp-r10-meta--orange{
+  color:#b45309!important;
+  font-weight:600!important;
+}
+
+
+body.page-servicios
+.exp-t19-microbenefits
+> .exp-r10-meta--green{
+  color:#0f766e!important;
+  font-weight:600!important;
+}
+
+
+body.page-servicios
+.exp-r10-meta::before,
+
+body.page-servicios
+.exp-r10-meta::after{
+  content:none!important;
+  display:none!important;
+}
+
+
+@media(max-width:1099px){
+
+  body.page-servicios
+  .exp-t19-service-hero-line{
+    grid-template-columns:
+      minmax(0,1fr)!important;
+  }
+
+}
+
+
+/* ----------------------------------------------------------
+   SESIÓN GUIADA — MISMO PATRÓN VISUAL DE HORAS
+   ---------------------------------------------------------- */
+
+
+/* ----------------------------------------------------------
+   SERVICIOS COMPLEMENTARIOS
+   6 items = 5 servicios + ¡Y más!
+   4 por página = 2 x 2
+   ---------------------------------------------------------- */
+
+html[data-theme="light"]
+body.page-servicios
+#servicios-complementarios
+> .svc-panel{
+  background:#fff!important;
+  background-color:#fff!important;
+  background-image:none!important;
+}
+
+
+body.page-servicios
+#servicios-complementarios
+> .svc-panel{
+  position:relative!important;
+
+  min-height:0!important;
+  height:auto!important;
+
+  padding:
+    16px
+    26px!important;
+
+  overflow:visible!important;
+
+  border:
+    1px solid
+    rgba(148,163,184,.24)!important;
+
+  border-radius:18px!important;
+}
+
+
+body.page-servicios
+#servicios-complementarios
+.svc-grid{
+  display:grid!important;
+
+  grid-template-columns:
+    repeat(2,minmax(0,1fr))!important;
+
+  grid-auto-rows:auto!important;
+
+  gap:
+    10px
+    14px!important;
+
+  width:100%!important;
+
+  margin:0!important;
+  padding:0!important;
+
+  background:transparent!important;
+
+  overflow:visible!important;
+}
+
+
+body.page-servicios
+#servicios-complementarios
+.svc-list{
+  display:contents!important;
+}
+
+
+body.page-servicios
+#servicios-complementarios
+.svc-link{
+  display:flex!important;
+
+  align-items:center!important;
+  justify-content:space-between!important;
+
+  gap:12px!important;
+
+  width:auto!important;
+  min-width:0!important;
+
+  min-height:68px!important;
+
+  margin:0!important;
+
+  padding:
+    12px
+    14px!important;
+
+  border:
+    1px solid
+    rgba(148,163,184,.25)!important;
+
+  border-radius:16px!important;
+
+  background:#fff!important;
+  background-color:#fff!important;
+  background-image:none!important;
+
+  color:inherit!important;
+
+  text-decoration:none!important;
+
+  box-shadow:
+    0 5px 16px
+    rgba(15,23,42,.045)!important;
+}
+
+
+body.page-servicios
+#servicios-complementarios
+.svc-link[hidden]{
+  display:none!important;
+}
+
+
+body.page-servicios
+#servicios-complementarios
+.svc-nav:not([hidden]){
+  display:grid!important;
+
+  place-items:center!important;
+
+  visibility:visible!important;
+
+  pointer-events:auto!important;
+
+  opacity:1!important;
+
+  position:absolute!important;
+
+  top:50%!important;
+  bottom:auto!important;
+
+  width:42px!important;
+  height:42px!important;
+
+  margin:0!important;
+
+  border-radius:999px!important;
+
+  transform:
+    translateY(-50%)!important;
+
+  z-index:50!important;
+}
+
+
+body.page-servicios
+#servicios-complementarios
+.svc-prev:not([hidden]){
+  left:-19px!important;
+  right:auto!important;
+}
+
+
+body.page-servicios
+#servicios-complementarios
+.svc-next:not([hidden]){
+  right:-19px!important;
+  left:auto!important;
+}
+
+
+@media(max-width:650px){
+
+  body.page-servicios
+  #servicios-complementarios
+  > .svc-panel{
+    padding:
+      12px
+      14px!important;
+  }
+
+
+  body.page-servicios
+  #servicios-complementarios
+  .svc-grid{
+    gap:8px!important;
+  }
+
+
+  body.page-servicios
+  #servicios-complementarios
+  .svc-link{
+    min-height:62px!important;
+
+    padding:
+      10px!important;
+  }
+
+
+  body.page-servicios
+  #servicios-complementarios
+  .svc-sub{
+    font-size:11px!important;
+  }
+
+
+  body.page-servicios
+  #servicios-complementarios
+  .svc-pill{
+    font-size:10px!important;
+
+    padding:
+      5px
+      7px!important;
+  }
+
+
+  body.page-servicios
+  #servicios-complementarios
+  .svc-prev:not([hidden]){
+    left:-7px!important;
+  }
+
+
+  body.page-servicios
+  #servicios-complementarios
+  .svc-next:not([hidden]){
+    right:-7px!important;
+  }
+
+}
+
+
+/* ----------------------------------------------------------
+   CURSOS — CLEARANCE DEL CTA PEDIR INFO
+   ---------------------------------------------------------- */
+
+body.page-servicios
+#cursosGrid
+> .fcard{
+  padding-bottom:32px!important;
+
+  overflow:visible!important;
+}
+
+
+body.page-servicios
+#cursosGrid
+> .fcard
+> a:has(.exp-course-info-badge){
+  min-height:72px!important;
+
+  padding-bottom:6px!important;
+
+  margin-top:auto!important;
+
+  overflow:visible!important;
+}
+
+
+body.page-servicios
+#cursosGrid
+.exp-course-info-badge{
+  margin:
+    14px
+    auto
+    6px!important;
+
+  transform:none!important;
+}
+
+
+/* EXPIRITI_R10R_FINAL_SERVICE_OWNER_END */
+
+/* ==========================================================
+   EXPIRITI_R11_GITHUB_VISUAL_REFERENCE_START
+
+   Visual reference:
+   GitHub production composition.
+
+   LOCAL contracts preserved:
+   - Complementarios = 2x2, not GitHub 3x2
+   - 5 services + ¡Y más!
+   - current gradients/buttons remain
+   ========================================================== */
+
+
+/* ==========================================================
+   1. SESIÓN GUIADA — HORAS/GITHUB COMPOSITION
+   ========================================================== */
+
+
+/*
+  Botones inferiores a la derecha:
+  copiamos la COMPOSICIÓN de GitHub/Horas,
+  NO sus colores.
+  Los btn-grad actuales permanecen intactos.
+*/
+
+
+/* ==========================================================
+   2. COMPLEMENTARIOS
+   GitHub visual language, LOCAL 2x2.
+   ========================================================== */
+
+html[data-theme="light"]
+body.page-servicios
+#servicios-complementarios
+> .svc-panel{
+
+  background:#fff!important;
+  background-color:#fff!important;
+  background-image:none!important;
+}
+
+
+body.page-servicios
+#servicios-complementarios
+> .svc-panel{
+
+  position:relative!important;
+
+  width:100%!important;
+
+  min-height:0!important;
+  height:auto!important;
+
+  /*
+    Reserva inferior = zona de controles,
+    como en GitHub.
+  */
+
+  padding:
+    16px
+    16px
+    66px!important;
+
+  border:
+    1px solid
+    rgba(148,163,184,.24)!important;
+
+  border-radius:18px!important;
+
+  overflow:visible!important;
+
+  box-shadow:
+    0 7px 22px
+    rgba(15,23,42,.045)!important;
+}
+
+
+body.page-servicios
+#servicios-complementarios
+.svc-grid{
+
+  display:grid!important;
+
+  grid-template-columns:
+    repeat(2,minmax(0,1fr))!important;
+
+  grid-template-rows:
+    repeat(2,auto)!important;
+
+  grid-auto-flow:row!important;
+
+  gap:
+    10px
+    14px!important;
+
+  width:100%!important;
+
+  margin:0!important;
+  padding:0!important;
+
+  overflow:visible!important;
+
+  background:transparent!important;
+}
+
+
+body.page-servicios
+#servicios-complementarios
+.svc-list{
+  display:contents!important;
+}
+
+
+body.page-servicios
+#servicios-complementarios
+.svc-link{
+
+  display:flex!important;
+
+  align-items:center!important;
+  justify-content:space-between!important;
+
+  gap:12px!important;
+
+  width:auto!important;
+  min-width:0!important;
+
+  min-height:66px!important;
+
+  margin:0!important;
+
+  padding:
+    11px
+    14px!important;
+
+  border:
+    1px solid
+    rgba(148,163,184,.24)!important;
+
+  border-radius:16px!important;
+
+  background:#fff!important;
+  background-image:none!important;
+
+  box-shadow:
+    0 5px 15px
+    rgba(15,23,42,.04)!important;
+}
+
+
+body.page-servicios
+#servicios-complementarios
+.svc-link[hidden]{
+  display:none!important;
+}
+
+
+/* ----------------------------------------------------------
+   FLECHAS:
+   GitHub = footer inferior derecho.
+   NO laterales.
+   ---------------------------------------------------------- */
+
+body.page-servicios
+#servicios-complementarios
+.svc-nav:not([hidden]){
+
+  display:grid!important;
+  place-items:center!important;
+
+  visibility:visible!important;
+
+  pointer-events:auto!important;
+
+  opacity:1!important;
+
+  position:absolute!important;
+
+  top:auto!important;
+  bottom:15px!important;
+
+  left:auto!important;
+
+  width:42px!important;
+  height:42px!important;
+
+  margin:0!important;
+
+  padding:0!important;
+
+  border:
+    1px solid
+    rgba(148,163,184,.32)!important;
+
+  border-radius:999px!important;
+
+  background:#fff!important;
+
+  color:#0f172a!important;
+
+  box-shadow:
+    0 7px 18px
+    rgba(15,23,42,.07)!important;
+
+  transform:none!important;
+
+  z-index:50!important;
+}
+
+
+body.page-servicios
+#servicios-complementarios
+.svc-prev:not([hidden]){
+
+  right:64px!important;
+  left:auto!important;
+}
+
+
+body.page-servicios
+#servicios-complementarios
+.svc-next:not([hidden]){
+
+  right:16px!important;
+  left:auto!important;
+}
+
+
+body.page-servicios
+#servicios-complementarios
+.svc-nav:not([hidden]):active{
+
+  transform:
+    translateY(1px)!important;
+}
+
+
+@media(max-width:650px){
+
+  body.page-servicios
+  #servicios-complementarios
+  > .svc-panel{
+
+    padding:
+      12px
+      10px
+      60px!important;
+  }
+
+
+  body.page-servicios
+  #servicios-complementarios
+  .svc-grid{
+
+    grid-template-columns:
+      repeat(2,minmax(0,1fr))!important;
+
+    gap:8px!important;
+  }
+
+
+  body.page-servicios
+  #servicios-complementarios
+  .svc-link{
+
+    min-height:60px!important;
+
+    padding:9px!important;
+  }
+
+
+  body.page-servicios
+  #servicios-complementarios
+  .svc-title{
+
+    font-size:12px!important;
+    line-height:1.2!important;
+  }
+
+
+  body.page-servicios
+  #servicios-complementarios
+  .svc-sub{
+
+    font-size:10.5px!important;
+    line-height:1.25!important;
+  }
+
+
+  body.page-servicios
+  #servicios-complementarios
+  .svc-pill{
+
+    font-size:10px!important;
+
+    padding:
+      5px
+      6px!important;
+  }
+
+
+  body.page-servicios
+  #servicios-complementarios
+  .svc-nav:not([hidden]){
+
+    bottom:10px!important;
+
+    width:40px!important;
+    height:40px!important;
+  }
+
+
+  body.page-servicios
+  #servicios-complementarios
+  .svc-prev:not([hidden]){
+
+    right:57px!important;
+    left:auto!important;
+  }
+
+
+  body.page-servicios
+  #servicios-complementarios
+  .svc-next:not([hidden]){
+
+    right:10px!important;
+    left:auto!important;
+  }
+
+}
+
+
+/* EXPIRITI_R11_GITHUB_VISUAL_REFERENCE_END */
+
+/* ==========================================================
+   EXPIRITI_R12_FINAL_SERVICE_VISUAL_START
+   ========================================================== */
+
+
+/* ----------------------------------------------------------
+   SESIÓN GUIADA — BLANCO BLANCO
+   ---------------------------------------------------------- */
+
+
+/* ----------------------------------------------------------
+   COMPLEMENTARIOS:
+   texto + grid 2x2 + footer real debajo.
+   ---------------------------------------------------------- */
+
+body.page-servicios
+#servicios-complementarios
+.exp-r12-complement-note{
+
+  margin:
+    6px
+    0
+    16px!important;
+
+  color:#475569!important;
+
+  font-size:14px!important;
+  line-height:1.4!important;
+}
+
+
+html[data-theme="light"]
+body.page-servicios
+#servicios-complementarios
+> .svc-panel{
+
+  background:#fff!important;
+  background-color:#fff!important;
+  background-image:none!important;
+
+  box-shadow:none!important;
+}
+
+
+body.page-servicios
+#servicios-complementarios
+> .svc-panel{
+
+  display:block!important;
+
+  height:auto!important;
+  min-height:0!important;
+
+  padding:
+    16px!important;
+
+  overflow:visible!important;
+}
+
+
+body.page-servicios
+#servicios-complementarios
+.svc-grid{
+
+  display:grid!important;
+
+  grid-template-columns:
+    repeat(2,minmax(0,1fr))!important;
+
+  grid-template-rows:
+    repeat(2,auto)!important;
+
+  gap:
+    10px
+    14px!important;
+
+  width:100%!important;
+
+  margin:0!important;
+  padding:0!important;
+
+  overflow:visible!important;
+}
+
+
+body.page-servicios
+#servicios-complementarios
+.exp-r12-complement-nav{
+
+  display:flex!important;
+
+  align-items:center!important;
+  justify-content:flex-end!important;
+
+  gap:10px!important;
+
+  width:100%!important;
+
+  margin:
+    14px
+    0
+    0!important;
+
+  padding:0!important;
+
+  min-height:44px!important;
+
+  position:static!important;
+
+  clear:both!important;
+}
+
+
+/*
+  Desactivar TODA geometría absoluta heredada.
+*/
+
+body.page-servicios
+#servicios-complementarios
+.exp-r12-complement-nav
+.svc-nav,
+
+body.page-servicios
+#servicios-complementarios
+.exp-r12-complement-nav
+.svc-nav:not([hidden]){
+
+  display:grid!important;
+
+  place-items:center!important;
+
+  position:static!important;
+
+  top:auto!important;
+  right:auto!important;
+  bottom:auto!important;
+  left:auto!important;
+
+  width:42px!important;
+  height:42px!important;
+
+  min-width:42px!important;
+
+  margin:0!important;
+  padding:0!important;
+
+  transform:none!important;
+
+  visibility:visible!important;
+
+  pointer-events:auto!important;
+
+  opacity:1!important;
+
+  border:
+    1px solid
+    rgba(148,163,184,.32)!important;
+
+  border-radius:999px!important;
+
+  background:#fff!important;
+
+  color:#0f172a!important;
+
+  box-shadow:
+    0 5px 14px
+    rgba(15,23,42,.06)!important;
+
+  z-index:auto!important;
+}
+
+
+body.page-servicios
+#servicios-complementarios
+.exp-r12-complement-nav
+.svc-nav:active{
+
+  transform:
+    translateY(1px)!important;
+}
+
+
+@media(max-width:650px){
+
+  body.page-servicios
+  #servicios-complementarios
+  > .svc-panel{
+
+    padding:
+      12px
+      10px!important;
+  }
+
+
+  body.page-servicios
+  #servicios-complementarios
+  .svc-grid{
+
+    grid-template-columns:
+      repeat(2,minmax(0,1fr))!important;
+
+    gap:8px!important;
+  }
+
+
+  body.page-servicios
+  #servicios-complementarios
+  .exp-r12-complement-nav{
+
+    margin-top:12px!important;
+
+    min-height:40px!important;
+  }
+
+
+  body.page-servicios
+  #servicios-complementarios
+  .exp-r12-complement-nav
+  .svc-nav{
+
+    width:40px!important;
+    height:40px!important;
+
+    min-width:40px!important;
+  }
+
+}
+
+
+/* EXPIRITI_R12_FINAL_SERVICE_VISUAL_END */
+
+/* ==========================================================
+   EXPIRITI_R13_SERVICE_SESSION_FALLBACK_START
+   ========================================================== */
+
+
+/* EXPIRITI_R13_SERVICE_SESSION_FALLBACK_END */
+
+
+/* EXPIRITI_R16_HOURS_COMPARE_OWNER_START ====================================
+ * Dueno unico del componente "Horas prepagadas vs. Poliza anual"
+ * (.exp-hc dentro de /expiriti-r19-preview-20260826/SERVICIOS/horas-soporte.html).
+ * Reemplaza a la tabla .lp-compare de ese bloque: jerarquia clara, dos
+ * comparison cards, detalle progresivo con <details> nativo y cero scroll
+ * horizontal en movil. Ambito acotado a .exp-hc: no toca otras comparativas.
+ * ========================================================================= */
+
+body.page-servicios .exp-hc{
+  background:#fff;
+  border:1px solid rgba(148,163,184,.20);
+  border-radius:20px;
+  padding:20px;
+  box-sizing:border-box;
+  overflow:visible;
+}
+html:not([data-theme=light]) body.page-servicios .exp-hc{
+  background:rgba(15,23,42,.55);
+  border-color:rgba(148,163,184,.18);
+}
+
+body.page-servicios .exp-hc>h2{
+  margin:0 0 14px;
+  text-align:left;
+}
+
+/* --- las dos tarjetas --------------------------------------------------- */
+body.page-servicios .exp-hc-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:14px;
+  align-items:stretch;
+  width:100%;
+}
+body.page-servicios .exp-hc-grid>*{min-width:0}
+
+body.page-servicios .exp-hc-card{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  min-width:0;
+  box-sizing:border-box;
+  padding:16px;
+  border-radius:16px;
+  border:1px solid rgba(148,163,184,.24);
+  background:linear-gradient(180deg,rgba(255,255,255,.96),rgba(248,250,252,.92));
+  box-shadow:0 8px 22px rgba(2,6,23,.06);
+}
+html:not([data-theme=light]) body.page-servicios .exp-hc-card{
+  background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+  box-shadow:0 10px 26px rgba(0,0,0,.22);
+}
+/* la columna de Poliza se distingue con un acento sobrio, no con otro color de fondo */
+body.page-servicios .exp-hc-card--alt{
+  border-color:rgba(20,184,166,.38);
+  box-shadow:0 8px 22px rgba(2,6,23,.06),0 0 0 1px rgba(20,184,166,.10) inset;
+}
+
+body.page-servicios .exp-hc-head{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:8px;
+  margin:0;
+}
+body.page-servicios .exp-hc-title{
+  margin:0;
+  font-size:17px;
+  font-weight:950;
+  line-height:1.2;
+  letter-spacing:.01em;
+}
+body.page-servicios .exp-hc-tag{
+  display:inline-flex;
+  align-items:center;
+  min-height:24px;
+  padding:0 10px;
+  border-radius:999px;
+  font-size:11.5px;
+  font-weight:900;
+  line-height:1;
+  white-space:nowrap;
+  border:1px solid rgba(245,158,11,.45);
+  background:rgba(245,158,11,.12);
+  color:#b45309;
+}
+body.page-servicios .exp-hc-tag--alt{
+  border-color:rgba(20,184,166,.45);
+  background:rgba(20,184,166,.12);
+  color:#0f766e;
+}
+html:not([data-theme=light]) body.page-servicios .exp-hc-tag{color:#fbbf24}
+html:not([data-theme=light]) body.page-servicios .exp-hc-tag--alt{color:#5eead4}
+
+/* "Ideal para" = el resumen que se escanea primero */
+body.page-servicios .exp-hc-ideal{
+  display:flex;
+  flex-direction:column;
+  gap:3px;
+  margin:0;
+  padding:10px 12px;
+  border-radius:12px;
+  background:rgba(2,6,23,.04);
+}
+html:not([data-theme=light]) body.page-servicios .exp-hc-ideal{background:rgba(255,255,255,.05)}
+body.page-servicios .exp-hc-ideal-k{
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  opacity:.65;
+}
+body.page-servicios .exp-hc-ideal-v{
+  font-size:14px;
+  font-weight:800;
+  line-height:1.35;
+}
+
+body.page-servicios .exp-hc-points{
+  margin:0;
+  padding:0 0 0 18px;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  font-size:13.5px;
+  line-height:1.45;
+  color:#334155;
+}
+html:not([data-theme=light]) body.page-servicios .exp-hc-points{color:rgba(226,232,240,.86)}
+
+body.page-servicios .exp-hc-act{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:auto;
+  padding-top:4px;
+}
+body.page-servicios .exp-hc-act>.btn{min-height:44px}
+
+/* --- detalle progresivo ------------------------------------------------- */
+body.page-servicios .exp-hc-details{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  margin-top:14px;
+}
+body.page-servicios .exp-hc-item{
+  border:1px solid rgba(148,163,184,.22);
+  border-radius:12px;
+  background:rgba(2,6,23,.02);
+  overflow:hidden;
+}
+html:not([data-theme=light]) body.page-servicios .exp-hc-item{background:rgba(255,255,255,.03)}
+
+body.page-servicios .exp-hc-item>summary{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  min-height:46px;
+  padding:11px 14px;
+  cursor:pointer;
+  font-size:14px;
+  font-weight:900;
+  line-height:1.3;
+  list-style:none;
+}
+body.page-servicios .exp-hc-item>summary::-webkit-details-marker{display:none}
+body.page-servicios .exp-hc-item>summary::after{
+  /* EXPIRITI_R17: mismo chevron que el FAQ del sitio (U+203A) escapado, para
+     que el glifo no dependa del charset con que se sirva el CSS. */
+  content:"\00203A";
+  flex:0 0 auto;
+  font-size:20px;
+  font-weight:900;
+  line-height:1;
+  opacity:.55;
+  transform:rotate(90deg);
+  transition:transform .18s ease;
+}
+body.page-servicios .exp-hc-item[open]>summary::after{
+  transform:rotate(270deg);
+}
+body.page-servicios .exp-hc-item>summary:focus-visible{
+  outline:2px solid rgba(56,189,248,.85);
+  outline-offset:-2px;
+  border-radius:12px;
+}
+@media(hover:hover){
+  body.page-servicios .exp-hc-item>summary:hover{background:rgba(2,6,23,.03)}
+  html:not([data-theme=light]) body.page-servicios .exp-hc-item>summary:hover{background:rgba(255,255,255,.05)}
+}
+body.page-servicios .exp-hc-body{
+  padding:0 14px 12px;
+}
+body.page-servicios .exp-hc-body p{
+  margin:0;
+  font-size:13.5px;
+  line-height:1.5;
+  color:#334155;
+}
+html:not([data-theme=light]) body.page-servicios .exp-hc-body p{color:rgba(226,232,240,.84)}
+
+body.page-servicios .exp-hc-footer{
+  margin:14px 0 0!important;
+  justify-content:flex-start;
+}
+body.page-servicios .exp-hc-footer>.btn{min-height:44px}
+
+/* --- responsive --------------------------------------------------------- */
+@media(max-width:820px){
+  body.page-servicios .exp-hc{padding:16px}
+  body.page-servicios .exp-hc-grid{grid-template-columns:1fr;gap:12px}
+}
+@media(max-width:560px){
+  body.page-servicios .exp-hc{padding:14px;border-radius:16px}
+  body.page-servicios .exp-hc-card{padding:14px}
+  body.page-servicios .exp-hc-title{font-size:16px}
+  body.page-servicios .exp-hc-act{flex-direction:column;align-items:stretch}
+  body.page-servicios .exp-hc-act>.btn{width:100%;justify-content:center}
+  body.page-servicios .exp-hc-footer>.btn{width:100%;justify-content:center}
+}
+
+/* EXPIRITI_R16_HOURS_COMPARE_OWNER_END */
+
+
+/* EXPIRITI_R17_COMPLEMENT_MOBILE_OWNER_START ================================
+ * Complementarios en movil: la pagina ocupaba solo la mitad izquierda.
+ *
+ * Causa real (medida en navegador a 390px):
+ *   .svc-grid            -> grid de 2 columnas (164px 164px)
+ *   dentro hay DOS .svc-list.exp-svc-mobile-page (pagina 1 y pagina 2)
+ *   cada .svc-list       -> a su vez grid de 2 columnas (76px 76px)
+ * Es decir, un grid anidado: la pagina activa se comprimia en una columna del
+ * grid exterior y la pagina inactiva (0 tarjetas visibles) reservaba la otra
+ * mitad -> tarjetas de 76px y ~199px de hueco a la derecha.
+ *
+ * Correccion: en movil el grid exterior pasa a UNA columna (las paginas se
+ * apilan, solo una tiene tarjetas visibles) y cada pagina usa el 100% del
+ * ancho util con dos columnas reales.
+ * NO cambia: 8 items, orden, ¡Y mas!, paginacion, arrows/footer.
+ * ========================================================================= */
+
+@media(max-width:820px){
+
+  /* grid exterior = 1 columna: cada pagina ocupa todo el ancho */
+  body.page-servicios #servicios-complementarios .svc-grid{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    grid-auto-flow:row!important;
+    grid-auto-columns:auto!important;
+    align-content:start!important;
+    width:100%!important;
+    max-width:100%!important;
+    gap:0!important;
+    overflow-x:visible!important;
+  }
+
+  /* cada pagina del pager = 100% del ancho, 2 columnas reales */
+  body.page-servicios #servicios-complementarios .svc-list,
+  body.page-servicios #servicios-complementarios .exp-svc-mobile-page{
+    display:grid!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:10px!important;
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    margin:0!important;
+    padding:0!important;
+    list-style:none!important;
+  }
+
+  /* la pagina sin tarjetas visibles no debe reservar alto ni gap */
+  body.page-servicios #servicios-complementarios
+  .exp-svc-mobile-page:not(:has(.svc-link:not([hidden]))){
+    display:none!important;
+  }
+
+  /* tarjetas: sin desbordes y con texto legible a 2 columnas */
+  body.page-servicios #servicios-complementarios .svc-link{
+    min-width:0!important;
+    width:auto!important;
+    box-sizing:border-box!important;
+    padding:12px!important;
+    gap:8px!important;
+  }
+  body.page-servicios #servicios-complementarios .svc-text{
+    min-width:0!important;
+    flex:1 1 auto!important;
+  }
+  body.page-servicios #servicios-complementarios .svc-title,
+  body.page-servicios #servicios-complementarios .svc-sub{
+    min-width:0!important;
+    overflow-wrap:anywhere!important;
+    word-break:normal!important;
+    hyphens:auto!important;
+  }
+  body.page-servicios #servicios-complementarios .svc-title{
+    font-size:13px!important;
+    line-height:1.3!important;
+  }
+  body.page-servicios #servicios-complementarios .svc-sub{
+    font-size:11.5px!important;
+    line-height:1.35!important;
+  }
+}
+
+/* a 390px la pill "Ver mas" y el texto no caben en la misma linea: la pill
+   pasa debajo, alineada a la derecha, sin romper el 2x2 */
+@media(max-width:520px){
+  body.page-servicios #servicios-complementarios .svc-link{
+    flex-direction:column!important;
+    align-items:stretch!important;
+  }
+  body.page-servicios #servicios-complementarios .svc-pill{
+    align-self:flex-end!important;
+    margin-top:auto!important;
+  }
+}
+
+/* EXPIRITI_R17_COMPLEMENT_MOBILE_OWNER_END */
+
+
+/* EXPIRITI_R17_CARD_CTA_CLEARANCE_OWNER_START ===============================
+ * El CTA final de varias cards quedaba a 13-17px del borde inferior, sin
+ * respiracion visual. Se resuelve con separacion real en el flujo (no con
+ * transform) para las cards cuyo ultimo elemento es una fila de acciones.
+ * Objetivo: >=20px de holgura bajo la pill en cualquier breakpoint.
+ * ========================================================================= */
+
+body.page-servicios :is(.card.body,.svc-panel,.cotiza-card,.crs-card,.lp-panel)
+  > :is(.lp-cta-row,.exp-session-actions,.cta-strip,.exp-hc-act):last-child{
+  margin-bottom:8px!important;
+}
+
+/* cards de cursos: la pill vive dentro del cuerpo de la card */
+body.page-servicios .crs-card,
+body.page-servicios .exp-course-card{
+  padding-bottom:20px!important;
+}
+
+/* EXPIRITI_R17_CARD_CTA_CLEARANCE_OWNER_END */
+
+/* R17 Pass 2: los reels de Servicios conservan sus thumbnails nativos. */
+
+html[data-theme="dark"] body.page-servicios .exp-t19-service-hero-line>.exp-t19-hero-title{
+  color:#f8fafc!important;
+  -webkit-text-fill-color:#f8fafc!important;
+  background:none!important;
+  text-shadow:0 2px 18px rgba(0,0,0,.5)!important;
+}
+
+body.page-servicios .svc-server-notes{
+  display:grid!important;
+  gap:12px!important;
+}
+body.page-servicios .svc-server-notes>:where(.warn,.info,.hint){margin:0!important}
+
+/* EXPIRITI_R17_PASS3_SERVICE_MEDIA_AND_DARK_OWNER_START */
+body.page-servicios .exp-service-reel-poster{
+  position:absolute;inset:0;width:100%;height:100%;padding:0;border:0;border-radius:inherit;
+  display:grid;place-items:center;overflow:hidden;cursor:pointer;background:#e8eef3;
+}
+html[data-theme="dark"] body.page-servicios .exp-service-reel-poster{background:#102638}
+body.page-servicios .exp-service-reel-poster>img{
+  position:absolute;inset:0;width:100%!important;height:100%!important;display:block!important;
+  object-fit:contain!important;object-position:center!important;background:#e8eef3;border-radius:inherit;
+}
+html[data-theme="dark"] body.page-servicios .exp-service-reel-poster>img{background:#102638}
+body.page-servicios .exp-service-reel-play{position:relative;z-index:2;display:grid;place-items:center;filter:drop-shadow(0 8px 18px rgba(2,6,23,.28))}
+body.page-servicios .exp-service-reel-poster:focus-visible{outline:3px solid #14b8a6;outline-offset:-4px}
+body.page-servicios .reel-embed.is-loading::after{
+  content:"";position:absolute;z-index:4;left:50%;bottom:18px;width:20px;height:20px;margin-left:-10px;
+  border:2px solid rgba(255,255,255,.38);border-top-color:#fff;border-radius:50%;animation:exp-service-spin .7s linear infinite;
+}
+@keyframes exp-service-spin{to{transform:rotate(360deg)}}
+
+html[data-theme="dark"] body.page-servicios #servicios-complementarios .svc-link{
+  color:#f8fafc!important;background:linear-gradient(180deg,rgba(30,41,59,.98),rgba(15,23,42,.96))!important;
+  border-color:rgba(148,163,184,.28)!important;
+}
+html[data-theme="dark"] body.page-servicios #servicios-complementarios .svc-title{color:#f8fafc!important}
+html[data-theme="dark"] body.page-servicios #servicios-complementarios .svc-sub{color:#cbd5e1!important;opacity:1!important}
+html[data-theme="dark"] body.page-servicios #servicios-complementarios .svc-pill{
+  color:#dbeafe!important;background:rgba(96,165,250,.14)!important;border-color:rgba(147,197,253,.38)!important;
+}
+html[data-theme="dark"] body.page-servicios #servicios-complementarios :is(.svc-nav,.arrowCircle){
+  color:#f8fafc!important;background:#1e293b!important;border-color:rgba(148,163,184,.32)!important;
+}
+html[data-theme="dark"] body.page-servicios #servicios-complementarios .svc-link:focus-visible{
+  outline:3px solid #5eead4!important;outline-offset:3px!important;
+}
+
+/* R19 targeted resmoke: service swipe, logo popups/forms, soluciones. */
+@media(max-width:980px){body.page-servicios #servicios-complementarios :is(.svc-panel,.svc-list,.svc-grid,.listTrack){overflow-x:auto!important;overflow-y:hidden!important;scroll-snap-type:x mandatory!important;-webkit-overflow-scrolling:touch!important;touch-action:pan-y!important;overscroll-behavior-x:contain!important}body.page-servicios #servicios-complementarios :is(.svc-link,.exp-svc-mobile-page){scroll-snap-align:start!important;scroll-snap-stop:always!important}}
+body.page-servicios :is(.svc-inline-token,.sys-icon,.interest-system){background:transparent!important;box-shadow:none!important}
+body.page-servicios :is(.svc-inline-token,.sys-icon,.interest-system) img{width:auto!important;height:56px!important;max-width:180px!important;object-fit:contain!important;background:transparent!important;border:0!important;box-shadow:none!important}
+@media(max-width:640px){body.page-servicios :is(.svc-inline-token,.sys-icon,.interest-system) img{height:50px!important;max-width:150px!important}}
+body.page-soluciones .lp-panel--nose{background:transparent!important;border-color:rgba(100,116,139,.20)!important;box-shadow:none!important}
+html[data-theme="dark"] body.page-soluciones .lp-panel--nose{background:transparent!important;border-color:rgba(148,163,184,.22)!important;box-shadow:none!important}
+body.page-soluciones .lp-panel--nose>.lp-cta-row .qa-btn{background:transparent!important;border:1px solid rgba(45,212,191,.46)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.08)!important}
+html[data-theme="dark"] body.page-soluciones .lp-panel--nose>.lp-cta-row :is(.qa-wa,.qa-tel){background:transparent!important;color:#f8fafc!important;border-color:rgba(45,212,191,.52)!important}
+body.page-soluciones .lp-panel--nose>.lp-cta-row .qa-btn:is(:hover,:focus-visible){box-shadow:0 0 0 3px rgba(45,212,191,.14),0 9px 22px rgba(15,118,110,.12)!important}
+@media(min-width:821px){body.page-soluciones .lp-panel--nose>.lp-cta-row .qa-btn{min-width:190px!important;padding-inline:30px!important}}
+/* EXPIRITI_R17_PASS3_SERVICE_MEDIA_AND_DARK_OWNER_END */
+
+
+/* EXPIRITI_R17_PASS4_STATIC_MEDIA_GEOMETRY_OWNER_START */
+.exp-media-shell{position:relative!important;display:block!important;width:100%;overflow:hidden!important;isolation:isolate;background:var(--gx-panel-2,rgba(148,163,184,.14))!important;contain:layout paint}
+.exp-media-shell--reel{aspect-ratio:9/16!important;height:auto!important;min-height:0!important;max-height:none!important}
+.exp-media-shell--video{aspect-ratio:16/9!important;height:auto!important;min-height:0!important;max-height:none!important}
+.exp-media-shell>.exp-media-poster,.exp-media-shell>iframe,.exp-media-shell>.exp-media-pending{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;margin:0!important}
+.exp-media-poster{appearance:none;border:0;padding:0;display:grid;place-items:center;overflow:hidden;background:transparent;color:#f05a66;cursor:pointer}
+.exp-media-thumbnail{position:absolute;inset:0;display:block;width:100%!important;height:100%!important;max-width:none!important;object-fit:cover!important;object-position:center!important}
+.exp-media-play{position:relative;z-index:2;display:grid;place-items:center;filter:drop-shadow(0 4px 12px rgba(0,0,0,.35))}
+.exp-media-play svg{display:block;width:clamp(52px,14%,68px);height:auto}
+.generated-preview{background:radial-gradient(circle at 22% 15%,rgba(45,212,191,.22),transparent 42%),linear-gradient(145deg,#102638,#173b4a 58%,#18544d)!important}
+.generated-preview--reel{aspect-ratio:9/16!important}.generated-preview--video{aspect-ratio:16/9!important}
+.exp-generated-preview-control{grid-template-rows:1fr auto 1fr;gap:18px;padding:clamp(20px,7%,54px);color:#f05a66}
+.exp-generated-title{align-self:end;position:relative;z-index:2;display:block;max-width:min(92%,30ch);color:#fff;font-size:clamp(17px,2.2vw,28px);font-weight:850;line-height:1.18;text-align:center;text-wrap:balance;overflow-wrap:anywhere}
+.exp-generated-preview-control .exp-media-play{align-self:start}
+.exp-media-poster:focus-visible{outline:3px solid #2dd4bf;outline-offset:-5px}
+.exp-media-shell.is-loading::after{content:"";position:absolute;inset:auto 0 0;height:3px;background:linear-gradient(90deg,transparent,#2dd4bf,transparent);animation:exp-media-loading 1s linear infinite}
+.exp-media-shell.is-loading>.exp-media-poster{z-index:2!important}
+.exp-media-shell.is-loading>iframe{z-index:1!important}
+@keyframes exp-media-loading{to{transform:translateX(100%)}}
+.exp-media-pending{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:18px;text-align:center;background:var(--gx-panel-2,rgba(148,163,184,.14));color:var(--gx-text,currentColor)}
+.exp-media-pending-sub{font-size:13px;opacity:.75}.exp-media-pending-ico{font-size:28px;color:#94a3b8}
+.faq-wrap,#faqWrap{overflow-anchor:none}
+.page-sistemas #carouselVideos .yt:has(.generated-preview)>.yt-title{display:none!important}
+.carousel[id^="carouselReels"] .carousel-track{height:auto!important;min-height:0!important;align-items:flex-start!important}
+.carousel[id^="carouselReels"] .carousel-slide{height:auto!important;min-height:0!important;align-items:flex-start!important}
+.carousel[id^="carouselReels"]>.arrowCircle{top:calc(50% - 24px)!important}
+
+/* R18_FINAL_POLISH_5_COMPLEMENTARY_SWIPE_OWNER */
+body.page-servicios .listSlider .listTrack{touch-action:pan-y!important;overscroll-behavior-x:contain!important}
+@media(prefers-reduced-motion:reduce){.exp-media-shell.is-loading::after{animation:none}}
+/* EXPIRITI_R17_PASS4_STATIC_MEDIA_GEOMETRY_OWNER_END */
+
+/* EXPIRITI_R17_FINAL_COURSE_INFO_BOTTOM_PAINT_OWNER_START */
+body.page-servicios .exp-course-info-badge{
+  box-shadow:inset 0 -1px 0 #22c55e!important;
+}
+body.page-servicios .exp-course-info-badge:hover,
+body.page-servicios .exp-course-info-badge:focus-visible{
+  box-shadow:0 0 0 4px rgba(16,185,129,.10),inset 0 -1px 0 #22c55e!important;
+}
+/* EXPIRITI_R17_FINAL_COURSE_INFO_BOTTOM_PAINT_OWNER_END */
+
+/* EXPIRITI_R17_FINAL_MIGRACIONES_CHECKS_OWNER_START */
+body.page-servicios.page-migraciones .imp-list{list-style:none!important;margin-left:0!important;padding-left:0!important}
+body.page-servicios.page-migraciones .imp-list li{position:relative;padding-left:24px}
+body.page-servicios.page-migraciones .imp-list li::before{content:"✓";position:absolute;left:0;top:0;color:#149997;font-weight:950}
+html[data-theme="dark"] body.page-servicios.page-migraciones .imp-list li::before{color:#5eead4}
+/* EXPIRITI_R17_FINAL_MIGRACIONES_CHECKS_OWNER_END */
+
+/* R18_HUMAN_SMOKE_SERVICE_REEL_POSTER_OWNER
+   Service oar2 posters carry thin edge bands. Fill only the idle poster;
+   iframe playback keeps the shared 9:16 geometry and is never transformed. */
+body.page-servicios .reel-embed.exp-media-shell--reel{border-radius:inherit;overflow:hidden!important}
+body.page-servicios .reel-embed.exp-media-shell--reel>.exp-service-reel-poster{background:transparent!important}
+body.page-servicios .reel-embed.exp-media-shell--reel>.exp-media-poster>img.exp-media-thumbnail{
+  object-fit:cover!important;object-position:center!important;background:transparent!important;
+  transform:scale(1.04)!important;transform-origin:center!important;
+}
+
+/* R18_HUMAN_SMOKE_COURSES_AND_ODD_GRIDS_OWNER */
+@media(max-width:640px){
+  html body.page-servicios .exp-t19-service-hero-line>.exp-t19-microbenefits{display:none!important;visibility:hidden!important;overflow:hidden!important;margin:0!important;padding:0!important;height:0!important;min-height:0!important}
+  html body.page-servicios .exp-t19-service-hero-line>.exp-t19-microbenefits>*{display:none!important}
+  body.page-servicios .exp-t19-service-hero-line{display:block!important;row-gap:0!important}
+}
+body.page-servicios :is(#cursosGrid,#serverUseGrid){display:grid!important;grid-template-columns:repeat(6,minmax(0,1fr))!important;gap:18px!important}
+body.page-servicios :is(#cursosGrid,#serverUseGrid)>.fcard{grid-column:span 2;min-width:0;width:auto!important;max-width:none!important}
+body.page-servicios :is(#cursosGrid,#serverUseGrid)>.fcard.exp-tail-one{grid-column:3/span 2}
+body.page-servicios :is(#cursosGrid,#serverUseGrid)>.fcard.exp-tail-two-first{grid-column:2/span 2}
+body.page-servicios :is(#cursosGrid,#serverUseGrid)>.fcard.exp-tail-two-last{grid-column:4/span 2}
+@media(max-width:980px) and (min-width:641px){
+  body.page-servicios :is(#cursosGrid,#serverUseGrid){grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:12px!important}
+  body.page-servicios :is(#cursosGrid,#serverUseGrid)>.fcard{grid-column:span 2!important}
+  body.page-servicios :is(#cursosGrid,#serverUseGrid)>.fcard.exp-tail-one{grid-column:2/span 2!important}
+  body.page-servicios #serverUseGrid>.fcard:last-child:nth-child(odd){grid-column:2/span 2!important}
+  body.page-servicios :is(#cursosGrid,#serverUseGrid)>.fcard:is(.exp-tail-two-first,.exp-tail-two-last){grid-column:span 2!important}
+}
+@media(max-width:640px){
+  body.page-servicios :is(#cursosGrid,#serverUseGrid){grid-template-columns:minmax(0,1fr)!important;gap:12px!important;justify-items:center}
+  body.page-servicios :is(#cursosGrid,#serverUseGrid)>.fcard{grid-column:1!important;width:100%!important;max-width:100%!important}
+}
+
+/* R19 targeted resmoke final cascade owner. */
+@media(max-width:980px){body.page-servicios #servicios-complementarios :is(.svc-panel,.svc-list,.svc-grid,.listTrack){overflow-x:auto!important;overflow-y:hidden!important;scroll-snap-type:x mandatory!important;-webkit-overflow-scrolling:touch!important;touch-action:pan-y!important;overscroll-behavior-x:contain!important}body.page-servicios #servicios-complementarios :is(.svc-link,.exp-svc-mobile-page){scroll-snap-align:start!important;scroll-snap-stop:always!important}}
+body.page-servicios :is(.svc-inline-token,.sys-icon,.interest-system){background:transparent!important;box-shadow:none!important}
+body.page-servicios :is(.svc-inline-token,.sys-icon,.interest-system) img{width:auto!important;height:56px!important;max-width:180px!important;object-fit:contain!important;background:transparent!important;border:0!important;box-shadow:none!important}
+@media(max-width:640px){body.page-servicios :is(.svc-inline-token,.sys-icon,.interest-system) img{height:50px!important;max-width:150px!important}}
+body.page-soluciones .lp-panel--nose,html[data-theme="dark"] body.page-soluciones .lp-panel--nose{background:transparent!important;border-color:rgba(100,116,139,.22)!important;box-shadow:none!important}
+body.page-soluciones .lp-panel--nose>.lp-cta-row .qa-btn,html[data-theme="dark"] body.page-soluciones .lp-panel--nose>.lp-cta-row :is(.qa-wa,.qa-tel){background:transparent!important;color:var(--gx-text,#f8fafc)!important;border:1px solid rgba(45,212,191,.52)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.08)!important}
+body.page-soluciones .lp-panel--nose>.lp-cta-row .qa-btn:is(:hover,:focus-visible){box-shadow:0 0 0 3px rgba(45,212,191,.14),0 9px 22px rgba(15,118,110,.12)!important}
+@media(min-width:821px){body.page-soluciones .lp-panel--nose>.lp-cta-row .qa-btn{min-width:190px!important;padding-inline:30px!important}}
