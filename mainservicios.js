@@ -3214,3 +3214,201 @@ function ensureModalStyles(){if($("#svcModalStyles"))return;const s=D.createElem
 (()=>{const boot=()=>{const grids=[...document.querySelectorAll('#cursosGrid,#serverUseGrid')];if(!grids.length)return;const sync=grid=>{const all=[...grid.querySelectorAll(':scope>.fcard')];all.forEach(c=>c.classList.remove('exp-tail-one','exp-tail-two-first','exp-tail-two-last'));const visible=all.filter(c=>getComputedStyle(c).display!=='none'),columns=innerWidth<=640?1:innerWidth<=980?2:3,rem=visible.length%columns;if(columns>1&&rem===1)visible.at(-1)?.classList.add('exp-tail-one');else if(columns===3&&rem===2){visible.at(-2)?.classList.add('exp-tail-two-first');visible.at(-1)?.classList.add('exp-tail-two-last')}};grids.forEach(grid=>{sync(grid);new MutationObserver(()=>sync(grid)).observe(grid,{subtree:true,attributes:true,attributeFilter:['style','hidden']})});setTimeout(()=>grids.forEach(sync),120);let raf=0;addEventListener('resize',()=>{cancelAnimationFrame(raf);raf=requestAnimationFrame(()=>grids.forEach(sync))},{passive:true});document.addEventListener('click',e=>{if(e.target.closest('.pillbar,.pill'))requestAnimationFrame(()=>grids.forEach(sync))})};document.readyState==='loading'?document.addEventListener('DOMContentLoaded',boot,{once:true}):boot()})();
 /* R18_EXTERNAL_REVIEW_FOOTER_OBSERVER_OWNER */
 (()=>{if(window.__EXP_SERVICE_FOOTER_OBSERVER__)return;window.__EXP_SERVICE_FOOTER_OBSERVER__=1;let observer=null;const bind=()=>{const footer=document.getElementById("gf-root"),toc=document.getElementById("toc");if(!footer||!toc||footer.dataset.observerBound==="1")return false;footer.dataset.observerBound="1";const set=hidden=>{document.body.classList.toggle("gf-footer-in-view",hidden);toc.style.opacity=hidden?"0":"";toc.style.visibility=hidden?"hidden":"";toc.style.pointerEvents=hidden?"none":"";toc.setAttribute("aria-hidden",hidden?"true":"false")};observer=new IntersectionObserver(entries=>set(entries.some(entry=>entry.isIntersecting)),{threshold:0});observer.observe(footer);return true};if(!bind()){const mo=new MutationObserver(()=>{if(bind())mo.disconnect()});mo.observe(document.documentElement,{childList:true,subtree:true})}})();
+
+/* __EXP_GH_PROJECT_RUNTIME_V2__
+   Preview compatibility only.
+   Production behaviour remains unchanged.
+*/
+(()=>{
+  if(window.__EXP_GH_PROJECT_RUNTIME_V2__)return;
+  window.__EXP_GH_PROJECT_RUNTIME_V2__=1;
+
+  const D=document;
+  const W=window;
+
+  const isGh=
+    (location.hostname||"").toLowerCase().endsWith("github.io");
+
+  if(!isGh)return;
+
+  const seg=
+    (location.pathname.split("/")[1]||"").trim();
+
+  const repoBase=
+    seg ? "/"+seg : "";
+
+  const external=p=>
+    /^(https?:)?\/\//i.test(p) ||
+    /^(mailto:|tel:|data:|blob:|javascript:|sms:)/i.test(p) ||
+    p.startsWith("#");
+
+  const path=raw=>{
+    if(raw==null)return raw;
+
+    let p=String(raw).trim();
+
+    if(!p || external(p))return p;
+
+    /* Heal an already doubled project prefix. */
+    if(repoBase){
+      const doubled=repoBase+repoBase+"/";
+
+      while(p.startsWith(doubled))
+        p=p.slice(repoBase.length);
+
+      if(
+        p===repoBase ||
+        p.startsWith(repoBase+"/")
+      ) return p;
+    }
+
+    if(p.startsWith("/"))
+      return repoBase+p;
+
+    p=p.replace(/^(\.\/)+/,"");
+    p=p.replace(/^(\.\.\/)+/,"");
+
+    return repoBase+"/"+p;
+  };
+
+  /* Override the root-only resolver for GitHub only. */
+  window.__EXP_ABS__=path;
+
+  const fixSrcset=value=>{
+    if(!value)return value;
+
+    return value
+      .split(",")
+      .map(item=>{
+        const x=item.trim();
+        if(!x)return x;
+
+        const m=x.match(/^(\S+)(.*)$/);
+
+        return m
+          ? path(m[1])+m[2]
+          : x;
+      })
+      .join(", ");
+  };
+
+  const hydrate=root=>{
+    root=root||D;
+
+    const nodes=[];
+
+    if(root.nodeType===1)
+      nodes.push(root);
+
+    if(root.querySelectorAll)
+      nodes.push(...root.querySelectorAll(
+        "a[href],img[src],img[data-src],img[srcset],"+
+        "source[src],source[srcset]"
+      ));
+
+    for(const el of nodes){
+
+      if(el.tagName==="A"){
+        const h=el.getAttribute("href");
+
+        if(
+          h &&
+          !external(h) &&
+          (
+            h.startsWith("/") ||
+            h.startsWith("./") ||
+            h.startsWith("../")
+          )
+        ){
+          const fixed=path(h);
+
+          if(h!==fixed)
+            el.setAttribute("href",fixed);
+        }
+      }
+
+      if(el.tagName==="IMG" || el.tagName==="SOURCE"){
+
+        const dataSrc=el.getAttribute("data-src");
+
+        if(dataSrc){
+          const fixed=path(dataSrc);
+
+          if(el.getAttribute("src")!==fixed)
+            el.setAttribute("src",fixed);
+        }
+
+        const src=el.getAttribute("src");
+
+        if(
+          src &&
+          !external(src) &&
+          (
+            src.startsWith("/") ||
+            src.startsWith("./") ||
+            src.startsWith("../")
+          )
+        ){
+          const fixed=path(src);
+
+          if(src!==fixed)
+            el.setAttribute("src",fixed);
+        }
+
+        const srcset=el.getAttribute("srcset");
+
+        if(srcset){
+          const fixed=fixSrcset(srcset);
+
+          if(srcset!==fixed)
+            el.setAttribute("srcset",fixed);
+        }
+      }
+    }
+  };
+
+  const boot=()=>{
+    hydrate(D.documentElement);
+
+    const observer=
+      new MutationObserver(records=>{
+        for(const rec of records){
+          for(const node of rec.addedNodes){
+            if(node.nodeType===1)
+              hydrate(node);
+          }
+        }
+      });
+
+    observer.observe(
+      D.documentElement,
+      {
+        childList:true,
+        subtree:true
+      }
+    );
+
+    [80,250,600,1200,2500].forEach(
+      ms=>setTimeout(
+        ()=>hydrate(D.documentElement),
+        ms
+      )
+    );
+  };
+
+  if(D.readyState==="loading")
+    D.addEventListener(
+      "DOMContentLoaded",
+      boot,
+      {once:true}
+    );
+  else
+    boot();
+
+  W.addEventListener(
+    "pageshow",
+    ()=>hydrate(D.documentElement),
+    {passive:true}
+  );
+})();
+

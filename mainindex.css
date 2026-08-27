@@ -3116,3 +3116,39 @@ body.page-index #heroGalleryCarousel .carousel-track img{-webkit-user-drag:none!
   transform:scale(1.08)!important;transform-origin:center!important
 }
 /* __R19_OWNER_INDEX_HEADER_ADDENDUM_END__ */
+
+
+/* __R19_OWNER_OPTICAL_MICROFIX_20260826__ */
+
+body.page-index #heroGalleryGroups > .hero-group-tab{
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  line-height:1.1!important;
+}
+
+@media(min-width:721px){
+  body.page-index #contactForm .interest-cats,
+  .page-index #contacto .interest-cats{
+    justify-content:center!important;
+  }
+}
+
+@media(max-width:720px){
+  body.page-index #contactForm .interest-cats,
+  .page-index #contacto .interest-cats{
+    justify-content:flex-start!important;
+  }
+}
+
+.page-index #contacto .interest-system
+  img[data-r19-logo^="contabilidad-"],
+.page-index #contacto .interest-system
+  img[data-r19-logo^="xml-"],
+.page-index #contacto .interest-system
+  img[data-r19-logo^="contabilidad-nube-"],
+.page-index #contacto .interest-system
+  img[data-r19-logo^="nominas-nube-"]{
+  transform:scale(1.22)!important;
+}
+
