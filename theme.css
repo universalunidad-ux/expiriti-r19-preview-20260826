@@ -316,13 +316,13 @@ footer .map-card img,footer .gf-map img,footer img[src*="mexico"],footer img[src
 footer h2,footer h3,footer h4{margin-top:0!important;margin-bottom:16px!important;line-height:1.12!important}
 footer p,footer li{line-height:1.35!important}
 @media(min-width:981px){footer .footer-grid,footer .gf-grid,footer [class*="footer-grid"]{gap:22px!important}}
-@media(max-width:720px){body.page-sistemas main.hero h1 img[src*="/IMG/factura.webp"],body.page-sistemas main.hero h1 img[src*="factura.webp"]{width:min(330px,86vw)!important;padding:14px 18px!important;border-radius:18px!important}}
+@media(max-width:720px){body.page-sistemas main.hero h1 img[src*="/expiriti-r19-preview-20260826/IMG/factura.webp"],body.page-sistemas main.hero h1 img[src*="factura.webp"]{width:min(330px,86vw)!important;padding:14px 18px!important;border-radius:18px!important}}
 
 /* EXPIRITI FACTURA HERO + FOOTER SAFE FIX */
-body.page-sistemas main.hero h1 img[src*="/IMG/factura.webp"],body.page-sistemas main.hero h1 img[src*="factura.webp"]{background:linear-gradient(180deg,#f8e27a,#efc93d)!important;border:1px solid rgba(202,138,4,.28)!important;box-shadow:0 14px 30px rgba(234,179,8,.18)!important;border-radius:20px!important;padding:18px 24px!important;width:min(420px,70vw)!important;max-width:70vw!important;object-fit:contain!important}
+body.page-sistemas main.hero h1 img[src*="/expiriti-r19-preview-20260826/IMG/factura.webp"],body.page-sistemas main.hero h1 img[src*="factura.webp"]{background:linear-gradient(180deg,#f8e27a,#efc93d)!important;border:1px solid rgba(202,138,4,.28)!important;box-shadow:0 14px 30px rgba(234,179,8,.18)!important;border-radius:20px!important;padding:18px 24px!important;width:min(420px,70vw)!important;max-width:70vw!important;object-fit:contain!important}
 
 /* EXPIRITI FACTURA HERO + FOOTER SAFE FIX */
-body.page-sistemas main.hero h1 img[src*="/IMG/factura.webp"],body.page-sistemas main.hero h1 img[src*="factura.webp"]{background:linear-gradient(180deg,#f8e27a,#efc93d)!important;border:1px solid rgba(202,138,4,.28)!important;box-shadow:0 14px 30px rgba(234,179,8,.18)!important;border-radius:20px!important;padding:18px 24px!important;width:min(420px,70vw)!important;max-width:70vw!important;object-fit:contain!important}
+body.page-sistemas main.hero h1 img[src*="/expiriti-r19-preview-20260826/IMG/factura.webp"],body.page-sistemas main.hero h1 img[src*="factura.webp"]{background:linear-gradient(180deg,#f8e27a,#efc93d)!important;border:1px solid rgba(202,138,4,.28)!important;box-shadow:0 14px 30px rgba(234,179,8,.18)!important;border-radius:20px!important;padding:18px 24px!important;width:min(420px,70vw)!important;max-width:70vw!important;object-fit:contain!important}
 /* EXPIRITI FIX FINAL FACTURA HERO v2026.05.12-u2 */
 body.page-sistemas main.hero h1 img[src*="factura.webp"]{width:230px!important;max-width:60vw!important;height:auto!important;max-height:none!important;object-fit:contain!important;padding:14px!important;border-radius:20px!important;background:linear-gradient(180deg,#fde68a,#fbbf24)!important;border:2px solid #f59e0b!important;box-shadow:0 6px 14px rgba(2,6,23,.12)!important;filter:none!important;box-sizing:border-box!important}
 @media(max-width:640px){body.page-sistemas main.hero h1 img[src*="factura.webp"]{width:210px!important;max-width:72vw!important;height:auto!important;max-height:none!important}}

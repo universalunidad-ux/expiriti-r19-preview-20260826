@@ -5,7 +5,7 @@
 
   const css=document.createElement('link');
   css.rel='stylesheet';
-  css.href='/EXPIRITI_PAGE_NAV_RAIL.css';
+  css.href='/expiriti-r19-preview-20260826/EXPIRITI_PAGE_NAV_RAIL.css';
   css.dataset.expPageNavRailAsset='1';
   let cssReady=false;
   css.addEventListener('load',()=>{
@@ -253,7 +253,7 @@
       if(!toc) return;
       if(button.dataset.expT23MapNormalized!=='1'){
         button.dataset.expT23MapNormalized='1';
-        if(!button.querySelector('.exp-t23-site-map-icon')) button.insertAdjacentHTML('afterbegin','<img class="exp-t23-site-map-icon" src="/IMG/ubicacion.png" alt="" width="22" height="22">');
+        if(!button.querySelector('.exp-t23-site-map-icon')) button.insertAdjacentHTML('afterbegin','<img class="exp-t23-site-map-icon" src="/expiriti-r19-preview-20260826/IMG/ubicacion.png" alt="" width="22" height="22">');
         if(!button.querySelector('span')) button.insertAdjacentHTML('beforeend','<span>Mapa de sitio</span>');
       }
       if(document.body.classList.contains('page-servicios')&&toc.dataset.expT23MapEscapeBound!=='1'){
@@ -306,7 +306,7 @@
   };
   const normalizeSystemBackLink=()=>{
     if(!document.body.classList.contains('page-sistemas')) return;
-    document.querySelectorAll('main.container.hero > a.hint[href^="/index.html#productos-con"]').forEach(link=>{
+    document.querySelectorAll('main.container.hero > a.hint[href^="/expiriti-r19-preview-20260826/index.html#productos-con"]').forEach(link=>{
       if(link.textContent.trim()!=='← Volver a sistemas') link.textContent='← Volver a sistemas';
       const hero=link.parentElement;
       const logoLine=hero?.querySelector(':scope > .exp-t19-system-hero-line');

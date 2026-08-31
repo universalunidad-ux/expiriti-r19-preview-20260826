@@ -2639,7 +2639,7 @@ body.page-sistemas
 @media(max-width:767px){
   .page-sistemas main.container.hero{display:flex!important;flex-direction:column!important}
   .page-sistemas main.container.hero>.exp-t19-system-hero-line{order:-2;display:block!important;min-height:0!important;margin:0!important;gap:0!important}
-  .page-sistemas main.container.hero>a.hint[href^="/index.html#productos-con"]{order:-1;align-self:flex-start;margin:10px 0 14px!important}
+  .page-sistemas main.container.hero>a.hint[href^="/expiriti-r19-preview-20260826/index.html#productos-con"]{order:-1;align-self:flex-start;margin:10px 0 14px!important}
   .page-sistemas .exp-t19-system-hero-line>.exp-t19-hero-title{display:block!important;min-height:0!important;margin:0!important}
   .page-sistemas .exp-t19-system-hero-line>.exp-t19-hero-title img{display:block!important;height:auto!important;max-width:min(72vw,230px)!important;object-fit:contain!important}
   .page-sistemas .exp-t19-system-hero-line>.exp-t19-microbenefits{display:none!important}
