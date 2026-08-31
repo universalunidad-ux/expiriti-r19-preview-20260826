@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
-Disallow: /expiriti-r19-preview-20260826/PARTIALS/
+Disallow: /PARTIALS/
 Disallow: /api/
 
 Sitemap: https://nueva.expiriti.com.mx/sitemap.xml

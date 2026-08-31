@@ -648,6 +648,16 @@ html[data-theme="light"] .page-index #servicios .container.grid-2:before{backgro
 .page-index #servicios .cards-services>article[data-href*="SERVICIOS/soporte"],.page-index #servicios .cards-services.is-carousel .svc-page>article[data-href*="SERVICIOS/soporte"]{text-align:center!important}
 .page-index #servicios .cards-services>article[data-href*="SERVICIOS/soporte"] .svc-icon,.page-index #servicios .cards-services.is-carousel .svc-page>article[data-href*="SERVICIOS/soporte"] .svc-icon{display:block;margin:0 auto 10px!important}
 .page-index #servicios .cards-services>article[data-href*="SERVICIOS/soporte"] h3,.page-index #servicios .cards-services.is-carousel .svc-page>article[data-href*="SERVICIOS/soporte"] h3{margin-left:auto!important;margin-right:auto!important}
+.page-index #servicesCarousel .product-card .foot{position:absolute!important;right:16px!important;bottom:12px!important;left:auto!important;width:auto!important;text-align:right!important}/* R19_LAST4 #3: breathing inferior del CTA (antes bottom:0). Posicion/logica intactas. */
+.page-index #servicesCarousel .product-card .foot .chip{color:#2dd4bf!important;-webkit-text-fill-color:#2dd4bf!important;line-height:1!important}
+html[data-theme="light"] .page-index #servicesCarousel .product-card .foot .chip{color:#0f8f83!important;-webkit-text-fill-color:#0f8f83!important}
+.page-index #servicesCarousel .product-card[data-href*="SERVICIOS/soporte"] .foot{right:auto!important;left:50%!important;transform:translateX(-50%)!important;text-align:center!important}
+/* R19_LAST4 #3: Soporte tecnico full-width -> gap visible descripcion -> CTA centrado + breathing inferior. El foot es absoluto (bottom:12px); el padding-bottom reserva el espacio para separar la descripcion del CTA. */
+.page-index #servicesCarousel .product-card[data-href*="SERVICIOS/soporte"]{padding-bottom:38px!important}
+/* R19_CLOSURE C: cards NORMALES (no Soporte) reservan ZONA REAL de CTA. El .foot es absoluto (bottom:12px);
+   el padding-bottom garantiza que la descripcion (aunque envuelva: Migraciones/Desarrollos/Servidores/Cursos)
+   NUNCA quede pegada al CTA. gap desc->CTA ~14px + gap CTA->fondo ~12px. Sin rediseñar grid/card. Soporte intacto. */
+.page-index #servicesCarousel .product-card:not([data-href*="SERVICIOS/soporte"]){padding-bottom:42px!important}
 
 
 
@@ -1237,13 +1247,20 @@ body.page-index #contactForm label[for="interes"]{display:block!important;text-a
 body.page-index #contactForm .interest-ui{display:grid!important;justify-items:stretch!important;width:100%!important}
 body.page-index #contactForm .interest-switch{display:flex!important;justify-content:center!important;align-items:center!important;gap:12px!important;width:100%!important;margin:0 auto 14px!important}
 body.page-index #contactForm .interest-panel{width:100%!important;max-width:100%!important}
-body.page-index #contactForm .interest-services{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:16px 20px!important;width:min(620px,100%)!important;margin:0 auto!important}
+body.page-index #contactForm .interest-services{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:16px 18px!important;width:min(680px,100%)!important;margin:0 auto!important}
 body.page-index #contactForm .interest-service{min-width:0!important;width:100%!important;background:transparent!important;border-color:transparent!important;box-shadow:none!important}
 body.page-index #contactForm .interest-current{width:100%!important;max-width:100%!important;min-height:38px!important;margin:14px 0 14px!important;padding:8px 14px!important;text-align:left!important;border-radius:12px!important;font-size:12.5px!important;line-height:1.15!important;font-weight:500!important;box-shadow:none!important}
 body.page-index #contactForm textarea{width:100%!important;max-width:100%!important;min-height:170px!important;overflow:auto!important}
+body.page-index #contactForm .form-action-row{display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:space-between!important;gap:14px!important;width:100%!important;margin:6px 0 0!important}
+body.page-index #contactForm .form-action-row .form-action-note{margin:0!important;flex:1 1 auto!important;text-align:left!important;display:inline-flex!important;align-items:center!important;flex-wrap:wrap!important;gap:6px!important}
+body.page-index #contactForm .form-action-note .hint-ico{width:16px!important;height:16px!important;flex:0 0 16px!important;object-fit:contain!important;vertical-align:middle!important;color:currentColor!important;opacity:.9!important;display:inline-block!important}
+/* R19_MICROFIX4 D: altura del bloque de interés más estable entre breakpoints (evita saltos torpes al alternar Sistemas/Servicios) */
+body.page-index #contactForm .interest-panel{min-height:112px!important}
+body.page-index #contactForm .form-action-row>button[type="submit"]{flex:0 0 auto!important;margin:0!important;white-space:nowrap!important}
+@media(max-width:520px){body.page-index #contactForm .form-action-row{flex-direction:column!important;align-items:stretch!important;gap:10px!important}body.page-index #contactForm .form-action-row>button[type="submit"]{width:100%!important}body.page-index #contactForm .form-action-row .form-action-note{text-align:center!important}}
 @media(min-width:981px) and (max-width:1280px){body.page-index #contacto>.container.grid-2{width:min(90vw,1180px)!important;grid-template-columns:.82fr 1.18fr!important;gap:22px!important}}@media(min-width:981px) and (max-width:1023.98px){body.page-index #contactForm .contact-top-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important}body.page-index #contactForm .contact-field:nth-child(3){grid-column:1/3!important}}
 @media(max-width:980px){body.page-index #contacto>.container.grid-2{width:100%!important;grid-template-columns:1fr!important;gap:18px!important;padding-inline:max(12px,env(safe-area-inset-left,0px))!important}body.page-index #contactForm .contact-top-grid{grid-template-columns:1fr!important}body.page-index #contactForm .contact-field:nth-child(3){grid-column:auto!important}body.page-index #contactForm .interest-services{grid-template-columns:repeat(2,minmax(0,1fr))!important;width:100%!important}}
-@media(max-width:520px){body.page-index #contactForm .interest-services{grid-template-columns:1fr!important}}
+@media(max-width:520px){body.page-index #contactForm .interest-services{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px 12px!important}}
 
 /* EXPIRITI CONTACT MICROFIX ICONS+CATS v2026.05.12 */
 body.page-index #contactForm .contact-field-icon{position:relative!important;padding-top:28px!important}
@@ -2613,6 +2630,39 @@ body.promo-modal-open{overflow:hidden}
 .page-index .certification-presentation{display:flex!important;align-items:center;gap:8px;flex-wrap:wrap}
 .page-index .certification-presentation>img:first-of-type{width:auto;height:22px;max-width:124px;object-fit:contain}
 .page-index .certification-presentation>img:last-of-type{width:auto;height:36px;max-width:78px;object-fit:contain}
+/* R19_UI_FONT_MICROFIX: endorsement de certificación movido debajo de las 2 columnas, centrado, sin bullet */
+.page-index #sectores>.container.grid-2{align-items:start!important}
+.page-index .sector-endorsement-wrap{margin-top:14px;display:flex;justify-content:center}
+.page-index .certification-presentation.sector-endorsement{justify-content:center;text-align:center;margin:0 auto}
+/* R19_OWNER_FINAL2 C1: el título derecho (1 línea) baja un renglón para sentarse a la altura
+   de la 2ª línea del izquierdo ("aportamos más valor") => los <ul> de ambas columnas
+   arrancan a la misma Y. Sólo desktop (lado a lado); en móvil apilan y no aplica. */
+@media(min-width:641px){
+  .page-index #sectores h3.distributor-heading{padding-top:1.12em}
+  /* medición runtime: la lista derecha arrancaba ~12.66px demasiado arriba => se baja
+     para quedar fila-con-fila con la izquierda. Solo desktop; en móvil apilan y no aplica. */
+  .page-index #sectores h3.distributor-heading + ul.features{padding-top:12.66px}
+}
+/* R19_FINAL_OWNER_FIX_6 A: alinear el INICIO DEL TEXTO de cada <li> con el inicio del texto
+   del título de su columna (±2px). REEMPLAZA el override previo (padding-left:24px) — no se
+   agrega un tercer override. El texto del li arranca en x=0 (mismo eje que "Industrias donde")
+   y el bullet cuelga a la izquierda dentro del padding de la card (16px). Ambas columnas por igual.
+   Sin bajar font, sin <br>, sin revivir líneas inferiores. */
+.page-index #sectores ul.features{list-style:none!important;padding-left:0!important;margin-left:0!important}
+.page-index #sectores ul.features>li{position:relative;padding-left:0!important;text-indent:0}
+.page-index #sectores ul.features>li::before{content:"•";position:absolute;left:-.85em;top:0;color:currentColor;font-size:1em;line-height:inherit;pointer-events:none}
+/* R19_OWNER_FINAL2 C2: neutralizar TODA línea/borde/sombra inferior SOLO dentro de #sectores
+   (el owner real no era únicamente .card): divisor de sección propio + cards + hijos directos. */
+.page-index #sectores.section-full{border-top:0!important}
+.page-index #sectores .card,.page-index #sectores .card>*{border:0!important;box-shadow:none!important}
+/* owner REAL de la línea inferior: .card:before (theme.css) con box-shadow inset 0 -1px 0. Neutralizado SOLO en #sectores. */
+.page-index #sectores .card:before{box-shadow:none!important}
+/* R19_OWNER_FINAL2 C3: certificación centrada; texto y logos un poco más grandes; CONOCER redondeado */
+.page-index .certification-presentation.sector-endorsement{font-size:1.15em}
+.page-index .certification-presentation.sector-endorsement>img:first-of-type{height:26px;max-width:148px}
+.page-index .certification-presentation.sector-endorsement>img:last-of-type{height:44px;max-width:92px;border-radius:7px}
+/* R19_OWNER_FINAL E: glow teal MUY sutil SOLO en la card Póliza 360 (sin animación, sin cambio de tamaño) */
+.page-index .svc-poliza360{border-color:rgba(20,153,151,.30)!important;box-shadow:0 0 0 1px rgba(20,153,151,.30),0 10px 26px rgba(20,153,151,.16)!important}
 .page-index .promo-item{position:relative;overflow:hidden}
 .page-index .promo-item:after{content:"Clic para abrir";position:absolute;inset:0;display:grid;place-items:center;color:#fff;font-weight:800;letter-spacing:.015em;background:rgba(12,29,42,.34);backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);opacity:0;pointer-events:none;transition:opacity .18s ease}
 @media(hover:hover){.page-index .promo-item:hover:after{opacity:1}}
@@ -2835,7 +2885,8 @@ html[data-theme="light"] .page-index :is(#heroGalleryGroups .hero-group-tab,#her
 .page-index .cards-products{grid-auto-rows:1fr!important;align-items:stretch!important}
 .page-index .cards-products .product-card,.page-index .cards-products .product-card>.body{height:100%!important}
 .page-index .cards-products .product-card>.body{display:flex!important;flex-direction:column!important}
-.page-index .cards-products .product-card .foot{margin-top:auto!important}
+.page-index .cards-products .product-card .foot{margin-top:auto!important;display:flex!important;justify-content:flex-end!important}
+.page-index .cards-products .product-card .btn-vermas{min-height:0!important;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;background-image:none!important;box-shadow:none!important;color:rgb(var(--cta-teal))!important;-webkit-text-fill-color:rgb(var(--cta-teal))!important;text-decoration:none!important;font-weight:400!important}/* R19_CLOSURE B: peso EXPLICITO 400 = mismo del CTA Servicios (.chip computa 400). No 'inherit' (evita que un ancestro mobile lo vuelva bold). Desktop+mobile. Sin tocar posicion/color/layout. */
 .page-index .cards-products .logo-sistema{height:92px!important;object-fit:contain!important;object-position:center!important;background:transparent!important;border-color:rgba(100,116,139,.20)!important;box-shadow:none!important}
 .page-index .cards-products .logo-sistema[data-r19-logo^="contabilidad-"],
 .page-index .cards-products .logo-sistema[data-r19-logo^="xml-"],
@@ -3076,7 +3127,8 @@ body.page-index #heroGalleryGroups{
 }
 body.page-index #heroGalleryGroups::-webkit-scrollbar{display:none!important}
 body.page-index #heroGalleryGroups>.hero-group-tab{flex:0 0 auto!important;white-space:nowrap!important}
-body.page-index #heroGalleryCarousel .carousel-track{touch-action:pan-y!important}
+body.page-index #heroGalleryCarousel .carousel-track{touch-action:pan-y!important;scroll-behavior:auto!important}
+body.page-index #heroGalleryCarousel .carousel-slide{scroll-snap-stop:always}
 body.page-index #heroGalleryCarousel .carousel-track img{-webkit-user-drag:none!important;user-select:none!important}
 @media(min-width:700px) and (max-width:980px){
   body.page-index #heroGalleryGroups{justify-content:center!important}
@@ -3120,6 +3172,7 @@ body.page-index #heroGalleryCarousel .carousel-track img{-webkit-user-drag:none!
 
 /* __R19_OWNER_OPTICAL_MICROFIX_20260826__ */
 
+/* Hero Gallery category pills: actual vertical centering. */
 body.page-index #heroGalleryGroups > .hero-group-tab{
   display:inline-flex!important;
   align-items:center!important;
@@ -3127,13 +3180,14 @@ body.page-index #heroGalleryGroups > .hero-group-tab{
   line-height:1.1!important;
 }
 
+/* Contact categories: centered when the four pills fit.
+   Keep safe horizontal rail behaviour on narrow mobile. */
 @media(min-width:721px){
   body.page-index #contactForm .interest-cats,
   .page-index #contacto .interest-cats{
     justify-content:center!important;
   }
 }
-
 @media(max-width:720px){
   body.page-index #contactForm .interest-cats,
   .page-index #contacto .interest-cats{
@@ -3141,6 +3195,8 @@ body.page-index #heroGalleryGroups > .hero-group-tab{
   }
 }
 
+/* Owner optical normalization:
+   these four marks contain more internal whitespace. */
 .page-index #contacto .interest-system
   img[data-r19-logo^="contabilidad-"],
 .page-index #contacto .interest-system
@@ -3152,3 +3208,323 @@ body.page-index #heroGalleryGroups > .hero-group-tab{
   transform:scale(1.22)!important;
 }
 
+
+/* R19_GATE1_FORM_LOGO_OPTICAL_OWNER_20260827 */
+
+/* Contabilidad y XML: sólo necesitan compensación moderada. */
+.page-index #contacto .interest-system
+img[data-r19-logo^="contabilidad-hz"],
+.page-index #contacto .interest-system
+img[data-r19-logo^="xml-"]{
+  transform:scale(1.28)!important;
+}
+
+/* Cloud marks contienen mayor whitespace interno. */
+.page-index #contacto .interest-system
+img[data-r19-logo^="contabilidad-nube-"],
+.page-index #contacto .interest-system
+img[data-r19-logo^="nominas-nube-"]{
+  transform:scale(1.42)!important;
+}
+
+/* Discrete gesture surface: content never follows the pointer. */
+.page-index #heroGalleryCarousel .carousel-track{
+  cursor:default;
+}
+.page-index #heroGalleryCarousel .carousel-track img{
+  user-select:none!important;
+  -webkit-user-select:none!important;
+  -webkit-user-drag:none!important;
+}
+
+
+/* R19_GATE2_INDEX_OWNER_20260827 */
+
+/* Exact FORM assets are NSQ, not HZ. */
+body.page-index #contacto
+.interest-system{
+  overflow:visible!important;
+}
+
+body.page-index #contacto
+.interest-system
+img[data-r19-logo="contabilidad-nsq"]{
+  transform:scale(1.32)!important;
+  transform-origin:center!important;
+}
+
+body.page-index #contacto .interest-system img[data-r19-logo="xml-nsq"]{
+  transform:scale(1.52)!important; /* R19_GATE3 XML +~7% óptico (1.42->1.52) */
+  transform-origin:center!important;
+}
+
+body.page-index #contacto
+.interest-system
+img[data-r19-logo="contabilidad-nube-nsq"]{
+  transform:scale(2.05)!important; /* R19_GATE3 Contabilidad Nube +~16% óptico (1.76->2.05) */
+  transform-origin:center!important;
+}
+
+body.page-index #contacto .interest-system img[data-r19-logo="nominas-nube-nsq"]{
+  transform:scale(1.48)!important;
+  transform-origin:center!important;
+}
+
+/*
+ * Very narrow mobile:
+ * keep Services 2-column design but stop titles such as
+ * "Implementación" from being clipped.
+ */
+@media(max-width:380px){
+
+  body.page-index #servicesCarousel
+  .svc-page{
+    gap:8px!important;
+  }
+
+  body.page-index #servicesCarousel
+  .product-card{
+    min-width:0!important;
+    padding:11px 9px!important;
+  }
+
+  body.page-index #servicesCarousel
+  .product-card h3{
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:flex-start!important;
+    justify-content:flex-start!important;
+    gap:6px!important;
+
+    min-width:0!important;
+
+    font-size:15px!important;
+    line-height:1.12!important;
+
+    white-space:normal!important;
+    overflow:visible!important;
+    text-overflow:clip!important;
+  }
+
+  body.page-index #servicesCarousel
+  .product-card .svc-icon{
+    width:34px!important;
+    height:34px!important;
+    flex:0 0 34px!important;
+  }
+
+  body.page-index #servicesCarousel
+  .svc-desc{
+    font-size:13px!important;
+    line-height:1.42!important;
+  }
+}
+
+/* Gesture surfaces */
+body.page-index
+#heroGalleryCarousel .carousel-track,
+body.page-index
+.promo-modal-image-wrap{
+  cursor:default;
+  user-select:none!important;
+  -webkit-user-select:none!important;
+}
+
+/* Gate 3 root cause: this value must win before pointerdown. */
+body.page-index #heroGalleryCarousel .carousel-track{
+  touch-action:pan-y!important;
+}
+
+/* R19_GATE3_SECTORS_TITLE_BUMP2 — +~2px SOLO a los dos títulos de #sectores
+   ("Industrias donde aportamos más valor" y "¿Somos lo que necesitas?").
+   Specificity (0,1,4,2) supera las reglas previas de #sectores; no toca otros headings. */
+body.page-index #sectores .card:is(:first-child,:last-child)>h3.exp-heading-two-tone{
+  font-size:clamp(27px,7.6vw,32px)!important;
+}
+@media(min-width:641px) and (max-width:768px){
+  body.page-index #sectores .card:is(:first-child,:last-child)>h3.exp-heading-two-tone{font-size:30px!important}
+}
+/* R19_SMOKE2 C: en móvil el modal de promo se ajusta al viewport REALMENTE visible (svh) +
+   safe-area para que el CTA "Pedir promo" nunca quede cortado. El grid auto/1fr/auto mantiene
+   la imagen flexible (1fr) y la fila inferior (CTA) siempre visible. */
+@media(max-width:640px){
+  body.page-index .promo-modal-dialog{height:min(700px,calc(100dvh - 12px))!important;height:min(700px,calc(100svh - 12px))!important}
+  body.page-index .promo-modal-bottom{padding-bottom:calc(9px + env(safe-area-inset-bottom,0px))!important}
+}
+/* R19_CLOSURE addendum B: mobile — "Novedades de los sistemas" al MISMO borde izq que el copy del hero.
+   El offset extra era el padding-left del .hero-gallery-header (16px); el .card no tiene padding y el h1
+   va al borde del contenedor. Se elimina el offset anidado SOLO en mobile (no margen negativo). Desktop intacto. */
+@media(max-width:980px){body.page-index .hero-gallery-header{padding-left:0!important}}
+
+/* R19_D2_INDEX_SECTORS_POLISH — bounded owner for Industries / fit / certification only. */
+body.page-index #sectores.section-full{
+  padding-block:clamp(36px,5vw,64px)!important;
+  background:linear-gradient(180deg,transparent,color-mix(in srgb,var(--acc-green) 4%,transparent),transparent);
+}
+body.page-index #sectores>.container.grid-2{gap:clamp(16px,2.2vw,28px)!important}
+html[data-theme] body.page-index #sectores>.container.grid-2>.card{
+  padding:clamp(20px,2.4vw,28px)!important;
+  border:1px solid rgba(27,139,128,.18)!important;
+  border-radius:22px!important;
+  background:rgba(255,255,255,.72)!important;
+  box-shadow:0 12px 30px rgba(15,23,42,.07)!important;
+}
+html[data-theme="dark"] body.page-index #sectores>.container.grid-2>.card{background:rgba(15,23,42,.52)!important}
+body.page-index #sectores .card>*{border:0!important;box-shadow:none!important}
+body.page-index #sectores .card>h3.exp-heading-two-tone{margin-bottom:18px!important;line-height:1.13!important}
+body.page-index #sectores ul.features{display:grid;gap:10px;margin-block:0!important;line-height:1.48}
+body.page-index #sectores ul.features>li::before{color:var(--acc-green)!important;font-weight:900}
+body.page-index #sectores .sector-endorsement-wrap{margin-top:clamp(20px,3vw,34px)!important}
+body.page-index #sectores .certification-presentation.sector-endorsement{
+  display:grid!important;
+  grid-template-columns:repeat(4,auto);
+  align-items:center;
+  justify-content:center!important;
+  column-gap:10px;
+  row-gap:8px;
+  width:fit-content;
+  max-width:100%;
+  padding:14px 22px;
+  border:1px solid color-mix(in srgb,var(--acc-green) 15%,var(--gx-stroke));
+  border-radius:18px;
+  background:color-mix(in srgb,var(--panel) 96%,transparent);
+  box-shadow:0 10px 26px rgba(15,23,42,.07);
+}
+@media(max-width:640px){
+  body.page-index #sectores>.container.grid-2{gap:14px!important}
+  body.page-index #sectores .card{padding:20px!important}
+  body.page-index #sectores h3.distributor-heading{padding-top:0!important}
+  body.page-index #sectores h3.distributor-heading+ul.features{padding-top:0!important}
+  body.page-index #sectores .certification-presentation.sector-endorsement{
+    grid-template-columns:auto auto;
+    padding:14px 16px;
+  }
+}
+
+/* ===== R19 D3 OWNER VISUAL: #sectores + endorsement (Industrias / ¿Somos? / Personal certificado) ===== */
+/* Reutiliza el lenguaje del sitio (tokens --acc-green / --surface / --section-divider); presentación
+   más intencional sin convertir cada viñeta en una card gigante. */
+body.page-index #sectores>.container.grid-2{align-items:stretch!important;gap:clamp(16px,2vw,24px)!important}
+body.page-index #sectores .card{
+  border:1px solid rgba(27,139,128,.20)!important;
+  background:var(--surface,#fff)!important;
+  border-radius:22px!important;
+  box-shadow:0 12px 30px rgba(15,23,42,.07)!important;
+  padding:clamp(20px,2.4vw,28px)!important;
+  height:100%;
+}
+html[data-theme="dark"] body.page-index #sectores .card{
+  background:var(--card,#111723)!important;
+  border-color:rgba(45,212,191,.22)!important;
+  box-shadow:0 16px 36px rgba(0,0,0,.28)!important;
+}
+body.page-index #sectores .card h3{margin:0 0 4px!important}
+body.page-index #sectores ul.features{display:grid!important;gap:0!important;margin:12px 0 0!important;padding:0!important}
+body.page-index #sectores ul.features>li{
+  list-style:none!important;
+  position:relative!important;
+  padding:12px 4px 12px 38px!important;
+  text-indent:0!important;
+  line-height:1.42;
+  font-weight:600;
+  border-bottom:1px solid var(--section-divider,rgba(2,6,23,.08))!important;
+}
+body.page-index #sectores ul.features>li:last-child{border-bottom:0!important}
+body.page-index #sectores ul.features>li::before{
+  content:"✓"!important;
+  position:absolute!important;
+  left:0!important;
+  top:50%!important;
+  transform:translateY(-50%)!important;
+  width:24px;height:24px;
+  display:grid;place-items:center;
+  border-radius:999px;
+  background:var(--acc-green,#1B8B80)!important;
+  color:#fff!important;
+  font-size:12px;font-weight:900;line-height:1;
+  box-shadow:0 4px 10px rgba(27,139,128,.28);
+}
+
+/* Personal certificado y avalado — composición balanceada, contenida, no hero */
+body.page-index #sectores .sector-endorsement-wrap{margin-top:clamp(20px,3vw,32px)!important;display:flex;justify-content:center}
+body.page-index #sectores .cert-endorse{
+  width:fit-content;max-width:100%;
+  display:flex;flex-direction:column;align-items:center;gap:14px;
+  padding:18px clamp(20px,3vw,32px);
+  border:1px solid rgba(27,139,128,.20);
+  border-radius:20px;
+  background:color-mix(in srgb,var(--surface,#fff) 96%,var(--acc-green) 4%);
+  box-shadow:0 12px 30px rgba(15,23,42,.07);
+}
+html[data-theme="dark"] body.page-index #sectores .cert-endorse{
+  background:color-mix(in srgb,var(--card,#111723) 90%,var(--acc-green) 10%);
+  border-color:rgba(45,212,191,.22);
+  box-shadow:0 16px 36px rgba(0,0,0,.28);
+}
+body.page-index #sectores .cert-endorse-title{
+  margin:0;text-align:center;
+  font-weight:700;font-size:clamp(15px,1.6vw,18px);
+  line-height:1.35;letter-spacing:0;text-transform:none;
+  color:var(--text,#172033);
+}
+body.page-index #sectores .cert-endorse-badges{
+  display:flex;align-items:center;justify-content:center;
+  gap:clamp(16px,3vw,30px);flex-wrap:wrap;
+}
+body.page-index #sectores .cert-endorse-badge{
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+}
+body.page-index #sectores .cert-endorse-badge small{
+  font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
+  color:var(--muted,#64748b);
+}
+body.page-index #sectores .cert-endorse-badge img{width:auto;object-fit:contain;display:block}
+body.page-index #sectores .cert-endorse-badge:first-of-type img{height:38px;max-width:190px}
+body.page-index #sectores .cert-endorse-badge:last-of-type img{height:56px;max-width:120px}
+body.page-index #sectores .cert-endorse-div{
+  width:1px;align-self:stretch;min-height:52px;
+  background:var(--section-divider,rgba(2,6,23,.10));
+}
+@media(max-width:520px){
+  body.page-index #sectores .cert-endorse-badges{gap:6px 18px}
+  body.page-index #sectores .cert-endorse-div{display:none}
+}
+/* ===== fin R19 D3 OWNER VISUAL #sectores ===== */
+
+/* R19 D3.2: hero estable con un único cambio de opacidad; sin viaje lateral ni escala. */
+body.page-index #heroGalleryCarousel .carousel-track{
+  position:relative!important;
+  display:block!important;
+  overflow:hidden!important;
+  scroll-behavior:auto!important;
+  scroll-snap-type:none!important;
+}
+body.page-index #heroGalleryCarousel .carousel-slide.hero-slide{
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  min-width:0!important;
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transform:none!important;
+  transition:opacity 300ms ease-in-out,visibility 0s linear 300ms!important;
+  z-index:0;
+}
+body.page-index #heroGalleryCarousel .carousel-slide.hero-slide.is-active{
+  opacity:1;
+  visibility:visible;
+  pointer-events:auto;
+  transition:opacity 300ms ease-in-out,visibility 0s linear 0s!important;
+  z-index:1;
+}
+body.page-index #heroGalleryCarousel .hero-slide img{
+  transform:none!important;
+  transition:none!important;
+}
+@media(prefers-reduced-motion:reduce){
+  body.page-index #heroGalleryCarousel .carousel-slide.hero-slide{
+    transition:none!important;
+  }
+}

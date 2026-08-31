@@ -1,4 +1,3 @@
-/* GH_PROJECT_PATH_IDEMPOTENCE_FIX_20260826 */
  // main.js (al inicio)
 if (/[?&]freeze=1\b/.test(location.search)) {
   document.body.classList.add('debug-freeze');
@@ -20,31 +19,14 @@ const D=document,W=window;
 const TRY=(name,fn)=>{try{fn()}catch(e){console.warn("[main.js] módulo falló:",name,e)}};
 
       /* 0) BASE PROD ROOT */
-TRY("base_prod",()=>{
-const isGh=location.hostname.endsWith("github.io"),
-seg=(location.pathname.split("/")[1]||"").trim(),
-repoBase=isGh&&seg?"/"+seg:"";
-const abs=p=>{
-  if(!p)return p;
-  if(/^https?:\/\//i.test(p)||/^(mailto:|tel:|data:|blob:|javascript:)/i.test(p))return p;
-  if(isGh&&repoBase&&(p===repoBase||p.startsWith(repoBase+"/")))return p;
-  if(p.startsWith("/"))return isGh?repoBase+p:p;
-  if(p.startsWith("../"))p=p.replace(/^(\.\.\/)+/,"");
-  else if(p.startsWith("./"))p=p.replace(/^\.\//,"");
-  return isGh?repoBase+"/"+p:"/"+p
-};
-W.__EXP_ABS__=abs;
-W.__EXP_BASE__=isGh?repoBase+"/":"/";
-const y=D.getElementById("gf-year")||D.getElementById("year");
-if(y)y.textContent=(new Date).getFullYear()
-});
+TRY("base_prod",()=>{const abs=p=>{if(!p)return p;if(/^https?:\/\//i.test(p)||/^(mailto:|tel:|data:|blob:|javascript:)/i.test(p))return p;if(p.startsWith("/"))return p;if(p.startsWith("../"))return"/"+p.replace(/^(\.\.\/)+/,"");if(p.startsWith("./"))return"/"+p.replace(/^\.\//,"");return"/"+p};W.__EXP_ABS__=abs;W.__EXP_BASE__="/";const y=D.getElementById("gf-year")||D.getElementById("year");if(y)y.textContent=(new Date).getFullYear()});
       
 
 /* =========================================================
  1.5) CATALOGO SISTEMAS (GLOBAL)
 ========================================================= */
 TRY("catalog_sistemas",()=>{const W=window;W.CATALOG_SISTEMAS=[{name:"CONTPAQi Contabilidad",img:"IMG/logos/contabilidad-nsq-160.webp",imgLogo:"IMG/logos/contabilidad-hz-384.webp"},{name:"CONTPAQi Bancos",img:"IMG/logos/bancos-nsq-160.webp",imgLogo:"IMG/logos/bancos-hz-384.webp"},{name:"CONTPAQi Nóminas",img:"IMG/logos/nominas-nsq-160.webp",imgLogo:"IMG/logos/nominas-hz-384.webp"},{name:"CONTPAQi XML en Línea",img:"IMG/logos/xml-nsq-160.webp",imgLogo:"IMG/logos/xml-hz-384.webp",noDiscount:!0},{name:"CONTPAQi Comercial START",img:"IMG/logos/comercial-start-nsq-160.webp",imgLogo:"IMG/logos/comercial-start-hz-384.webp"},{name:"CONTPAQi Comercial PRO",img:"IMG/logos/comercial-pro-nsq-160.webp",imgLogo:"IMG/logos/comercial-pro-hz-384.webp"},{name:"CONTPAQi Comercial PREMIUM",img:"IMG/logos/comercial-premium-nsq-160.webp",imgLogo:"IMG/logos/comercial-premium-hz-384.webp"},{name:"CONTPAQi Factura Electrónica",img:"IMG/logos/factura-nsq-160.webp",imgLogo:"IMG/logos/factura-hz-384.webp"}].map(x=>({...x,img:(W.__EXP_ABS__?W.__EXP_ABS__(x.img):x.img),imgLogo:(W.__EXP_ABS__?W.__EXP_ABS__(x.imgLogo):x.imgLogo)}))});
-TRY("r19_dynamic_logo_srcset",()=>{const apply=img=>{if(!img||img.srcset)return;const src=img.getAttribute("src")||"",m=src.match(/(?:^|\/)IMG\/logos\/(.+)-(nsq|hz)-(160|384)\.webp$/);if(!m)return;const name=m[1],kind=m[2];if(kind==="nsq"){img.srcset=`/expiriti-r19-preview-20260826/IMG/logos/${name}-nsq-160.webp 160w, /expiriti-r19-preview-20260826/IMG/logos/${name}-nsq-320.webp 320w`;img.sizes=img.closest(".sys-icon")?"90px":"92px";img.width=160;img.height=160}else{const dimensions={"anticipa":[384,124],"bancos":[384,96],"comercial-premium":[384,129],"comercial-pro":[384,120],"comercial-start":[384,131],"contabilidad":[384,111],"contabilidad-nube":[384,109],"evalua":[384,136],"factura":[384,104],"nominas":[384,86],"nominas-nube":[384,126],"optimiza":[384,112],"vende":[384,100],"xml":[384,131]},dim=dimensions[name]||[384,128],top=name==="comercial-start"?740:name==="comercial-pro"?738:768;img.srcset=`/expiriti-r19-preview-20260826/IMG/logos/${name}-hz-384.webp 384w, /expiriti-r19-preview-20260826/IMG/logos/${name}-hz-${top}.webp ${top}w`+(name==="nominas"?", /expiriti-r19-preview-20260826/IMG/logos/nominas-hz-1440.webp 1440w":"");img.sizes=img.classList.contains("calc-syslogo")?"260px":img.classList.contains("sum-logo")?"120px":"240px";img.width=dim[0];img.height=dim[1]}img.dataset.r19Logo="dynamic-"+kind};const scan=root=>(root.matches?.('img[src*="IMG/logos/"]')&&apply(root),root.querySelectorAll?.('img[src*="IMG/logos/"]').forEach(apply));scan(D);new MutationObserver(ms=>ms.forEach(m=>m.addedNodes.forEach(n=>n.nodeType===1&&scan(n)))).observe(D.documentElement,{childList:true,subtree:true})});
+TRY("r19_dynamic_logo_srcset",()=>{const apply=img=>{if(!img||img.srcset)return;const src=img.getAttribute("src")||"",m=src.match(/(?:^|\/)IMG\/logos\/(.+)-(nsq|hz)-(160|384)\.webp$/);if(!m)return;const name=m[1],kind=m[2];if(kind==="nsq"){img.srcset=`/IMG/logos/${name}-nsq-160.webp 160w, /IMG/logos/${name}-nsq-320.webp 320w`;img.sizes=img.closest(".sys-icon")?"90px":"92px";img.width=160;img.height=160}else{const dimensions={"anticipa":[384,124],"bancos":[384,96],"comercial-premium":[384,129],"comercial-pro":[384,120],"comercial-start":[384,131],"contabilidad":[384,111],"contabilidad-nube":[384,109],"evalua":[384,136],"factura":[384,104],"nominas":[384,86],"nominas-nube":[384,126],"optimiza":[384,112],"vende":[384,100],"xml":[384,131]},dim=dimensions[name]||[384,128],top=name==="comercial-start"?740:name==="comercial-pro"?738:768;img.srcset=`/IMG/logos/${name}-hz-384.webp 384w, /IMG/logos/${name}-hz-${top}.webp ${top}w`+(name==="nominas"?", /IMG/logos/nominas-hz-1440.webp 1440w":"");img.sizes=img.classList.contains("calc-syslogo")?"260px":img.classList.contains("sum-logo")?"120px":"240px";img.width=dim[0];img.height=dim[1]}img.dataset.r19Logo="dynamic-"+kind};const scan=root=>(root.matches?.('img[src*="IMG/logos/"]')&&apply(root),root.querySelectorAll?.('img[src*="IMG/logos/"]').forEach(apply));scan(D);new MutationObserver(ms=>ms.forEach(m=>m.addedNodes.forEach(n=>n.nodeType===1&&scan(n)))).observe(D.documentElement,{childList:true,subtree:true})});
 TRY("pricing_nube_json",()=>{const Q=(s,c=D)=>c.querySelector(s),money=n=>"$"+Number(n||0).toLocaleString("es-MX"),txt=v=>v===undefined||v===null?"—":String(v),isNube=()=>D.body&&D.body.getAttribute("data-calc")==="nube",PR=()=>W.preciosContpaqi||null,recommendedBySystem={"CONTPAQi Evalúa":"Equipos","CONTPAQi Contabiliza":"Equipos","CONTPAQi Personia":"Equipos","CONTPAQi Analiza":"Equipos","CONTPAQi Optimiza":"Equipos","CONTPAQi Anticipa":"Equipos","CONTPAQi Vende":"Equipos"},descBySystem={"CONTPAQi Evalúa":{Inicial:"Ideal para comenzar evaluación laboral",Equipos:"Para áreas o equipos medianos",Empresarial:"Para operación más amplia",Corporativo:"Máxima capacidad y cobertura"},"CONTPAQi Contabiliza":{Inicial:"Ideal para operación básica",Equipos:"Más capacidad para crecer",Empresarial:"Para empresas medianas",Corporativo:"Administración avanzada"},"CONTPAQi Personia":{Inicial:"Ideal para pequeñas empresas",Equipos:"Más capacidad para crecer",Empresarial:"Para empresas medianas",Corporativo:"Administración avanzada"},"CONTPAQi Analiza":{Trial:"Prueba 20 días",Inicial:"Para iniciar BI con CONTPAQi",Equipos:"Colaboración y más RFC",Empresarial:"Para operación multiárea",Corporativo:"Máxima capacidad"},"CONTPAQi Optimiza":{Demo:"Prueba 20 días",Inicial:"Control esencial de flujo",Equipos:"Visión estratégica PYME",Empresarial:"Mayor capacidad operativa",Corporativo:"Poder total e ilimitado"},"CONTPAQi Anticipa":{Demo:"Prueba 20 días",Inicial:"Protección inicial",Equipos:"Más RFC y colaboración",Empresarial:"Para operación multiárea",Corporativo:"Cobertura avanzada"},"CONTPAQi Vende":{LIGHT:"Entrada / operaciones básicas",Inicial:"Para facturar y cobrar sin complicarte",Equipos:"Para operar con 2 usuarios",Empresarial:"Operación multiusuario",Corporativo:"Máxima capacidad"}},recBadge=(sys,plan)=>recommendedBySystem[sys]===plan?`<span class="plan-rec">Recomendado</span>`:"",planLabel=(sys,plan)=>`<span class="plan-name">${plan}${recBadge(sys,plan)}${descBySystem[sys]&&descBySystem[sys][plan]?`<div class="plan-desc">${descBySystem[sys][plan]}</div>`:""}</span>`,row=(cells,cls="")=>`<tr${cls?` class="${cls}"`:""}>${cells.map(x=>`<td>${x}</td>`).join("")}</tr>`,noteText=html=>`<div class="pricing-table-note">${html}</div>`,wrapTable=(thead,tbody,tfoot="",after="",note="")=>`<div class="pricing-table-nube-wrap"><table class="pricing-table-nube" aria-describedby="calc">${thead}<tbody>${tbody}</tbody>${tfoot}</table></div>${after}${note}`,extrasBar=items=>items&&items.length?`<div class="pricing-nube-extras">${items.map(x=>`<div class="pricing-nube-extra"><div><span class="k">${x.k}</span>${x.v?`<span class="v">${x.v}</span>`:""}</div><span class="price">${x.p}</span></div>`).join("")}</div>`:"",NOTE="Precios en Moneda Nacional (MXN) + IVA, conforme a la lista de precios CONTPAQi 2026.",builders={"CONTPAQi Evalúa":p=>{const n=p.nube||{},o=["Inicial","Equipos","Empresarial","Corporativo"];let b="",extras=[];o.forEach(k=>{const x=n[k];if(!x)return;b+=row([planLabel("CONTPAQi Evalúa",k),txt(x.usuarios_incluidos==="multi"?"Multiusuario":x.usuarios_incluidos),`${txt(x.empleados_incluidos)} empleados`,`<span class="price">${money(x.precio_base)}</span>`],k==="Equipos"?"is-rec":"");x.empleado_adicional&&extras.push({k:`Empleado adicional ${k}`,v:"Costo por empleado",p:money(x.empleado_adicional)})});return wrapTable(`<thead><tr><th>Plan</th><th>Usuarios incluidos</th><th>Empleados incluidos</th><th style="text-align:right">Precio Base Anual</th></tr></thead>`,b,"",extrasBar(extras),noteText(NOTE))},"CONTPAQi Contabiliza":p=>{const n=p.nube||{},o=["Inicial","Equipos","Empresarial","Corporativo"];let b="",extras=[];o.forEach(k=>{const x=n[k];if(!x)return;b+=row([planLabel("CONTPAQi Contabiliza",k),`${txt(x.usuarios_incluidos)} Usuario${Number(x.usuarios_incluidos)===1?"":"s"}`,`<span class="price">${money(x.precio_base)}</span>`],k==="Equipos"?"is-rec":"")});n.usuario_adicional&&extras.push({k:"Usuario adicional",v:"Costo anual",p:money(n.usuario_adicional)});return wrapTable(`<thead><tr><th>Plan</th><th>Usuarios Incluidos</th><th style="text-align:right">Precio Base Anual</th></tr></thead>`,b,"",extrasBar(extras),noteText(NOTE))},"CONTPAQi Personia":p=>{const n=p.nube||{},o=["Inicial","Equipos","Empresarial","Corporativo"];let b="",extras=[];o.forEach(k=>{const x=n[k];if(!x)return;b+=row([planLabel("CONTPAQi Personia",k),txt(x.usuarios_incluidos==="multi"?"Multiusuario":x.usuarios_incluidos),`${txt(x.empleados_incluidos)} empleados`,`<span class="price">${money(x.precio_base)}</span>`],k==="Equipos"?"is-rec":"");x.empleado_adicional&&extras.push({k:`Empleado adicional ${k}`,v:"Costo por empleado",p:money(x.empleado_adicional)})});return wrapTable(`<thead><tr><th>Plan</th><th>Usuarios Incluidos</th><th>Empleados Incluidos</th><th style="text-align:right">Precio Base Anual</th></tr></thead>`,b,"",extrasBar(extras),noteText(NOTE))},"CONTPAQi Analiza":p=>{const n=p.nube||{},o=["Trial","Inicial","Equipos","Empresarial","Corporativo"];let b="",extras=[];o.forEach(k=>{const x=n[k];if(!x)return;b+=row([planLabel("CONTPAQi Analiza",k),txt(x.usuarios_incluidos),txt(x.rfc_incluidos),txt(x.carga_xml==="ilimitado"?"Ilimitado":x.carga_xml),`<span class="price">${money(x.precio_base)}</span>`],k==="Equipos"?"is-rec":"")});n.usuario_adicional&&extras.push({k:"Usuario adicional",v:"Costo anual",p:money(n.usuario_adicional)});n.rfc_adicional&&typeof n.rfc_adicional==="object"&&["Inicial","Equipos","Empresarial","Corporativo"].forEach(k=>{n.rfc_adicional[k]&&extras.push({k:`RFC adicional ${k}`,v:"Costo anual",p:money(n.rfc_adicional[k])})});return wrapTable(`<thead><tr><th>Plan</th><th>Usuarios</th><th>RFC incluidos</th><th>Carga XML</th><th style="text-align:right">Precio Base Anual</th></tr></thead>`,b,"",extrasBar(extras),noteText(NOTE))},"CONTPAQi Optimiza":p=>{const n=p.nube||{},o=["Demo","Inicial","Equipos","Empresarial","Corporativo"];let b="",extras=[];o.forEach(k=>{const x=n[k];if(!x)return;b+=row([planLabel("CONTPAQi Optimiza",k),txt(x.usuarios_incluidos),txt(x.rfc_incluidos),`${txt(x.almacenamiento_gb)} GB`,`<span class="price">${money(x.precio_base)}</span>`],k==="Equipos"?"is-rec":"")});n.usuario_adicional&&extras.push({k:"Usuario adicional",v:"Costo anual",p:money(n.usuario_adicional)});n.rfc_adicional&&extras.push({k:"RFC adicional",v:"Costo anual",p:money(n.rfc_adicional)});n.espacio_adicional&&typeof n.espacio_adicional==="object"&&Object.keys(n.espacio_adicional).forEach(k=>{extras.push({k:`Espacio adicional ${k}`,v:"Almacenamiento extra",p:money(n.espacio_adicional[k])})});return wrapTable(`<thead><tr><th>Plan</th><th>Usuarios</th><th>RFC incluidos</th><th>Almacenamiento</th><th style="text-align:right">Precio Base Anual</th></tr></thead>`,b,"",extrasBar(extras),noteText(NOTE))},"CONTPAQi Anticipa":p=>{const n=p.nube||{},o=["Demo","Inicial","Equipos","Empresarial","Corporativo"];let b="",extras=[];o.forEach(k=>{const x=n[k];if(!x)return;b+=row([planLabel("CONTPAQi Anticipa",k),txt(x.usuarios_incluidos),txt(x.rfc_incluidos),`<span class="price">${money(x.precio_base)}</span>`],k==="Equipos"?"is-rec":"")});n.usuario_adicional&&extras.push({k:"Usuario adicional",v:"Costo anual",p:money(n.usuario_adicional)});n.rfc_adicional&&typeof n.rfc_adicional==="object"&&["Inicial","Equipos","Empresarial","Corporativo"].forEach(k=>{n.rfc_adicional[k]&&extras.push({k:`RFC adicional ${k}`,v:"Costo anual",p:money(n.rfc_adicional[k])})});return wrapTable(`<thead><tr><th>Plan</th><th>Usuarios</th><th>RFC incluidos</th><th style="text-align:right">Precio Base Anual</th></tr></thead>`,b,"",extrasBar(extras),noteText(NOTE))},"CONTPAQi Vende":p=>{const n=p.nube||{},o=["LIGHT","Inicial","Equipos","Empresarial","Corporativo"];let b="",extras=[];o.forEach(k=>{const x=n[k];if(!x)return;const m={LIGHT:"Funciones esenciales",Inicial:"Para la mayoría de PyMEs",Equipos:"Mejor para equipos",Empresarial:"Para equipos con más volumen",Corporativo:"Operación avanzada"};b+=row([planLabel("CONTPAQi Vende",k),`${txt(x.usuarios_incluidos)} Usuario${Number(x.usuarios_incluidos)===1?"":"s"}`,m[k]||"—",`<span class="price">${money(x.precio_base)}</span>`],k==="Equipos"?"is-rec":"")});n.usuario_adicional&&extras.push({k:"Usuario adicional",v:"Licenciamiento anual",p:money(n.usuario_adicional)});n.addendas===!0&&extras.push({k:"Addendas",v:"Incluidas",p:"Sin costo"});n.complementos===!0&&extras.push({k:"Complementos",v:"Incluidos",p:"Sin costo"});return wrapTable(`<thead><tr><th>Plan</th><th>Usuarios Incluidos</th><th>Notas</th><th style="text-align:right">Precio Base Anual</th></tr></thead>`,b,"",extrasBar(extras),noteText(NOTE))}},render=()=>{if(!isNube())return;const a=Q("#app"),s=Q("#calculadora-section"),d=PR();if(!a||!s||!d)return;const sys=(a.dataset.system||"").trim();if(!sys)return;const product=d[sys],build=builders[sys];if(!product||!product.nube||typeof build!=="function")return;Q(".hint",s)?.remove();Q(".hint",Q(".card.body",s)||s)?.remove();const card=Q(".card.body",s);if(!card)return;const html=build(product);if(!html)return;const oldWrap=Q(".pricing-table-nube-wrap",card),oldExtras=Q(".pricing-nube-extras",card),oldNote=Q(".pricing-table-note",card),oldTable=Q(".pricing-table-nube",card);if(oldWrap){oldWrap.outerHTML=html;oldExtras&&oldExtras.remove();oldNote&&oldNote.remove()}else if(oldTable){oldTable.outerHTML=html;oldExtras&&oldExtras.remove();oldNote&&oldNote.remove()}else card.insertAdjacentHTML("afterbegin",html)};D.readyState==="loading"?D.addEventListener("DOMContentLoaded",render,{once:!0}):render();W.addEventListener("pageshow",render,{passive:!0})});TRY("pricing_nube_refine",()=>{const mark=()=>{D.querySelectorAll(".pricing-table-nube").forEach(t=>{const rows=[...t.querySelectorAll("tbody tr")];let cut=!1;rows.forEach(r=>{r.classList.remove("first-extra");if(r.classList.contains("row-soft")&&!cut){r.classList.add("first-extra");cut=!0}})})};D.readyState==="loading"?D.addEventListener("DOMContentLoaded",mark,{once:!0}):mark();W.addEventListener("pageshow",mark,{passive:!0})});
 
 /* =========================================================
@@ -373,10 +355,10 @@ TRY("toc",()=>{const e=D.getElementById("toc");if(!e)return;const t=D.getElement
 /* Axis-aware wheel for tables and horizontal system controls. */
 
 /* EXPIRITI PARTIALS FALLBACK SISTEMAS */
-(()=>{if(window.__EXP_PARTIALS_FALLBACK__)return;window.__EXP_PARTIALS_FALLBACK__=1;const isGh=location.hostname.endsWith("github.io"),seg=(location.pathname.split("/")[1]||"").trim(),repoBase=isGh&&seg?"/"+seg:"",parts=location.pathname.replace(/\/+$/,"").split("/").filter(Boolean),contentParts=isGh?parts.slice(1):parts,depth=contentParts.length>1?"../".repeat(contentParts.length-1):"./",prefix=p=>{if(!p)return p;if(/^(https?:)?\/\//i.test(p)||/^(mailto:|tel:|data:)/i.test(p)||p.startsWith("#"))return p;if(isGh&&repoBase&&(p===repoBase||p.startsWith(repoBase+"/")))return p;const base=isGh?repoBase+"/":depth;return(base+p).replace(/([^:]\/)\/+/g,"$1")},load=async(id,file)=>{const ph=document.getElementById(id);if(!ph)return;const urls=[prefix("PARTIALS/"+file),"/expiriti-r19-preview-20260826/PARTIALS/"+file].filter(Boolean);for(const u of urls){try{const r=await fetch(u+(u.includes("?")?"&":"?")+"v=ghassets-20260826T101020Z",{cache:"force-cache"});if(!r.ok)continue;const html=await r.text(),template=document.createElement("template");template.innerHTML=html;ph.replaceWith(template.content);return}catch(_){}}console.warn("[Expiriti] partial no cargó",file)},norm=()=>{document.querySelectorAll(".js-abs-src[data-src]").forEach(img=>{const raw=img.getAttribute("data-src")||"";if(raw){img.src=prefix(raw);img.style.opacity="1"}});document.querySelectorAll(".js-abs-href[data-href]").forEach(a=>{const raw=a.getAttribute("data-href")||"";if(raw)a.href=prefix(raw)});const y=document.getElementById("gf-year");if(y)y.textContent=new Date().getFullYear()};const boot=async()=>{await Promise.all([load("header-placeholder","global-header.html"),load("footer-placeholder","global-footer.html")]);norm()};document.readyState==="loading"?document.addEventListener("DOMContentLoaded",boot,{once:true}):boot()})();
+(()=>{if(window.__EXP_PARTIALS_FALLBACK__)return;window.__EXP_PARTIALS_FALLBACK__=1;const isGh=location.hostname.endsWith("github.io"),seg=(location.pathname.split("/")[1]||"").trim(),repoBase=isGh&&seg?"/"+seg:"",parts=location.pathname.replace(/\/+$/,"").split("/").filter(Boolean),contentParts=isGh?parts.slice(1):parts,depth=contentParts.length>1?"../".repeat(contentParts.length-1):"./",prefix=p=>{if(!p)return p;if(/^(https?:)?\/\//i.test(p)||/^(mailto:|tel:|data:)/i.test(p)||p.startsWith("#"))return p;const base=isGh?repoBase+"/":depth;return(base+p).replace(/([^:]\/)\/+/g,"$1")},load=async(id,file)=>{const ph=document.getElementById(id);if(!ph)return;const urls=[prefix("PARTIALS/"+file),"/PARTIALS/"+file].filter(Boolean);for(const u of urls){try{const r=await fetch(u+(u.includes("?")?"&":"?")+"v=2026.08-r19-human8",{cache:"force-cache"});if(!r.ok)continue;const html=await r.text(),template=document.createElement("template");template.innerHTML=html;ph.replaceWith(template.content);return}catch(_){}}console.warn("[Expiriti] partial no cargó",file)},norm=()=>{document.querySelectorAll(".js-abs-src[data-src]").forEach(img=>{const raw=img.getAttribute("data-src")||"";if(raw){img.src=prefix(raw);img.style.opacity="1"}});document.querySelectorAll(".js-abs-href[data-href]").forEach(a=>{const raw=a.getAttribute("data-href")||"";if(raw)a.href=prefix(raw)});const y=document.getElementById("gf-year");if(y)y.textContent=new Date().getFullYear()};const boot=async()=>{await Promise.all([load("header-placeholder","global-header.html"),load("footer-placeholder","global-footer.html")]);norm()};document.readyState==="loading"?document.addEventListener("DOMContentLoaded",boot,{once:true}):boot()})();
 
 /* EXPIRITI GLOBAL HEADER FINAL BIND */
-(()=>{if(window.__EXP_GH_FINAL_BIND__)return;window.__EXP_GH_FINAL_BIND__=1;const D=document,W=window,Q=(s,c=D)=>c.querySelector(s),QA=(s,c=D)=>[...c.querySelectorAll(s)],isGh=location.hostname.endsWith("github.io"),seg=(location.pathname.split("/")[1]||"").trim(),repoBase=isGh&&seg?"/"+seg:"",parts=location.pathname.replace(/\/+$/,"").split("/").filter(Boolean),contentParts=isGh?parts.slice(1):parts,depth=contentParts.length>1?"../".repeat(contentParts.length-1):"./",path=p=>{if(!p)return p;if(/^(https?:)?\/\//i.test(p)||/^(mailto:|tel:|data:)/i.test(p)||p.startsWith("#"))return p;if(isGh&&repoBase&&(p===repoBase||p.startsWith(repoBase+"/")))return p;if(p.startsWith("/"))return isGh?repoBase+p:p;return((isGh?repoBase+"/":depth)+p).replace(/([^:]\/)\/+/g,"$1")};function assets(root=D){QA(".js-img[data-src]",root).forEach(img=>{const raw=img.dataset.src;if(raw){img.src=path(raw);img.style.opacity="1"}});QA(".js-link[data-href]",root).forEach(a=>{const raw=a.dataset.href;if(raw)a.href=path(raw)});QA('a[href^="/"]',root).forEach(a=>a.href=path(a.getAttribute("href")));QA('img[src^="/"]',root).forEach(img=>img.src=path(img.getAttribute("src")));D.body.classList.add("has-gh");const y=Q("#gf-year");y&&(y.textContent=new Date().getFullYear())}function drawer(open){const h=Q("#gh-header"),dr=Q("#gh-drawer"),dim=Q("#gh-dim"),bg=Q("#gh-burger");if(!h||!dr||!dim||!bg)return;if(open){dr.hidden=false;dim.hidden=false;requestAnimationFrame(()=>{D.documentElement.classList.add("gh-open");D.body.classList.add("gh-open");dr.setAttribute("aria-hidden","false");bg.setAttribute("aria-expanded","true");D.body.style.overflow="hidden";assets(dr)})}else{D.documentElement.classList.remove("gh-open");D.body.classList.remove("gh-open");dr.setAttribute("aria-hidden","true");bg.setAttribute("aria-expanded","false");D.body.style.overflow="";setTimeout(()=>{if(!D.documentElement.classList.contains("gh-open")){dr.hidden=true;dim.hidden=true}},220)}}function mobileSystems(cat){const root=Q("#gh-msys"),track=Q("#gh-sysswipe");if(!root||!track)return;const order=["contables","comerciales","nube","prod"],i=Math.max(0,order.indexOf(cat));QA(".gh-cat",root).forEach(b=>{const on=(b.dataset.cat||"")===cat;b.classList.toggle("is-active",on);b.setAttribute("aria-selected",on?"true":"false")});track.scrollTo({left:i*(track.clientWidth||1),behavior:"smooth"});QA(".gh-sysdots .dot",root).forEach((d,k)=>d.classList.toggle("is-active",k===i))}function mobileServices(dir=1){const tr=Q("#gh-msvc .gh-svctrack");if(!tr)return;tr.scrollBy({left:dir*(tr.clientWidth||1),behavior:"smooth"})}function bind(){const h=Q("#gh-header");if(!h)return;assets(h);assets(D);if(!D.__ghFinalClicks){D.__ghFinalClicks=1;D.addEventListener("click",e=>{const b=e.target.closest("#gh-burger");if(b){e.preventDefault();e.stopImmediatePropagation();drawer(!D.documentElement.classList.contains("gh-open"));return}const c=e.target.closest("#gh-close,#gh-dim");if(c){e.preventDefault();e.stopImmediatePropagation();drawer(false);return}const t=e.target.closest("#gh-theme");if(t){e.preventDefault();e.stopImmediatePropagation();const cur=D.documentElement.getAttribute("data-theme")||localStorage.getItem("expiriti_theme")||"light",next=cur==="light"?"dark":"light";D.documentElement.setAttribute("data-theme",next);localStorage.setItem("expiriti_theme",next);t.setAttribute("aria-pressed",next==="dark"?"true":"false");return}/* EXPIRITI_R5_BURGER_CONTROLS_DELEGATED_TO_GH_CANON */const link=e.target.closest("a.js-link[data-href]");if(link){const raw=link.dataset.href,want=path(raw);link.href=want;e.preventDefault();e.stopImmediatePropagation();if(link.closest("#gh-drawer"))drawer(false);if(e.metaKey||e.ctrlKey||link.target==="_blank")W.open(want,"_blank","noopener");else location.href=want;return}},true);D.addEventListener("keydown",e=>{if(e.key==="Escape")drawer(false)},{passive:true})}if(!D.__ghFinalHover){D.__ghFinalHover=1;QA("#gh-header .gh-dd-wrap").forEach(w=>{let tm=0;const open=()=>{if(W.matchMedia("(max-width:1023px)").matches)return;clearTimeout(tm);QA("#gh-header .gh-dd-wrap").forEach(x=>x!==w&&x.classList.remove("gh-open"));w.classList.add("gh-open")},close=()=>{clearTimeout(tm);tm=setTimeout(()=>w.classList.remove("gh-open"),160)};w.addEventListener("mouseenter",open);w.addEventListener("mouseleave",close)})}}const boot=()=>{bind();setTimeout(bind,120);setTimeout(bind,450)};D.readyState==="loading"?D.addEventListener("DOMContentLoaded",boot,{once:true}):boot();W.addEventListener("pageshow",boot,{passive:true})})();
+(()=>{if(window.__EXP_GH_FINAL_BIND__)return;window.__EXP_GH_FINAL_BIND__=1;const D=document,W=window,Q=(s,c=D)=>c.querySelector(s),QA=(s,c=D)=>[...c.querySelectorAll(s)],isGh=location.hostname.endsWith("github.io"),seg=(location.pathname.split("/")[1]||"").trim(),repoBase=isGh&&seg?"/"+seg:"",parts=location.pathname.replace(/\/+$/,"").split("/").filter(Boolean),contentParts=isGh?parts.slice(1):parts,depth=contentParts.length>1?"../".repeat(contentParts.length-1):"./",path=p=>{if(!p)return p;if(/^(https?:)?\/\//i.test(p)||/^(mailto:|tel:|data:)/i.test(p)||p.startsWith("#"))return p;if(p.startsWith("/"))return isGh?repoBase+p:p;return((isGh?repoBase+"/":depth)+p).replace(/([^:]\/)\/+/g,"$1")};function assets(root=D){QA(".js-img[data-src]",root).forEach(img=>{const raw=img.dataset.src;if(raw){img.src=path(raw);img.style.opacity="1"}});QA(".js-link[data-href]",root).forEach(a=>{const raw=a.dataset.href;if(raw)a.href=path(raw)});QA('a[href^="/"]',root).forEach(a=>a.href=path(a.getAttribute("href")));QA('img[src^="/"]',root).forEach(img=>img.src=path(img.getAttribute("src")));D.body.classList.add("has-gh");const y=Q("#gf-year");y&&(y.textContent=new Date().getFullYear())}function drawer(open){const h=Q("#gh-header"),dr=Q("#gh-drawer"),dim=Q("#gh-dim"),bg=Q("#gh-burger");if(!h||!dr||!dim||!bg)return;if(open){dr.hidden=false;dim.hidden=false;requestAnimationFrame(()=>{D.documentElement.classList.add("gh-open");D.body.classList.add("gh-open");dr.setAttribute("aria-hidden","false");bg.setAttribute("aria-expanded","true");D.body.style.overflow="hidden";assets(dr)})}else{D.documentElement.classList.remove("gh-open");D.body.classList.remove("gh-open");dr.setAttribute("aria-hidden","true");bg.setAttribute("aria-expanded","false");D.body.style.overflow="";setTimeout(()=>{if(!D.documentElement.classList.contains("gh-open")){dr.hidden=true;dim.hidden=true}},220)}}function mobileSystems(cat){const root=Q("#gh-msys"),track=Q("#gh-sysswipe");if(!root||!track)return;const order=["contables","comerciales","nube","prod"],i=Math.max(0,order.indexOf(cat));QA(".gh-cat",root).forEach(b=>{const on=(b.dataset.cat||"")===cat;b.classList.toggle("is-active",on);b.setAttribute("aria-selected",on?"true":"false")});track.scrollTo({left:i*(track.clientWidth||1),behavior:"smooth"});QA(".gh-sysdots .dot",root).forEach((d,k)=>d.classList.toggle("is-active",k===i))}function mobileServices(dir=1){const tr=Q("#gh-msvc .gh-svctrack");if(!tr)return;tr.scrollBy({left:dir*(tr.clientWidth||1),behavior:"smooth"})}function bind(){const h=Q("#gh-header");if(!h)return;assets(h);assets(D);if(!D.__ghFinalClicks){D.__ghFinalClicks=1;D.addEventListener("click",e=>{const b=e.target.closest("#gh-burger");if(b){e.preventDefault();e.stopImmediatePropagation();drawer(!D.documentElement.classList.contains("gh-open"));return}const c=e.target.closest("#gh-close,#gh-dim");if(c){e.preventDefault();e.stopImmediatePropagation();drawer(false);return}const t=e.target.closest("#gh-theme");if(t){e.preventDefault();e.stopImmediatePropagation();const cur=D.documentElement.getAttribute("data-theme")||localStorage.getItem("expiriti_theme")||"light",next=cur==="light"?"dark":"light";D.documentElement.setAttribute("data-theme",next);localStorage.setItem("expiriti_theme",next);t.setAttribute("aria-pressed",next==="dark"?"true":"false");return}/* EXPIRITI_R5_BURGER_CONTROLS_DELEGATED_TO_GH_CANON */const link=e.target.closest("a.js-link[data-href]");if(link){const raw=link.dataset.href,want=path(raw);link.href=want;e.preventDefault();e.stopImmediatePropagation();if(link.closest("#gh-drawer"))drawer(false);if(e.metaKey||e.ctrlKey||link.target==="_blank")W.open(want,"_blank","noopener");else location.href=want;return}},true);D.addEventListener("keydown",e=>{if(e.key==="Escape")drawer(false)},{passive:true})}if(!D.__ghFinalHover){D.__ghFinalHover=1;QA("#gh-header .gh-dd-wrap").forEach(w=>{let tm=0;const open=()=>{if(W.matchMedia("(max-width:1023px)").matches)return;clearTimeout(tm);QA("#gh-header .gh-dd-wrap").forEach(x=>x!==w&&x.classList.remove("gh-open"));w.classList.add("gh-open")},close=()=>{clearTimeout(tm);tm=setTimeout(()=>w.classList.remove("gh-open"),160)};w.addEventListener("mouseenter",open);w.addEventListener("mouseleave",close)})}}const boot=()=>{bind();setTimeout(bind,120);setTimeout(bind,450)};D.readyState==="loading"?D.addEventListener("DOMContentLoaded",boot,{once:true}):boot();W.addEventListener("pageshow",boot,{passive:true})})();
 
 /* EXPIRITI_T16_SYSTEMS_UX_START */
 
@@ -530,7 +512,7 @@ TRY("toc",()=>{const e=D.getElementById("toc");if(!e)return;const t=D.getElement
           wa.innerHTML=
             '<span>Pedir ficha técnica</span>'
             +'<img '
-            +'src="/expiriti-r19-preview-20260826/IMG/whatsapp.svg" '
+            +'src="/IMG/whatsapp.svg" '
             +'class="exp-t16-wa-icon" '
             +'alt="" '
             +'aria-hidden="true">';
@@ -945,7 +927,7 @@ TRY("toc",()=>{const e=D.getElementById("toc");if(!e)return;const t=D.getElement
 /* EXPIRITI_T16_SYSTEM_PDF_CTA_R2_START */
 
 (()=>{
-  const sheets={"analiza":"/expiriti-r19-preview-20260826/PDFS/Ficha%20CONTPAQi%C2%AE%20Analiza.pdf","anticipa":"/expiriti-r19-preview-20260826/PDFS/FichaAnticipa.pdf","bancos":"/expiriti-r19-preview-20260826/PDFS/Ficha%20CONTPAQi%C2%AE%20Bancos.pdf","colabora":"/expiriti-r19-preview-20260826/PDFS/Ficha%20CONTPAQi%C2%AE%20Colabora.pdf","comercialpremium":"/expiriti-r19-preview-20260826/PDFS/Ficha%20CONTPAQi%C2%AE%20Comercial%20Premium.pdf","comercialpro":"/expiriti-r19-preview-20260826/PDFS/Ficha%20CONTPAQi%C2%AE%20Comercial%20PRO.pdf","comercialstart":"/expiriti-r19-preview-20260826/PDFS/Ficha%20CONTPAQi%C2%AE%20Comercial%20Start.pdf","contabilidad":"/expiriti-r19-preview-20260826/PDFS/Ficha%20CONTPAQi%C2%AE%20Contabilidad.pdf","contabiliza":"/expiriti-r19-preview-20260826/PDFS/Ficha%20CONTPAQi%C2%AE%20Contabiliza.pdf","evalua":"/expiriti-r19-preview-20260826/PDFS/Ficha%20CONTPAQi%C2%AE%20Evalua.pdf","facturaelectronica":"/expiriti-r19-preview-20260826/PDFS/Ficha%20CONTPAQi%C2%AE%20Factura%20Electro%CC%81nica.pdf","nominas":"/expiriti-r19-preview-20260826/PDFS/Ficha%20CONTPAQi%C2%AE%20No%CC%81minas.pdf","optimiza":"/expiriti-r19-preview-20260826/PDFS/FichaOptimiza.pdf","personia":"/expiriti-r19-preview-20260826/PDFS/Ficha%20CONTPAQi%C2%AE%20Personia.pdf","vende":"/expiriti-r19-preview-20260826/PDFS/Ficha%20CONTPAQi%C2%AE%20Vende.pdf","xmlenlinea":"/expiriti-r19-preview-20260826/PDFS/Ficha%20CONTPAQi%C2%AE%20XML.pdf"};
+  const sheets={"analiza":"/PDFS/Ficha%20CONTPAQi%C2%AE%20Analiza.pdf","anticipa":"/PDFS/FichaAnticipa.pdf","bancos":"/PDFS/Ficha%20CONTPAQi%C2%AE%20Bancos.pdf","colabora":"/PDFS/Ficha%20CONTPAQi%C2%AE%20Colabora.pdf","comercialpremium":"/PDFS/Ficha%20CONTPAQi%C2%AE%20Comercial%20Premium.pdf","comercialpro":"/PDFS/Ficha%20CONTPAQi%C2%AE%20Comercial%20PRO.pdf","comercialstart":"/PDFS/Ficha%20CONTPAQi%C2%AE%20Comercial%20Start.pdf","contabilidad":"/PDFS/Ficha%20CONTPAQi%C2%AE%20Contabilidad.pdf","contabiliza":"/PDFS/Ficha%20CONTPAQi%C2%AE%20Contabiliza.pdf","evalua":"/PDFS/Ficha%20CONTPAQi%20Evalua.pdf","facturaelectronica":"/PDFS/Ficha%20CONTPAQi%20Factura%20Electronica.pdf","nominas":"/PDFS/Ficha%20CONTPAQi%20Nominas.pdf","optimiza":"/PDFS/FichaOptimiza.pdf","personia":"/PDFS/Ficha%20CONTPAQi%C2%AE%20Personia.pdf","vende":"/PDFS/Ficha%20CONTPAQi%C2%AE%20Vende.pdf","xmlenlinea":"/PDFS/Ficha%20CONTPAQi%C2%AE%20XML.pdf"};
 
 
   const apply=()=>{
@@ -1655,7 +1637,7 @@ TRY("toc",()=>{const e=D.getElementById("toc");if(!e)return;const t=D.getElement
 
 /* EXPIRITI_T24_SYSTEM_LISTSLIDER_OWNER_END */
 /* EXPIRITI_PAGE_NAV_RAIL loader: T23 release candidate. */
-(()=>{if(!document.querySelector('script[data-exp-page-nav-rail-loader]')){const s=document.createElement('script');s.src='/expiriti-r19-preview-20260826/EXPIRITI_PAGE_NAV_RAIL.js';s.defer=true;s.dataset.expPageNavRailLoader='1';document.head.appendChild(s)}})();
+(()=>{if(!document.querySelector('script[data-exp-page-nav-rail-loader]')){const s=document.createElement('script');s.src='/EXPIRITI_PAGE_NAV_RAIL.js';s.defer=true;s.dataset.expPageNavRailLoader='1';document.head.appendChild(s)}})();
 
 
 /* EXPIRITI_RC1_ODD_GRID_OWNER_START
@@ -2993,7 +2975,7 @@ TRY("toc",()=>{const e=D.getElementById("toc");if(!e)return;const t=D.getElement
 
     if(
       !location.pathname.includes(
-        "/expiriti-r19-preview-20260826/SISTEMAS/"
+        "/SISTEMAS/"
       )
     ) return;
 
@@ -3058,7 +3040,7 @@ TRY("toc",()=>{const e=D.getElementById("toc");if(!e)return;const t=D.getElement
       wa.href="https://wa.me/525568437918?text="+encodeURIComponent("Hola ExpIRI Ti, quiero orientación sobre "+system+".");
       wa.target="_blank";wa.rel="noopener";
       wa.setAttribute("aria-label","Enviar mensaje por WhatsApp sobre "+system);
-      wa.innerHTML='<span>Enviar</span><img src="/expiriti-r19-preview-20260826/IMG/whatsapp.svg" alt="" width="18" height="18">';
+      wa.innerHTML='<span>Enviar</span><img src="/IMG/whatsapp.svg" alt="" width="18" height="18">';
       const call=document.createElement("a");
       call.className="btn btn-grad-blue hero-btn exp-guided-call";
       call.href="tel:+525568437918";
@@ -3094,180 +3076,5 @@ TRY("toc",()=>{const e=D.getElementById("toc");if(!e)return;const t=D.getElement
 (()=>{"use strict";const clean=()=>document.querySelectorAll('.carousel[id^="carouselReels"]').forEach(root=>{const slides=[...root.querySelectorAll(".carousel-track > .carousel-slide")],playable=slides.filter(sl=>{const wrap=sl.querySelector(".reel-embed[data-ytid],.yt-wrap[data-ytid]"),id=wrap?.dataset.ytid||"";return /^[A-Za-z0-9_-]{11}$/.test(id)&&!wrap.classList.contains("is-media-pending")&&!wrap.querySelector(".exp-media-pending")});if(playable.length!==1)return;slides.filter(sl=>!playable.includes(sl)).forEach(sl=>{sl.hidden=true;sl.setAttribute("aria-hidden","true")});const nav=root.querySelector(".carousel-nav");nav?.replaceChildren();nav?.style.setProperty("display","none","important");root.querySelectorAll(".arrowCircle.prev,.arrowCircle.next").forEach(btn=>{btn.hidden=true;btn.style.setProperty("display","none","important")});root.toggleAttribute("data-single",true)});document.readyState==="loading"?document.addEventListener("DOMContentLoaded",clean,{once:true}):queueMicrotask(clean);window.addEventListener("pageshow",clean,{passive:true})})();
 /* EXPIRITI_R17_FINAL_RESMOKE_SINGLE_REEL_OWNER_END */
 
-
-/* GH_PREVIEW_LATE_ASSET_HYDRATION_V1
-   GitHub Pages project-path + async partial hydration.
-   Preview-only guard: does nothing outside github.io.
-*/
-(()=>{
-  if(window.__GH_PREVIEW_LATE_ASSET_HYDRATION_V1__) return;
-  window.__GH_PREVIEW_LATE_ASSET_HYDRATION_V1__=1;
-
-  const D=document;
-  const isGh=location.hostname.endsWith("github.io");
-
-  if(!isGh) return;
-
-  const seg=(location.pathname.split("/")[1]||"").trim();
-  const repoBase=seg?"/"+seg:"";
-
-  const fixed=raw=>{
-    if(!raw) return raw;
-
-    if(
-      /^(https?:)?\/\//i.test(raw) ||
-      /^(data:|blob:|mailto:|tel:|javascript:)/i.test(raw) ||
-      raw.startsWith("#")
-    ) return raw;
-
-    if(
-      repoBase &&
-      (
-        raw===repoBase ||
-        raw.startsWith(repoBase+"/")
-      )
-    ) return raw;
-
-    if(raw.startsWith("/"))
-      return repoBase+raw;
-
-    return repoBase+"/"+raw.replace(/^(\.\/)+/,"");
-  };
-
-  const fixSrcset=value=>{
-    if(!value) return value;
-
-    return value
-      .split(",")
-      .map(item=>{
-        const part=item.trim();
-        if(!part) return part;
-
-        const m=part.match(/^(\S+)(.*)$/);
-        if(!m) return part;
-
-        return fixed(m[1])+m[2];
-      })
-      .join(", ");
-  };
-
-  const hydrate=root=>{
-    if(!root) return;
-
-    const nodes=[];
-
-    if(root.nodeType===1)
-      nodes.push(root);
-
-    if(root.querySelectorAll)
-      nodes.push(...root.querySelectorAll("*"));
-
-    for(const el of nodes){
-
-      if(el.tagName==="IMG"){
-
-        const dataSrc=el.getAttribute("data-src");
-
-        if(dataSrc){
-          const target=fixed(dataSrc);
-
-          if(el.getAttribute("src")!==target)
-            el.setAttribute("src",target);
-
-          el.style.opacity="1";
-        }
-
-        const src=el.getAttribute("src");
-
-        if(src && src.startsWith("/")){
-          const target=fixed(src);
-
-          if(src!==target)
-            el.setAttribute("src",target);
-        }
-
-        const srcset=el.getAttribute("srcset");
-
-        if(srcset){
-          const target=fixSrcset(srcset);
-
-          if(srcset!==target)
-            el.setAttribute("srcset",target);
-        }
-      }
-
-      if(el.tagName==="SOURCE"){
-        const srcset=el.getAttribute("srcset");
-
-        if(srcset){
-          const target=fixSrcset(srcset);
-
-          if(srcset!==target)
-            el.setAttribute("srcset",target);
-        }
-
-        const src=el.getAttribute("src");
-
-        if(src && src.startsWith("/")){
-          const target=fixed(src);
-
-          if(src!==target)
-            el.setAttribute("src",target);
-        }
-      }
-
-      if(el.tagName==="A"){
-        const href=el.getAttribute("href");
-
-        if(href && href.startsWith("/")){
-          const target=fixed(href);
-
-          if(href!==target)
-            el.setAttribute("href",target);
-        }
-
-        const dataHref=el.getAttribute("data-href");
-
-        if(dataHref){
-          const target=fixed(dataHref);
-
-          if(el.getAttribute("href")!==target)
-            el.setAttribute("href",target);
-        }
-      }
-    }
-  };
-
-  const boot=()=>{
-    hydrate(D.documentElement);
-
-    const obs=new MutationObserver(records=>{
-      for(const record of records){
-        for(const node of record.addedNodes){
-          if(node.nodeType===1)
-            hydrate(node);
-        }
-      }
-    });
-
-    obs.observe(D.documentElement,{
-      childList:true,
-      subtree:true
-    });
-
-    [100,350,800,1500,3000].forEach(ms=>{
-      setTimeout(()=>hydrate(D.documentElement),ms);
-    });
-  };
-
-  if(D.readyState==="loading")
-    D.addEventListener("DOMContentLoaded",boot,{once:true});
-  else
-    boot();
-
-  window.addEventListener(
-    "pageshow",
-    ()=>hydrate(D.documentElement),
-    {passive:true}
-  );
-})();
+/* R19_GATE3_VISIBLE_CLOUD_NAMES_OWNER */
+(()=>{"use strict";const replacements=[["Contabiliza","Contabilidad Nube"],["Personia","Nóminas Nube"]],replace=value=>replacements.reduce((out,[from,to])=>out.replace(new RegExp(`\\b${from}\\b`,"g"),to),value),scan=root=>{if(root.nodeType===3){if(!root.parentElement?.closest("script,style,noscript"))root.nodeValue=replace(root.nodeValue);return}if(root.nodeType!==1)return;const element=root;element.querySelectorAll("[alt],[title],[aria-label]").forEach(el=>["alt","title","aria-label"].forEach(attr=>{const value=el.getAttribute(attr);if(value)el.setAttribute(attr,replace(value))}));const walker=document.createTreeWalker(element,NodeFilter.SHOW_TEXT);const nodes=[];while(walker.nextNode())nodes.push(walker.currentNode);nodes.forEach(node=>{if(!node.parentElement?.closest("script,style,noscript"))node.nodeValue=replace(node.nodeValue)})},boot=()=>{scan(document.documentElement);new MutationObserver(records=>records.forEach(record=>record.addedNodes.forEach(scan))).observe(document.documentElement,{childList:true,subtree:true})};document.readyState==="loading"?document.addEventListener("DOMContentLoaded",boot,{once:true}):boot()})();

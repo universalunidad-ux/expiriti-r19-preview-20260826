@@ -77,7 +77,7 @@ body.page-servicios .carouselX.svc-carousel .arrowCircle:active{transform:scale(
 /*ACCENTS por logo*/
 body.page-servicios .carouselX.svc-carousel .sys[data-accent="blue"]::before{background:radial-gradient(420px 180px at 20% 0,rgba(59,130,246,.18),transparent 60%),radial-gradient(420px 180px at 80% 40%,rgba(96,165,250,.15),transparent 62%)}/*accent blue*/
 body.page-servicios .carouselX.svc-carousel .sys[data-accent="blue"]:hover{border-color:rgba(59,130,246,.55)}/*accent blue bd*/
-body.page-servicios .carouselX.svc-carousel .sys[data-accent="green"]::before{background:radial-gradient(420px 180px at 20% 0,rgba(34,197,94,.18),transparent 60%),radial-gradient(420px 180px at 80% 40%,rgba(74,222,128,.15),transparent 62%)}/*accent green*/
+body.page-servicios .carouselX.svc-carousel .sys[data-accent="green"]::before{background:none}/*R19_GATE3: green glow (nube verde) retirado; card eCommerce/Shopify intacta*/
 body.page-servicios .carouselX.svc-carousel .sys[data-accent="green"]:hover{border-color:rgba(34,197,94,.55)}/*accent green bd*/
 body.page-servicios .carouselX.svc-carousel .sys[data-accent="purple"]::before{background:radial-gradient(420px 180px at 20% 0,rgba(139,92,246,.18),transparent 60%),radial-gradient(420px 180px at 80% 40%,rgba(168,85,247,.15),transparent 62%)}/*accent purple*/
 body.page-servicios .carouselX.svc-carousel .sys[data-accent="purple"]:hover{border-color:rgba(139,92,246,.55)}/*accent purple bd*/
@@ -1206,12 +1206,7 @@ iframe[data-src*="VIDEO_ID_"]{
 th{
 
   font-family:
-    Inter,
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    sans-serif!important;
+    var(--exp-font-sans)!important;
 
   font-size:
     clamp(.89rem,.95vw,.98rem)!important;
@@ -1510,12 +1505,7 @@ thead tr:first-child > *{
   #172033!important;
 
  font-family:
-  Inter,
-  system-ui,
-  -apple-system,
-  BlinkMacSystemFont,
-  "Segoe UI",
-  sans-serif!important;
+  var(--exp-font-sans)!important;
 
  font-size:
   .93rem!important;
@@ -2650,7 +2640,7 @@ html[data-theme] body.page-servicios main .group-dots button.dot:is(.active,.is-
 
 
 /* EXPIRITI_T25R2_HORAS_OWNER_START
- * T25-R2 — owner unico del polish focal de /expiriti-r19-preview-20260826/SERVICIOS/horas-soporte.html.
+ * T25-R2 — owner unico del polish focal de /SERVICIOS/horas-soporte.html.
  * Solo aplica dentro de #hs-cta-final: no toca el resto de .lp-cta-row de la
  * pagina ni de las demas landings.
  * E) El grupo de botones se alinea al extremo DERECHO en desktop conservando
@@ -4340,7 +4330,7 @@ body.page-servicios
 
 /* EXPIRITI_R16_HOURS_COMPARE_OWNER_START ====================================
  * Dueno unico del componente "Horas prepagadas vs. Poliza anual"
- * (.exp-hc dentro de /expiriti-r19-preview-20260826/SERVICIOS/horas-soporte.html).
+ * (.exp-hc dentro de /SERVICIOS/horas-soporte.html).
  * Reemplaza a la tabla .lp-compare de ese bloque: jerarquia clara, dos
  * comparison cards, detalle progresivo con <details> nativo y cero scroll
  * horizontal en movil. Ambito acotado a .exp-hc: no toca otras comparativas.
@@ -4836,3 +4826,92 @@ body.page-soluciones .lp-panel--nose,html[data-theme="dark"] body.page-solucione
 body.page-soluciones .lp-panel--nose>.lp-cta-row .qa-btn,html[data-theme="dark"] body.page-soluciones .lp-panel--nose>.lp-cta-row :is(.qa-wa,.qa-tel){background:transparent!important;color:var(--gx-text,#f8fafc)!important;border:1px solid rgba(45,212,191,.52)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.08)!important}
 body.page-soluciones .lp-panel--nose>.lp-cta-row .qa-btn:is(:hover,:focus-visible){box-shadow:0 0 0 3px rgba(45,212,191,.14),0 9px 22px rgba(15,118,110,.12)!important}
 @media(min-width:821px){body.page-soluciones .lp-panel--nose>.lp-cta-row .qa-btn{min-width:190px!important;padding-inline:30px!important}}
+
+/* R19_GATE1_SOLUCIONES_OWNER_20260827 */
+
+body.page-soluciones
+.lp-panel--nose > .lp-cta-row{
+  display:flex!important;
+  flex-flow:row nowrap!important;
+  justify-content:center!important;
+  align-items:center!important;
+  gap:10px!important;
+  width:100%!important;
+}
+
+body.page-soluciones
+.lp-panel--nose > .lp-cta-row .qa-btn{
+  flex:0 1 160px!important;
+  width:auto!important;
+  min-width:0!important;
+  margin:0!important;
+}
+
+@media(max-width:380px){
+  body.page-soluciones
+  .lp-panel--nose > .lp-cta-row{
+    gap:8px!important;
+  }
+
+  body.page-soluciones
+  .lp-panel--nose > .lp-cta-row .qa-btn{
+    flex:1 1 0!important;
+    padding-inline:10px!important;
+    font-size:.92rem!important;
+  }
+}
+
+@media(max-width:980px){
+  body.page-soluciones .lp-sticky{
+    transition:
+      transform .18s ease,
+      opacity .18s ease!important;
+  }
+
+  body.page-soluciones
+  .lp-sticky.exp-hide-for-nose{
+    opacity:0!important;
+    transform:translateY(calc(100% + 24px))!important;
+    pointer-events:none!important;
+  }
+}
+/* R19 Gate 3 — exact support-system rows and decorative-cloud removal. */
+.page-servicios .support-systems-grid{display:grid;grid-template-columns:repeat(15,minmax(0,1fr));gap:14px;align-items:stretch}/* R19_CLOSURE H: base 15col => filas limpias 5/5/3 */
+.page-servicios .support-system{display:flex;align-items:center;justify-content:center;min-width:0;min-height:132px;padding:14px;border-radius:20px;border:1px solid rgba(148,163,184,.18);background:rgba(255,255,255,.05)}
+.page-servicios .support-system--half{grid-column:span 6}
+.page-servicios .support-system--quarter{grid-column:span 3}
+.page-servicios .support-system--third{grid-column:span 4}
+/* R19_CLOSURE H: agrupacion 5/5/3 sobre grid de 15col. --r5 => 5 por fila (15/3); --r3 => 3 por fila (15/5). */
+.page-servicios .support-system--r5{grid-column:span 3}
+.page-servicios .support-system--r3{grid-column:span 5}
+.page-servicios .support-system img{display:block;width:min(100%,168px);height:96px;object-fit:contain}
+.page-servicios .support-system img.support-logo--large{width:min(100%,192px);height:108px}
+.page-servicios .carouselX.svc-carousel .sys.exp-no-green-cloud::before{content:none!important;display:none!important;background:none!important}
+@media(max-width:720px){.page-servicios .support-systems-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.page-servicios .support-system--half,.page-servicios .support-system--quarter,.page-servicios .support-system--third,.page-servicios .support-system--r5,.page-servicios .support-system--r3{grid-column:span 1}.page-servicios .support-system:last-child:nth-child(odd){grid-column:1/-1}.page-servicios .support-system{min-height:112px;padding:10px}.page-servicios .support-system img{height:82px}.page-servicios .support-system img.support-logo--large{height:94px}}
+
+/* R19_POLISH #3: compensacion optica SOLO 3 logos con mas aire interno (match a peers ~100% ink).
+   scale uniforme (sin distorsion), transform NO reflowa => card NO se agranda. */
+.page-servicios .support-system img[src*="contabilidad-nsq"]{transform:scale(1.36);transform-origin:center}
+.page-servicios .support-system img[src*="contabilidad-nube-nsq"]{transform:scale(1.70);transform-origin:center}
+.page-servicios .support-system img[src*="nominas-nube-nsq"]{transform:scale(1.36);transform-origin:center}
+
+/* R19_POLISH #4: hover affordance sobrio en cards "Sistemas que soportamos".
+   Glow/borde teal + dim ligero + mensaje centrado "Clic para pedir soporte". Sin layout shift.
+   Solo desktop hover; mobile sin overlay (legible) pero la card sigue siendo tappable (JS delega). */
+.page-servicios .support-system{position:relative;cursor:pointer}
+.page-servicios .support-system>img{position:relative;z-index:0;transition:filter .18s ease,opacity .18s ease}
+.page-servicios .support-system::before{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(180deg,rgba(20,153,151,.16),rgba(15,23,42,.34));opacity:0;transition:opacity .18s ease;pointer-events:none;z-index:1}
+/* R19_MICROFIX: label legible => pill oscuro translucido + texto BLANCO. Sin blur en la tipografia
+   (el dim va en el fondo de la card via ::before). Pill centrado, sin layout shift, sin agrandar card. */
+.page-servicios .support-system::after{content:"Pedir soporte";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,.42);color:#fff;font-weight:800;font-size:12.5px;line-height:1;padding:7px 14px;border-radius:999px;white-space:nowrap;opacity:0;transition:opacity .18s ease;pointer-events:none;z-index:2;box-shadow:0 4px 14px rgba(0,0,0,.30)}
+html[data-theme="light"] .page-servicios .support-system::after{color:#fff}
+/* Accesibilidad: cursor ya definido; focus-visible muestra el mismo affordance para teclado. */
+.page-servicios .support-system:focus-visible{outline:2px solid rgba(45,212,191,.85);outline-offset:2px}
+.page-servicios .support-system:focus-visible::before{opacity:1}
+.page-servicios .support-system:focus-visible::after{opacity:1}
+@media(hover:hover) and (min-width:769px){
+  .page-servicios .support-system:hover{border-color:rgba(45,212,191,.55);box-shadow:0 0 0 4px rgba(45,212,191,.14),0 16px 40px rgba(0,0,0,.22)}
+  .page-servicios .support-system:hover>img{filter:saturate(.85) brightness(.9)}
+  .page-servicios .support-system:hover::before{opacity:1}
+  .page-servicios .support-system:hover::after{opacity:1}
+}

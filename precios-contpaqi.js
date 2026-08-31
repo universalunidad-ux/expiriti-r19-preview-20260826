@@ -3,11 +3,6 @@ window.preciosContpaqi = {
     "anual": {
       "MonoRFC": { "precio_base": 4590, "usuario_adicional": 1690, "renovacion": 4390 },
       "MultiRFC": { "precio_base": 6190, "usuario_adicional": 1690, "renovacion": 5690 }
-    }, 
-    "tradicional": {
-      "actualizacion": { "precio_base": 7490, "usuario_adicional": 1690 },
-      "especial": { "precio_base": 6490, "usuario_adicional": 1590 },
-      "crecimiento_usuario": { "usuario_adicional": 2490 }
     }
   },
 
@@ -15,22 +10,12 @@ window.preciosContpaqi = {
     "anual": {
       "MonoRFC": { "precio_base": 5590, "usuario_adicional": 1690, "renovacion": 5290 },
       "MultiRFC": { "precio_base": 7690, "usuario_adicional": 1790, "renovacion": 7390 }
-    },
-    "tradicional": {
-      "actualizacion": { "precio_base": 8790, "usuario_adicional": 1990 },
-      "especial": { "precio_base": 7790, "usuario_adicional": 1790 },
-      "crecimiento_usuario": { "usuario_adicional": 2490 }
     }
   },
 
   "CONTPAQi Bancos": {
     "anual": {
       "MultiRFC": { "precio_base": 4890, "usuario_adicional": 1490, "renovacion": 4490 }
-    },
-    "tradicional": {
-      "actualizacion": { "precio_base": 5790, "usuario_adicional": 1590 },
-      "especial": { "precio_base": 5190, "usuario_adicional": 1490 },
-      "crecimiento_usuario": { "usuario_adicional": 2390 }
     }
   },
 
@@ -45,11 +30,6 @@ window.preciosContpaqi = {
     "anual": {
       "MonoRFC": { "precio_base": 2690, "usuario_adicional": 990, "renovacion": 2590 },
       "MultiRFC": { "precio_base": 3990, "usuario_adicional": 1290, "renovacion": 3890 }
-    },
-    "tradicional": {
-      "actualizacion": { "precio_base": 4990, "usuario_adicional": 1390 },
-      "especial": { "precio_base": 4190, "usuario_adicional": 1190 },
-      "crecimiento_usuario": { "usuario_adicional": 1890 }
     }
   },
 
@@ -57,11 +37,6 @@ window.preciosContpaqi = {
     "anual": {
       "MonoRFC": { "precio_base": 2690, "usuario_adicional": 990, "renovacion": 2590 },
       "MultiRFC": { "precio_base": 3990, "usuario_adicional": 1290, "renovacion": 3890 }
-    },
-    "tradicional": {
-      "actualizacion": { "precio_base": 4990, "usuario_adicional": 1390 },
-      "especial": { "precio_base": 4190, "usuario_adicional": 1190 },
-      "crecimiento_usuario": { "usuario_adicional": 1890 }
     }
   },
 
@@ -75,11 +50,6 @@ window.preciosContpaqi = {
   "CONTPAQi Comercial PREMIUM": {
     "anual": {
       "MultiRFC": { "precio_base": 10490, "usuario_adicional": 2590, "renovacion": 9790 }
-    },
-    "tradicional": {
-      "actualizacion": { "precio_base": 13690, "usuario_adicional": 3190 },
-      "especial": { "precio_base": 11290, "usuario_adicional": 2590 },
-      "crecimiento_usuario": { "usuario_adicional": 3290 }
     }
   },
 
